@@ -1,5 +1,5 @@
 # tongyimall-api
-高仿小米商城用户端后端
+高仿小米商城用户端后台
 
 ## 技术栈
 Springboot + MyBatis + MySQL + jwtToken + RSA加密
