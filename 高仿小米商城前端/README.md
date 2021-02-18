@@ -1,14 +1,14 @@
 # tongyimall-vue
 高仿小米商城用户端前端
-<br>
+<br><br><br>
 ## 技术栈
 vue2 + vue-router + vuex + axios + sass （vue-cli4搭建的)
-<br>
+<br><br><br>
 ## 启动
 > + npm install 安装依赖
 > + npm run serve （本地运行,若报错再试一次即可运行）
 > + npm run build （打包）
-<br>
+<br><br><br>
 ## 注意
 - vue-cli4中axios使用请求的注意点（与vue-cli2有出入)：
 ```
@@ -22,7 +22,7 @@ axios.get('url',{
 // post请求的传参直接写在第二个参数对象中（无需再写在params里）
 axios.get( 'url',{ 参数名：值 } ).then(function (response) {}).catch(function (error) {}）
 ```
-<br>
+<br><br>
 
 ### 项目目录
   * public： 一般放大图片，
