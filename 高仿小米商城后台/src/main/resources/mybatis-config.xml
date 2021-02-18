@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="JDBC.properties"/>
+
+    <environments default="mysql">
+        <environment id="mysql">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--将写好的userMapper.xml映射文件注册到全局配置文件mybatis-config.xml中-->
+    <mappers>
+        <mapper class="com.zty.xiaomi.server.Dao.RegLogUser"/>
+        <mapper class="com.zty.xiaomi.server.Dao.Goods"/>
+        <mapper class="com.zty.xiaomi.server.Dao.GoodCart"/>
+        <mapper class="com.zty.xiaomi.server.Dao.Category"/>
+        <mapper class="com.zty.xiaomi.server.Dao.Product"/>
+        <mapper class="com.zty.xiaomi.server.Dao.ProductHead"/>
+        <mapper class="com.zty.xiaomi.server.Dao.ProductFoot"/>
+        <mapper class="com.zty.xiaomi.server.Dao.Address"/>
+        <mapper class="com.zty.xiaomi.server.Dao.Order"/>
+    </mappers>
+</configuration>
