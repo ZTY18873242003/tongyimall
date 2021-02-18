@@ -1,35 +1,15 @@
-# tongyimall-api
+# tongyimall-vue
 高仿小米商城用户端前端
-
+<br>
 ## 技术栈
-vue2 + vue-router + vuex + axios + sass （vue-cli4搭建的
-
+vue2 + vue-router + vuex + axios + sass （vue-cli4搭建的)
+<br>
 ## 启动
 > + npm install 安装依赖
 > + npm run serve （本地运行,若报错再试一次即可运行）
 > + npm run build （打包）
-
-## vue-cli项目注意点
-- 路由带参数跳转，有如下两种方式：
-```
-【注：用params传参不显示在url地址上；而用query传参回显示在url地址上】  
-// 方法一：（效果等同法二，不过该方式参数'?键名=值名'不显示在url上）
-  this.$router.push({
-     name: 'index',
-     params: {
-       键名: 值名
-     }
-   })
-   
-   // 方法二：（参数‘值名’显示在url上，且跳转到页面/index也不消失）
-   this.$router.push({
-     path: '/index',
-     query: {
-       键名: 值名
-     }
-   })
-```
-
+<br>
+## 注意
 - vue-cli4中axios使用请求的注意点（与vue-cli2有出入)：
 ```
  【注】get请求的传参需要写在params中
@@ -43,6 +23,7 @@ axios.get('url',{
 axios.get( 'url',{ 参数名：值 } ).then(function (response) {}).catch(function (error) {}）
 ```
 <br>
+
 ### 项目目录
   * public： 一般放大图片，
   * src/assets： 放小图片，可以转成base64，不用请求图片资源
