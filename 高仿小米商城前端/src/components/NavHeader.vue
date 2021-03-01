@@ -266,7 +266,7 @@ export default {
           .item-menu{
             display: inline-block;
             color: $colorB;
-            font-weight: bold;
+            font-weight: normal;
             font-size: 16px;
             line-height: 112px;
             margin-right: 20px;

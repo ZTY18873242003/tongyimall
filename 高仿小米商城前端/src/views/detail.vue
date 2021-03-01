@@ -9,7 +9,7 @@
               <!-- <swiper-slide><img src="/imgs/detail/phone-1.jpg" alt="手机展示图1"></swiper-slide>
               <swiper-slide><img src="/imgs/detail/phone-2.jpg" alt="手机展示图2"></swiper-slide>
               <swiper-slide><img src="/imgs/detail/phone-3.jpg" alt="手机展示图3"></swiper-slide>
-              <swiper-slide><img src="/imgs/detail/phone-4.jpg" alt="手机展示图4"></swiper-slide> -->
+               -->
               <!-- Optional controls -->
               <div class="swiper-pagination"  slot="pagination"></div>
           </swiper>

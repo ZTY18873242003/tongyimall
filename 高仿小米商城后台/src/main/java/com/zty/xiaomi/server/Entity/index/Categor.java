@@ -7,5 +7,5 @@ import java.util.List;
 public class Categor {
     private int categoryId;
     private String name;
-    private ArrayList<List<CategoryGood>> menuList;
+    private ArrayList<ArrayList<CategoryGood>> menuList;
 }

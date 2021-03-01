@@ -8,5 +8,6 @@ public class ProductFootInfo {
     private String subtitle;
     private String name;
     private int price;
+    private int oldprice;
     private String imageFoot;
 }

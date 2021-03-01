@@ -1,8 +1,8 @@
 <template>
     <div class="footer">
       <div class="footer-logo">
-        <img src="/imgs/logo-footer.png" alt="">
-        <p>小米商城</p>
+        <img src="/imgs/logo-foot.png" alt="">
+        <p>高仿小米商城</p>
 
       </div>
 
@@ -10,7 +10,7 @@
       <img class="logo-explan" src="http://s01.mifile.cn/i/v-logo-1.png" alt="" />
       <img class="logo-explan" src="http://s01.mifile.cn/i/v-logo-3.png" alt="" />
       <div class="footer-link">
-        <a href="https://blog.csdn.net/Zhongtongyi" target="_blank">统一哥博客</a><span>|</span>
+        <a href="https://blog.csdn.net/Zhongtongyi" target="_blank">作者博客</a><span>|</span>
         <a href="http://mi.com" target="_blank">小米官网</a><span></span>
       </div>
       <div class="copyright">
@@ -19,7 +19,7 @@
 
       <li class="footer-last-item">
         <div class="col-content">
-          联系电话:<h3 class="phone-number">18873242003</h3>
+          联系电话:<h3 class="phone-number">1887324200X</h3>
           <p class="phone-desc">
             周一至周日 9:00-22:00<br/>
           </p>
@@ -44,7 +44,7 @@ export default {
 <style lang="scss" scoped>
   @import './../assets/scss/config.scss';
   .footer{
-    height:234px;
+    height:282px;
     border-top:4px solid $colorA;
     background-color:$colorB;
     color:$colorD;
@@ -54,8 +54,8 @@ export default {
       margin-top:46px;
       margin-bottom:31px;
       img{
-        width:53px;
-        height:36px;
+        width:80px;
+        height:80px;
         margin-bottom:13px;
       }
     }

@@ -2,11 +2,11 @@
 高仿小米商城用户端前端
 <br><br><br>
 ## 技术栈
-vue2 + vue-router + vuex + axios + sass （vue-cli4搭建的)
+vue2 + vue-router + vuex + axios + sass + ElementUI + vue脚手架4
 <br><br><br>
 ## 启动
 > + npm install 安装依赖
-> + npm run serve （本地运行,若报错再试一次即可运行）
+> + npm run serve 
 > + npm run build （打包）
 <br><br><br>
 ## 注意

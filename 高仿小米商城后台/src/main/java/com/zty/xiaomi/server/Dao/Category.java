@@ -6,9 +6,16 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 public interface Category {
-    @Select("select good_id,icon,name from goods where category_id = #{category_id}" +
-            " and good_id between #{start} and #{end}")
-    List<CategoryGood> getGoodbyCategory(int category_id,int start,int end);
+
+    @Select("select good_id,icon,name from goods where category_id = #{category_id}")
+    List<CategoryGood> getGoodbyCategory(int category_id);
+
+//    @Select("select good_id,icon,name from goods where category_id = #{category_id}" +
+//            " and good_id between #{start} and #{end}")
+//    List<CategoryGood> getGoodbyCategory(int category_id,int start,int end);
+
+    @Select("select count(*) from category")
+    int getCateCount();
 
     @Select("select categoryId,name from category where categoryId = #{category_id}")
     GoodCategory getGoodCategory(int category_id);

@@ -26,5 +26,6 @@
         <mapper class="com.zty.xiaomi.server.Dao.ProductFoot"/>
         <mapper class="com.zty.xiaomi.server.Dao.Address"/>
         <mapper class="com.zty.xiaomi.server.Dao.Order"/>
+        <mapper class="com.zty.xiaomi.server.Dao.Suggest"/>
     </mappers>
 </configuration>

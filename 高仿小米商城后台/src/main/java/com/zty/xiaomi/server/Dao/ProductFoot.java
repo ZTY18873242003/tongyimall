@@ -5,7 +5,10 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 public interface ProductFoot {
-    @Select("select good_id,price,name,imageFoot,subtitle from goods where category_id = #{categoryId}" +
-            " and good_id between #{pageStart} and #{pageEnd}")
-    List<ProductFootInfo> getProductFootInfo(int categoryId, int pageStart, int pageEnd);
+    @Select("select good_id,price,oldprice,name,imageFoot,subtitle from goods where name like #{goodname}")
+    ProductFootInfo getProductFootInfo(String goodname);
+
+    @Select("select good_id,price,oldprice,name,imageFoot,subtitle" +
+            " from goods where category_id = #{category_id} limit 7")
+    List<ProductFootInfo> getProductFootInfoNormal(int category_id);
 }

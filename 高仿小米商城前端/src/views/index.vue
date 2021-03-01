@@ -17,9 +17,6 @@
                 </ul>
               </div>
             </li>
-<!--            <li class="menu-item">-->
-<!--              <a href="javascript:;">超划算套餐</a>-->
-<!--            </li>-->
 
           </ul>
         </div>
@@ -27,7 +24,7 @@
         <!--        变换图-->
         <swiper :options="swiperOption">
           <swiper-slide v-for="(item,index) in slideList" :key="index">
-            <a :href="'/#/product/'+item.id"><img :src="item.img"></a>
+            <a :href="item.url"><img :src="item.img"></a>
           </swiper-slide>
           <!-- Optional controls -->
           <div class="swiper-pagination"  slot="pagination"></div>
@@ -49,95 +46,200 @@
 
     <div class="banner">
       <a href="/#/product/30">
-        <img src="/imgs/banner/1.webp">
+        <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/431e5fd6bfd1b67d096928248be18303.jpg?thumb=1&w=1226&h=120&f=webp&q=90">
       </a>
     </div>
+
+
     <div class="product-box">
       <div class="container">
-        <h2>手机</h2>
-<!--          <el-pagination-->
-<!--                  background-->
-<!--                  class="PreOrNext"-->
-<!--                  layout="total,prev, pager, next,jumper"-->
-<!--                  @current-change="handleCurrentChange"-->
-<!--                  :page-size="8"-->
-<!--                  :total="64">-->
-<!--          </el-pagination>-->
 
-        <div class="wrapper">
-          <!--          左下角长短高长图-->
-          <div class="banner-left">
-            <a href="/#/product/7"><img v-lazy="'/imgs/leftbottompic/mix-alpha.jpg'"></a>
+        <div class="box-hd">
+          <div class="title">手机</div>
+          <div class="more" id="phonemore">
+            <a href="//www.mi.com/a/h/14933.html" target="_blank" class="more-link">查看全部
+              <i class="el-icon-caret-right"></i></a>
           </div>
+        </div>
+
+
+        <div class="box-bd">
+          <div class="promo-list">
+            <router-link to>
+              <img :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/cb1bd61ad71c45a4f67f09b075463944.jpeg?thumb=1&w=234&h=614&f=webp&q=90'" />
+            </router-link>
+          </div>
+
+
           <div class="list-box">
-            <div class="list" v-for="(arr,i) in phoneList" :key="i">
-              <div class="item" v-for="(item,j) in arr" :key="j">
-
-                <!--                新品绿色标志-->
-                <span :class="{'new-pro':j%2==0}">新品</span>
-                <div class="item-img">
-                  <img v-lazy="item.imageFoot">
-                </div>
-
-                <!--                名字子标题价格-->
-                <div class="item-info">
-                  <h3>{{item.name}}</h3>
-                  <p>{{item.subtitle}}</p>
-                  <p class="price" @click="addCart(item.good_id)">{{item.price}}元</p>
-                </div>
-              </div>
-            </div>
+            <MyList :list="HotphoneList" :isMore="false"></MyList>
           </div>
+
         </div>
       </div>
     </div>
+
 
     <div class="banner">
       <a href="/#/product/30">
         <img :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/41d16e66381cfeda7b6b39ab67678d5e.jpg?thumb=1&w=1226&h=120&f=webp&q=90'">
-
       </a>
     </div>
 
     <div class="product-box">
       <div class="container">
-        <h2>电视</h2>
-<!--        <el-pagination-->
-<!--                background-->
-<!--                class="PreOrNext"-->
-<!--                layout="total,prev, pager, next,jumper"-->
-<!--                @current-change="handleCurrentChange"-->
-<!--                :page-size="8"-->
-<!--                :total="64">-->
-<!--        </el-pagination>-->
 
-        <div class="wrapper">
+        <div class="box-hd">
+          <div class="title">家电</div>
+          <div class="more" id="more">
+            <MyMenu :val="2" @fromChild="getChildMsg2">
+              <span slot="1">热门</span>
+              <span slot="2">电视影音</span>
+            </MyMenu>
+          </div>
+        </div>
+
+        <div class="box-bd">
           <!--          左下角长短高长图-->
-          <div class="banner-left">
-            <a href="/#/product/7"><img v-lazy="'/imgs/leftbottompic/2.webp'"></a>
+          <div class="promo-list">
+            <ul>
+              <li>
+                <img :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/116fc43816b87192be4e67cf762e8da5.jpeg?thumb=1&w=234&h=300&f=webp&q=90'" alt />
+              </li>
+              <li>
+                <img :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1e82177bd8c8cd140e0e582ecaa886dc.jpg?thumb=1&w=234&h=300&f=webp&q=90'" alt />
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="list-box">
+            <MyList :list="applianceList2" :isMore="true"></MyList>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="banner">
+      <a href="/#/product/30">
+        <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/59e8fc8ba9718c266882719fb4bbcedd.webp'">
+      </a>
+    </div>
+
+    <div class="product-box">
+      <div class="container">
+
+        <div class="box-hd">
+          <div class="title">智能</div>
+          <div class="more" id="magicmore">
+            <MyMenu :val="3" @fromChild="getChildMsg3">
+              <span slot="1">热门</span>
+              <span slot="2">安防</span>
+              <span slot="3">出行</span>
+            </MyMenu>
+          </div>
+        </div>
+
+        <div class="box-bd">
+          <!--          左下角长短高长图-->
+          <div class="promo-list">
+            <ul>
+              <li>
+                <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/ffe114f73fac3a45e5622c3eff56106b.webp'" alt />
+              </li>
+              <li>
+                <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/a660ce095e8f553a9ed1515265f4e9fc.webp'" alt />
+              </li>
+            </ul>
           </div>
           <div class="list-box">
-            <div class="list" v-for="(arr,i) in TVList" :key="i">
-              <div class="item" v-for="(item,j) in arr" :key="j">
-
-                <!--                新品绿色标志-->
-                <span :class="{'new-pro':j%2==0}">新品</span>
-                <div class="item-img">
-                  <img v-lazy="item.imageFoot">
-                </div>
-
-                <!--                名字子标题价格-->
-                <div class="item-info">
-                  <h3>{{item.name}}</h3>
-                  <p>{{item.subtitle}}</p>
-                  <p class="price" @click="addCart(item.good_id)">{{item.price}}元</p>
-                </div>
-              </div>
-            </div>
+            <MyList :list="applianceList3" :isMore="true"></MyList>
           </div>
         </div>
       </div>
     </div>
+
+
+    <div class="banner">
+      <a href="/#/product/30">
+        <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/b34997348887380ab4d19587fa1a711c.webp'">
+      </a>
+    </div>
+
+    <div class="product-box">
+      <div class="container">
+
+        <div class="box-hd">
+          <div class="title">搭配</div>
+          <div class="more" id="wearmore">
+            <MyMenu :val="2" @fromChild="getChildMsg4">
+              <span slot="1">热门</span>
+              <span slot="2">耳机音箱</span>
+            </MyMenu>
+          </div>
+        </div>
+
+        <div class="box-bd">
+          <!--          左下角长短高长图-->
+          <div class="promo-list">
+            <ul>
+              <li>
+                <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/6874615b3c50e837ffe532eb6ea4ef1a.webp'" alt />
+              </li>
+              <li>
+                <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/9f6c89cf21efc23799f6130224cef007.webp'" alt />
+              </li>
+            </ul>
+          </div>
+          <div class="list-box">
+            <MyList :list="applianceList4" :isMore="true"></MyList>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="banner">
+      <a href="/#/product/30">
+        <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/1615d1842fe85914a545297836a44271.webp'">
+      </a>
+    </div>
+
+    <div class="product-box">
+      <div class="container">
+
+        <div class="box-hd">
+          <div class="title">配件</div>
+          <div class="more" id="smallmore">
+            <MyMenu :val="2" @fromChild="getChildMsg5">
+              <span slot="1">热门</span>
+              <span slot="2">充电器</span>
+            </MyMenu>
+          </div>
+        </div>
+
+        <div class="box-bd">
+          <!--          左下角长短高长图-->
+          <div class="promo-list">
+            <ul>
+              <li>
+                <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/9f64bbd58c3f5001bdf0688894f22cb6.webp'" alt />
+              </li>
+              <li>
+                <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/ffe4182f1d9a5befdf2380ec90ae1620.webp'" alt />
+              </li>
+            </ul>
+          </div>
+          <div class="list-box">
+            <MyList :list="applianceList5" :isMore="true"></MyList>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
 
     <div class="banner">
@@ -148,56 +250,52 @@
 
     <div class="product-box">
       <div class="container">
-        <h2>周边</h2>
 
-<!--        <el-pagination-->
-<!--                background-->
-<!--                class="PreOrNext"-->
-<!--                layout="total,prev, pager, next,jumper"-->
-<!--                @current-change="handleCurrentChange"-->
-<!--                :page-size="8"-->
-<!--                :total="64">-->
-<!--        </el-pagination>-->
+        <div class="box-hd">
+          <div class="title">周边</div>
+          <div class="more" id="aroundmore">
+            <MyMenu :val="2" @fromChild="getChildMsg6">
+              <span slot="1">热门</span>
+              <span slot="2">出行</span>
+            </MyMenu>
+          </div>
+        </div>
 
-        <div class="wrapper">
+        <div class="box-bd">
           <!--          左下角长短高长图-->
-          <div class="banner-left">
-            <a href="/#/product/7"><img v-lazy="'/imgs/leftbottompic/1.jpg'"></a>
+          <div class="promo-list">
+            <ul>
+              <li>
+                <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/ca0940f052227d235e7de5678d106c89.webp'" alt />
+              </li>
+              <li>
+                <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/0497ba8520dc4aca9d55e6b841d42331.webp'" alt />
+              </li>
+            </ul>
           </div>
           <div class="list-box">
-            <div class="list" v-for="(arr,i) in otherList" :key="i">
-              <div class="item" v-for="(item,j) in arr" :key="j">
-
-                <!--                新品绿色标志-->
-                <span :class="{'new-pro':j%2==0}">新品</span>
-                <div class="item-img">
-                  <img v-lazy="item.imageFoot">
-                </div>
-
-                <!--                名字子标题价格-->
-                <div class="item-info">
-                  <h3>{{item.name}}</h3>
-                  <p>{{item.subtitle}}</p>
-                  <p class="price" @click="addCart(item.good_id)">{{item.price}}元</p>
-                </div>
-              </div>
-            </div>
+            <MyList :list="applianceList6" :isMore="true"></MyList>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="recommend-container">
+    <div class="banner">
+      <a href="/#/product/30">
+        <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/88e35cffc82cd98cd53172460067af17.webp'">
+      </a>
+    </div>
+
+    <div class="product-box">
+      <div class="container">
       <div class="recommend-header">
-        <h2 class="title">为你推荐</h2>
+        <h2 class="title">推荐</h2>
         <div class="control-part">
-				<span
-                @click="slidePre"
-                class="control control-left">
+				<span @click="slidePre"
+                class="control control-left" >
 					<i class="el-icon-arrow-left"></i>
 				</span>
-          <span
-                  @click="slideNext"
+          <span @click="slideNext"
                   class="control control-right">
 
 					<i class="el-icon-arrow-right"></i>
@@ -208,18 +306,16 @@
         <ul class="recommend-content clearfix">
           <li class="recomend-item"
               v-for="item in recomend">
-            <a :href="item.sourceUrl" target="_blank">
+            <a :href="'/#/product/'+item.goodid" target="_blank">
               <img class="item-image" :src="item.imgUrl" alt="" />
               <h3 class="item-name">{{item.name}}</h3>
               <p class="item-price">
                 {{item.price}}元
               </p>
-              <p class="item-favorable">
-                {{item.favorable}}人评价
-              </p>
             </a>
           </li>
         </ul>
+      </div>
       </div>
     </div>
 
@@ -249,9 +345,13 @@ import Modal from './../components/Modal'
 
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
+import MyList from "../components/MyList";
+import MyMenu from "../components/MyMenu";
 export default {
   name: 'index',
   components: {
+    MyMenu,
+    MyList,
     swiper,
     swiperSlide,
     ServiceBar,
@@ -285,203 +385,275 @@ export default {
       slideList: [
         {
           id: '1',
-          img: '/imgs/slider/slide-1.jpg'
+          img: 'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/aa6133dcd2cca53b77f4ad79551628df.jpg',
+          url: 'https://www.mi.com/redmik40?product_id=1210500091'
         },
         {
           id: '2',
-          img: '/imgs/slider/lunbo1.webp'
+          img: 'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/28ce93203d5a18c2e8530a47992c55f4.webp',
+          url: 'https://www.mi.com/redmibook/pro14?product_id=10000279'
         },
         {
           id: '3',
-          img: '/imgs/slider/slide-5.jpg'
+          img: 'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/lunbo1.webp',
+          url: 'https://www.mi.com/redmitv/98?product_id=1201300006'
         },
         {
           id: '4',
-          img: '/imgs/slider/lunbo3.webp'
-        },
-        {
-          id: '5',
-          img: '/imgs/slider/lunbo2.webp'
+          img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/289e412870426ffb5bcdcfa9ba0676df.jpg?thumb=1&w=1226&h=460&f=webp&q=90',
+          url: 'https://www.mi.com/airenergy?product_id=1185000014'
         }
       ],
 
-      cateList:[
-        {
-          categoryId: '',
-          name: '',
-          menuList: [
-            // 6行4列的二维数组
-            [
-              {
-                good_id: 1,
-                icon: '/imgs/item-box-1.png',
-                name: '小米CC9'
-              },
-              {
-                good_id: 2,
-                icon: '/imgs/item-box-2.png',
-                name: '小米8青春版'
-              },
-              {
-                good_id: 3,
-                icon: '/imgs/item-box-3.jpg',
-                name: 'Redmi K20 Pro'
-              },
-              {
-                good_id: 4,
-                icon: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a51c1afa4db8e47e62fad1f6fa4a8970.png?thumb=1&w=40&h=40&f=webp&q=90',
-                name: '小米11'
-              }
-            ],
-            [
-              {
-                good_id: 5,
-                icon: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/461bf013d08a7a91423cafcbc5ff9339.jpg?thumb=1&w=40&h=40&f=webp&q=90',
-                name: 'Redmi K30 Pro'
-              },
-              {
-                good_id: 6,
-                icon: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/76378ce289a36fcfa29f704ba90b4155.png?thumb=1&w=40&h=40&f=webp&q=90',
-                name: 'Redmi Note 9 5G'
-              },
-              {
-                good_id: 7,
-                icon: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=40&h=40&f=webp&q=90',
-                name: 'Redmi 9'
-              },
-              {
-                good_id: 8,
-                icon: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5ca871528d3420622f21f25be7aba58c.png?thumb=1&w=40&h=40&f=webp&q=90',
-                name: '小米10至尊纪念版'
-              }
-            ]
-          ]
-        },
-        {
-          cateid: '',
-          catename: '',
-          menuList: [
-              [{},{},{},{},{},{}],
-            [],
-            [],
-            []
-          ]
-        }
-      ]
+      cateList:[]
       ,
       adsList: [
         {
-          id: 2,
-          img: '/imgs/ads/ads-1.png'
-        }, {
-          id: 3,
-          img: '/imgs/ads/ads-2.jpg'
-        }, {
-          id: 6,
-          img: '/imgs/ads/ads-3.png'
-        }, {
-          id: 5,
-          img: '/imgs/ads/lunboxia1.jpg'
+          url:'https://www.mi.com/buy/detail?product_id=12511',
+          img: 'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/5d4298059889417157e8492750328492.jpg'
+        },
+        {
+          url:'',
+          img: 'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/ads-2.jpg'
+        },
+        {
+          url:'',
+          img: 'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/ads-3.png'
+        },
+        {
+          url:'https://www.mi.com/buy/detail?product_id=12931',
+          img: 'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/lunboxia1.jpg'
         }
       ],
-      phoneList: [],
+      HotphoneList: [],
+
       TVList:[],
-      otherList:[],
+      HotTVList:[],
+      applianceList2:[],
+
+      magicList:[],
+      HotmagicList:[],
+      applianceList3:[],
+
+
+      wearList:[],
+      HotwearList:[],
+      applianceList4:[],
+
+
+      smallList:[],
+      HotsmallList:[],
+      applianceList5:[],
+
+
+      roundList:[],
+      HotroundList:[],
+      applianceList6:[],
+
       showModal: false,
+
+      applianceActive2: 1, // 家电当前选中的商品分类
+      applianceActive3: 1, // 智能当前选中的商品分类
+      applianceActive4: 1, // 搭配当前选中的商品分类
+      applianceActive5: 1, // 配件当前选中的商品分类
+      applianceActive6: 1, // 周边当前选中的商品分类
+
 
       currPage: 0,
       evtNextStatus: true,
       evtPreStatus: true,
       recomend:[],
-      recomends: [
-        {sourceUrl: '//item.mi.com/1154300011.html', imgUrl: '//i1.mifile.cn/a1/T1.VVgBjAT1RXrhCrK.jpg?width=140&height=140', name: '小米电视主机', price: '999', favorable: '102'},
-        {sourceUrl: '//item.mi.com/1153300030.html', imgUrl: '//i1.mifile.cn/a1/T1LrdvBbAT1RXrhCrK.jpg?width=140&height=140', name: '小米手环', price: '69', favorable: '11.8万'},
-        {sourceUrl: '//item.mi.com/1155100006.html', imgUrl: '//i1.mifile.cn/a1/T1_tEgBmVv1RXrhCrK.jpg?width=140&height=140', name: '米兔儿童电话手表', price: '299', favorable: '7865'},
-        {sourceUrl: '//item.mi.com/1154100018.html', imgUrl: '//i1.mifile.cn/a1/T1TpZ_ByYv1R4cSCrK.png?width=140&height=140', name: '小米低音炮', price: '599', favorable: '4908'},
-        {sourceUrl: '//item.mi.com/1155100011.html', imgUrl: '//i1.mifile.cn/a1/T1CDbjBgAT1RXrhCrK.jpg?width=140&height=140', name: '90分旅行箱 24寸', price: '349', favorable: '1.1万'},
-        {sourceUrl: '//item.mi.com/1154900069.html', imgUrl: '//i1.mifile.cn/a1/T1PyZ_Bjdv1RXrhCrK.jpg?width=140&height=140 ', name: '小米智能插座 基础版', price: '49', favorable: '8622'},
-        {sourceUrl: '//item.mi.com/1162100021.html', imgUrl: '//i1.mifile.cn/a1/pms_1464071511.37197399.jpg?width=140&height=140', name: '米家 LED 智能台灯', price: '169', favorable: '4268人好评'},
-        {sourceUrl: '//item.mi.com/1153700018.html', imgUrl: '//i1.mifile.cn/a1/T1Ay_gBKKv1RXrhCrK.jpg?width=140&height=140', name: '90分旅行箱 20寸', price: '299', favorable: '1.5万'},
-        {sourceUrl: '//item.mi.com/1161200004.html', imgUrl: '//i1.mifile.cn/a1/T1WxYvB_xv1RXrhCrK.jpg?width=140&height=140', name: '小米活塞耳机 基础版', price: '29', favorable: '5.5万'},
-        {sourceUrl: '//item.mi.com/1153300025.html', imgUrl: '//i1.mifile.cn/a1/T1tzL_BjYT1RXrhCrK.jpg?width=140&height=140', name: '学院风简约双肩包', price: '59', favorable: '1.8万'},
-        {sourceUrl: '//item.mi.com/1154300036.html', imgUrl: '//i1.mifile.cn/a1/T1F5K_BjVv1RXrhCrK.jpg?width=140&height=140', name: '小米小钢炮蓝牙音箱2', price: '129', favorable: '1.2万'},
-        {sourceUrl: '//item.mi.com/1162900011.html', imgUrl: '//i1.mifile.cn/a1/pms_1470793898.34754317.jpg?width=140&height=140', name: '90分金属旅行箱', price: '1799', favorable: '23'},
-        {sourceUrl: '//item.mi.com/1153800044.html', imgUrl: '//i1.mifile.cn/a1/T1MDK_B_YT1RXrhCrK.jpg?width=140&height=140', name: '小米蓝牙音箱', price: '199', favorable: ' 1.9万'},
-        {sourceUrl: '//item.mi.com/1161200013.html', imgUrl: '//i1.mifile.cn/a1/T1FtKgBvZv1RXrhCrK.jpg?width=140&height=140', name: '小米多功能都市休闲胸包', price: '69', favorable: '9453'},
-        {sourceUrl: '//item.mi.com/1161800001.html', imgUrl: '//i1.mifile.cn/a1/T1HQA_BCd_1RXrhCrK.jpg?width=140&height=140', name: '米家iHealth血压计', price: '399', favorable: '1529'},
-        {sourceUrl: '//item.mi.com/1153900041.html', imgUrl: '//i1.mifile.cn/a1/T1JJ__BbYT1RXrhCrK.jpg?width=140&height=140', name: '小米净水器滤芯', price: '59', favorable: '6640'},
-        {sourceUrl: '//item.mi.com/1162800007.html', imgUrl: '//i1.mifile.cn/a1/pms_1468287589.40786199.jpg?width=140&height=140', name: '米家随身风扇', price: '19.9', favorable: '4522'},
-        {sourceUrl: '//item.mi.com/1160800073.html', imgUrl: '//i1.mifile.cn/a1/T1N5KjB_dT1RXrhCrK.jpg?width=140&height=140', name: '小米家庭音响 金属版', price: '899', favorable: '0'},
-        {sourceUrl: '//item.mi.com/1161000003.html', imgUrl: '//i1.mifile.cn/a1/T1LpWjB4bv1RXrhCrK.jpg?width=140&height=140', name: '小米空气净化器滤芯 经济版', price: '129', favorable: '473'},
-        {sourceUrl: '//item.mi.com/1161200073.html', imgUrl: '//i1.mifile.cn/a1/T1bED_B__v1RXrhCrK.jpg?width=140&height=140', name: '小蚁摄像机储存套装（夜视+8GB）', price: ' 165.9', favorable: '0'}
-      ]
+      recomends: []
     }
   },
   mounted () {
     this.init()
   },
+  watch: {
+    // 家电当前选中的商品分类，响应不同的商品数据
+    applianceActive2: function (val) {
+      if (val === 1) {
+        // 1为热门商品
+        this.applianceList2 = this.HotTVList;
+        return;
+      }
+      if (val === 2) {
+        // 2为电视商品
+        this.applianceList2 = this.TVList;
+      }},
+    applianceActive3: function (val) {
+      if (val === 1) {
+        this.applianceList3 = this.HotmagicList;
+        return;
+      }
+      if (val === 2) {
+        this.applianceList3 = this.magicList;
+      }
+    },
+    applianceActive4: function (val) {
+      if (val === 1) {
+        // 1为热门商品
+        this.applianceList4 = this.HotwearList;
+        return;
+      }
+      if (val === 2) {
+        // 2为电视商品
+        this.applianceList4 = this.wearList;
+      }
+    },
+    applianceActive5: function (val) {
+      // 所以在切换商品列表时判断applianceHotList是否为空,为空则是第一次切换,把applianceList赋值给applianceHotList
+      if (val === 1) {
+        // 1为热门商品
+        this.applianceList5 = this.HotsmallList;
+        return;
+      }
+      if (val === 2) {
+        // 2为电视商品
+        this.applianceList5 = this.smallList;
+      }
+    },
+    applianceActive6: function (val) {
+      // 所以在切换商品列表时判断applianceHotList是否为空,为空则是第一次切换,把applianceList赋值给applianceHotList
+      if (val === 1) {
+        // 1为热门商品
+        this.applianceList6 = this.HotroundList;
+        return;
+      }
+      if (val === 2) {
+        // 2为电视商品
+        this.applianceList6 = this.roundList;
+      }
+    }
+  },
+
   methods: {
 
-    // 当前改变----当前页码改变之后，触发这个函数
-    // handleCurrentChange(val){
-    //   console.log("当前改变："+val)
-    //
-    //   this.axios.get('http://localhost:8080/index/productfoot', {
-    //     params: {
-    //       categoryId: val,
-    //       pageStart: 1
-    //     }
-    //   }).then((res) => {
-    //     // res.list = res.list.slice(6, 14)
-    //     this.phoneList = [res.data.slice(0, 4), res.data.slice(4, 8)]
-    //     // this.phoneList=res.data
-    //   })
-    //
-    // },
-
     init () {
-      this.recomend=this.recomends.slice(0,5)
-
       this.axios.get('http://localhost:8080/index/category',
-
       ).then((res) => {
         this.cateList=res.data.cateList
       })
 
       this.axios.get('http://localhost:8080/index/productfoot', {
         params: {
-          categoryId: 1,
-          pageStart: 1
+          categoryId: 1
         }
       }).then((res) => {
-        // res.list = res.list.slice(6, 14)
-        this.phoneList = [res.data.slice(0, 4), res.data.slice(4, 8)]
-        // this.phoneList=res.data
+        this.HotphoneList = res.data.slice(0,8);
+      })
+
+
+      this.axios.get('http://localhost:8080/index/productfoot', {
+        params: {
+          categoryId: 2
+        }
+      }).then((res) => {
+        this.HotTVList=res.data.slice(0,8);
+        // 页面初始化的时候把HoTVtList(热门家电商品列表)直接赋值给applianceList(家电商品列表)
+        this.applianceList2 = this.HotTVList;
+      })
+      this.axios.get('http://localhost:8080/index/productfootnormal', {
+        params: {
+          categoryId: 2
+        }
+      }).then((res) => {
+        this.TVList = res.data.slice(0,8);
+      })
+
+
+
+      this.axios.get('http://localhost:8080/index/productfoot', {
+        params: {
+          categoryId: 3
+        }
+      }).then((res) => {
+        this.HotmagicList=res.data.slice(0,8);
+        this.applianceList3 = this.HotmagicList;
+      })
+      this.axios.get('http://localhost:8080/index/productfootnormal', {
+        params: {
+          categoryId: 3
+        }
+      }).then((res) => {
+        this.magicList = res.data.slice(0,8);
+      })
+
+
+      this.axios.get('http://localhost:8080/index/productfoot', {
+        params: {
+          categoryId: 4
+        }
+      }).then((res) => {
+        this.HotwearList=res.data.slice(0,8);
+        this.applianceList4 = this.HotwearList;
+      })
+      this.axios.get('http://localhost:8080/index/productfootnormal', {
+        params: {
+          categoryId: 4
+        }
+      }).then((res) => {
+        this.wearList = res.data.slice(0,8);
       })
 
       this.axios.get('http://localhost:8080/index/productfoot', {
         params: {
-          categoryId: 2,
-          pageStart: 1
+          categoryId: 5
         }
       }).then((res) => {
-        // res.list = res.list.slice(6, 14)
-        // this.phoneList = [res.list.slice(0, 4), res.list.slice(4, 8)]
-        this.TVList=[res.data.slice(0, 4), res.data.slice(4, 8)]
+        this.HotsmallList=res.data.slice(0,8);
+        this.applianceList5 = this.HotsmallList;
       })
+      this.axios.get('http://localhost:8080/index/productfootnormal', {
+        params: {
+          categoryId: 5
+        }
+      }).then((res) => {
+        this.smallList = res.data.slice(0,8);
+      })
+
 
       this.axios.get('http://localhost:8080/index/productfoot', {
         params: {
-          categoryId: 8,
-          pageStart: 1
+          categoryId: 6
         }
       }).then((res) => {
-        // res.list = res.list.slice(6, 14)
-        // this.phoneList = [res.list.slice(0, 4), res.list.slice(4, 8)]
-        this.otherList=[res.data.slice(0, 4), res.data.slice(4, 8)]
+        this.HotroundList=res.data.slice(0,6);
+        this.applianceList6 = this.HotroundList;
+      })
+      this.axios.get('http://localhost:8080/index/productfootnormal', {
+        params: {
+          categoryId: 6
+        }
+      }).then((res) => {
+        this.roundList = res.data.slice(0,8);
+      })
+
+
+
+      this.axios.get('http://localhost:8080/index/suggest').then((res)=>{
+        this.recomends = res.sugglist;
+        this.recomend=this.recomends.slice(0,5)
       })
 
     },
+
+    getChildMsg2(val) {
+      this.applianceActive2 = val;
+    },
+    getChildMsg3(val) {
+      this.applianceActive3 = val;
+    },
+    getChildMsg4(val) {
+      this.applianceActive4 = val;
+    },
+    getChildMsg5(val) {
+      this.applianceActive5 = val;
+    },
+    getChildMsg6(val) {
+      this.applianceActive6 = val;
+    },
+
     addCart (id) {
       let token
       if(sessionStorage.getItem("token")){
@@ -507,16 +679,11 @@ export default {
     },
 
     slideNext () {
-
-      if(this.currPage===this.recomends.length/5-1){
+      if(this.currPage === Math.floor((this.recomends.length-1)/5)){
         this.currPage--;
         this.$alert('已经是最后一页了', '', {
           confirmButtonText: '确定',
           callback: action => {
-            // this.$message({
-            //   type: 'info',
-            //   message: `action: ${ action }`
-            // });
           }
         });
       }
@@ -529,10 +696,6 @@ export default {
         this.$alert('已经是第一页了', '', {
           confirmButtonText: '确定',
           callback: action => {
-            // this.$message({
-            //   type: 'info',
-            //   message: `action: ${ action }`
-            // });
           }
         });
       }
@@ -546,6 +709,7 @@ export default {
 <style lang="scss">
   @import './../assets/scss/config.scss';
   @import './../assets/scss/mixin.scss';
+
   .index{
     .swiper-box{
       .nav-menu{
@@ -553,14 +717,14 @@ export default {
         width:264px;
         height:451px;
         z-index:5;
-        padding:26px 0;
+        padding:23px 0;
         // 带透明度的背景色
         background-color:#55585a7a;
         box-sizing:border-box;
         .menu-wrap{
           .menu-item{
-            height:50px;
-            line-height:50px;
+            height:43px;
+            line-height:40px;
             a{
               position:relative;
               display:block;
@@ -640,96 +804,96 @@ export default {
       }
     }
     .banner{
-      margin-bottom:50px;
+
     }
     .product-box{
       background-color:$colorJ;
       padding:30px 0 50px;
       h2{
-        font-size:$fontF;
-        height:21px;
-        line-height:21px;
-        color:$colorB;
-        margin-bottom:20px;
+        margin: 0;
+        font-size: 22px;
+        font-weight: 200;
+        line-height: 58px;
+        color: #333;
       }
       .PreOrNext{
         margin-left: 800px;
       }
 
-      .wrapper{
-        display:flex;
-        .banner-left{
-          margin-right:16px;
-          img{
-            width:224px;
-            height:619px;
-          }
-        }
-        .list-box{
-          .list{
-            @include flex();
-            width:986px;
-            margin-bottom:14px;
-            &:last-child{
-              margin-bottom:0;
-            }
-            .item{
-              width:236px;
-              height:302px;
-              background-color:$colorG;
-              text-align:center;
-              span{
-                display:inline-block;
-                width:67px;
-                height:24px;
-                font-size:14px;
-                line-height:24px;
-                color:$colorG;
-                &.new-pro{
-                  background-color:#7ECF68;
-                }
-                &.kill-pro{
-                  background-color:#E82626;
-                }
-              }
-              .item-img{
-                img{
-                  width:100%;
-                  height:195px;
-                }
-              }
-              .item-info{
-                h3{
-                  font-size:14px;
-                  color:$colorB;
-                  line-height:14px;
-                  font-weight:bold;
-                }
-                p{
-                  color:$colorD;
-                  line-height:13px;
-                  margin:6px auto 13px;
-                }
-                .price{
-                  color:#F20A0A;
-                  font-size:$fontJ;
-                  font-weight:bold;
-                  cursor:pointer;
-                  &:after{
-                    @include bgImg(22px,22px,'/imgs/icon-cart-hover.png');
-                    content:' ';
-                    margin-left:5px;
-                    vertical-align: middle;
-                  }
-                }
-              }
-            }
-          }
-        }
+      .box-hd {
+        height: 58px;
+        margin: 20px 0 0 0;
       }
+
+      .box-hd .title {
+        float: left;
+        font-size: 22px;
+        font-weight: 200;
+        line-height: 58px;
+        color: #333;
+      }
+
+      .box-hd .more {
+        float: right;
+      }
+
+      .box-hd .more a {
+        font-size: 16px;
+        line-height: 58px;
+        color: #424242;
+      }
+
+      .box-hd .more a:hover {
+        color: #ff6700;
+      }
+
+
+      .box-bd {
+        height: 615px;
+      }
+
+      .box-bd .promo-list {
+        float: left;
+        height: 615px;
+        width: 234px;
+      }
+
+      .box-bd .promo-list li {
+        z-index: 1;
+        width: 234px;
+        height: 300px;
+        margin-bottom: 14.5px;
+        -webkit-transition: all 0.2s linear;
+        transition: all 0.2s linear;
+      }
+
+      .box-bd .promo-list li:hover {
+        z-index: 2;
+        -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+        -webkit-transform: translate3d(0, -2px, 0);
+        transform: translate3d(0, -2px, 0);
+      }
+
+      .box-bd .promo-list li img {
+        width: 234px;
+        height: 300px;
+      }
+
+      .box-bd .promo-list img {
+        width: 234px;
+      }
+
+      .box-bd .list {
+        float: left;
+        height: 615px;
+        width: 991px;
+      }
+
     }
 
     .recommend-container {
+      background-color: $colorJ;
       width: 1226px;
       height: auto;
       margin: 0 auto;

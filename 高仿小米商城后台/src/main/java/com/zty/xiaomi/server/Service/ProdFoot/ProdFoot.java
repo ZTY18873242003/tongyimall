@@ -8,5 +8,8 @@ import java.util.List;
 
 public interface ProdFoot {
     SqlSession getSqlSession() throws IOException;
-    List<ProductFootInfo> getProductFootInfo(int categoryId, int pageStart, int pageEnd) throws IOException;
+
+    List<ProductFootInfo> getProductFootInfo(int categoryId) throws IOException;
+
+    List<ProductFootInfo> getProductFootInfoNormal(int category_id) throws IOException;
 }
