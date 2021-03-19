@@ -1,5 +1,7 @@
 package com.zty.xiaomi.server.Controller;
 
+import com.google.common.hash.BloomFilter;
+import com.google.common.hash.Funnels;
 import com.zty.xiaomi.server.Entity.ProductFoot.ProductFootInfo;
 import com.zty.xiaomi.server.Entity.ProductFoot.ProductFootResult;
 import com.zty.xiaomi.server.Entity.ProductHead.ProductHeadInfo;
@@ -23,6 +25,7 @@ import java.util.List;
 @RestController
 @RequestMapping("index")
 public class IndexController {
+
     @Autowired
     private CategoryIndexImp categoryIndexImp;
     @Autowired
@@ -31,6 +34,9 @@ public class IndexController {
     private ProductFootImp productFootImp;
     @Autowired
     private SugFootServiceImp sugFootServiceImp;
+
+
+    private  BloomFilter<Integer> bf = BloomFilter.create(Funnels.integerFunnel(), 4);
 
     @RequestMapping("/category")
     public CategoryResult getCategory() throws IOException {
@@ -41,13 +47,18 @@ public class IndexController {
     }
 
     @RequestMapping("/product")
-    public ProductHeadResult getProduct(@RequestParam("categoryId") int categoryId,
-                                        @RequestParam("pageStart") int pageStart) throws IOException {
+    public ProductHeadResult getProduct(@RequestParam("categoryId") int categoryId) throws IOException {
+
+        bf.put(1);bf.put(2);bf.put(3);bf.put(9);
 
         ProductHeadResult productHeadResult = new ProductHeadResult();
+
+        if(!bf.mightContain(categoryId)){
+            productHeadResult.setStatus(500);
+            return productHeadResult;
+        }
         productHeadResult.setStatus(0);
-        List<ProductHeadInfo> productHeadInfo = productHeadImp.getProductHeadInfo(categoryId,
-                (categoryId - 1) * 12 + (pageStart-1)*6+1, (categoryId - 1) * 12 + pageStart*6);
+        List<ProductHeadInfo> productHeadInfo = productHeadImp.getProductHeadInfo(categoryId);
         productHeadResult.setData(productHeadInfo);
         return productHeadResult;
     }

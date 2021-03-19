@@ -10,11 +10,12 @@ public interface RegLogUser {
     @Select("select userid,name,email,pwd,tel from userinfo where name like #{username}")
     User getUserByName(String username);
 
-    @Select("select userid,name,email,pwd,tel from userinfo where name like #{username}")
+    @Select("select userid,name,email,pwd,tel,privatekey from userinfo where name like #{username}")
     User getUserByUserName(String username);
 
-    @Insert("insert into userinfo values(#{userid},#{name},#{email},#{pwd},#{phone},#{status},#{date})")
-    void insertUser(String userid, String name, String email, String pwd, String phone, String status,String date);
+    @Insert("insert into userinfo values(#{userid},#{name},#{email},#{pwd},#{phone},#{status},#{date},#{prikey})")
+    void insertUser(String userid, String name, String email, String pwd,
+                    String phone, String status,String date,String prikey);
 
 
 }

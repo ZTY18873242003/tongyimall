@@ -9,10 +9,10 @@
               <div class="children">
                 <ul v-for="(item,i) in kind.menuList" :key="i">
                   <li v-for="(sub,j) in item" :key="j">
-                    <a :href="sub?'/#/product/'+sub.good_id:''">
+                    <router-link :to="{ path: '/product/' + sub.good_id }">
                       <img :src="sub?sub.icon:''">
                       {{sub?sub.name:''}}
-                    </a>
+                    </router-link>
                   </li>
                 </ul>
               </div>
@@ -35,7 +35,7 @@
 
       <!--        变换图下的四个小图-->
       <div class="ads-box">
-        <a :href="'/#/product/'+item.id" v-for="(item,index) in adsList" :key="index">
+        <a :href="item.detail" v-for="(item,index) in adsList" :key="index">
           <img v-lazy="item.img">
         </a>
       </div>
@@ -45,7 +45,7 @@
 
 
     <div class="banner">
-      <a href="/#/product/30">
+      <a href="https://www.mi.com/redminote9pro?product_id=1204500018">
         <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/431e5fd6bfd1b67d096928248be18303.jpg?thumb=1&w=1226&h=120&f=webp&q=90">
       </a>
     </div>
@@ -65,7 +65,7 @@
 
         <div class="box-bd">
           <div class="promo-list">
-            <router-link to>
+            <router-link to="https://www.mi.com/redminote9pro?product_id=1204500018">
               <img :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/cb1bd61ad71c45a4f67f09b075463944.jpeg?thumb=1&w=234&h=614&f=webp&q=90'" />
             </router-link>
           </div>
@@ -81,7 +81,7 @@
 
 
     <div class="banner">
-      <a href="/#/product/30">
+      <a href="https://www.mi.com/a/h/15707.html">
         <img :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/41d16e66381cfeda7b6b39ab67678d5e.jpg?thumb=1&w=1226&h=120&f=webp&q=90'">
       </a>
     </div>
@@ -124,7 +124,7 @@
 
 
     <div class="banner">
-      <a href="/#/product/30">
+      <a href="https://www.mi.com/buy/detail?product_id=10025">
         <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/59e8fc8ba9718c266882719fb4bbcedd.webp'">
       </a>
     </div>
@@ -135,10 +135,9 @@
         <div class="box-hd">
           <div class="title">智能</div>
           <div class="more" id="magicmore">
-            <MyMenu :val="3" @fromChild="getChildMsg3">
+            <MyMenu :val="2" @fromChild="getChildMsg3">
               <span slot="1">热门</span>
-              <span slot="2">安防</span>
-              <span slot="3">出行</span>
+              <span slot="2">笔记本</span>
             </MyMenu>
           </div>
         </div>
@@ -164,7 +163,7 @@
 
 
     <div class="banner">
-      <a href="/#/product/30">
+      <a href="https://www.mi.com/a/h/19199.html">
         <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/b34997348887380ab4d19587fa1a711c.webp'">
       </a>
     </div>
@@ -203,7 +202,7 @@
 
 
     <div class="banner">
-      <a href="/#/product/30">
+      <a href="https://www.mi.com/a/h/16528.html">
         <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/1615d1842fe85914a545297836a44271.webp'">
       </a>
     </div>
@@ -243,7 +242,7 @@
 
 
     <div class="banner">
-      <a href="/#/product/30">
+      <a href="https://www.mi.com/a/h/15274.html">
         <img :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9880db34d227b6c1df5b45cb7df4f465.jpg?thumb=1&w=1226&h=120&f=webp&q=90'">
       </a>
     </div>
@@ -281,7 +280,7 @@
     </div>
 
     <div class="banner">
-      <a href="/#/product/30">
+      <a href="https://www.mi.com/buy/detail?product_id=9836">
         <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/88e35cffc82cd98cd53172460067af17.webp'">
       </a>
     </div>
@@ -306,13 +305,13 @@
         <ul class="recommend-content clearfix">
           <li class="recomend-item"
               v-for="item in recomend">
-            <a :href="'/#/product/'+item.goodid" target="_blank">
+            <router-link :to="{ path: '/product/' + item.good_id }">
               <img class="item-image" :src="item.imgUrl" alt="" />
               <h3 class="item-name">{{item.name}}</h3>
               <p class="item-price">
                 {{item.price}}元
               </p>
-            </a>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -324,19 +323,19 @@
 
     <ServiceBar></ServiceBar>
 
-    <Modal
-      title="提示"
-      sureText="查看购物车"
-      cancelText="取消"
-      btnType="3"
-      modalType="middle"
-      :showModal="showModal"
-      @submit="goToCart"
-      @cancel="showModal=false">
-      <template v-slot:body>
-        <p>商品添加成功！</p>
-      </template>
-    </Modal>
+<!--    <Modal-->
+<!--      title="提示"-->
+<!--      sureText="查看购物车"-->
+<!--      cancelText="取消"-->
+<!--      btnType="3"-->
+<!--      modalType="middle"-->
+<!--      :showModal="showModal"-->
+<!--      @submit="goToCart"-->
+<!--      @cancel="showModal=false">-->
+<!--      <template v-slot:body>-->
+<!--        <p>商品添加成功！</p>-->
+<!--      </template>-->
+<!--    </Modal>-->
   </div>
 </template>
 <script>
@@ -409,19 +408,19 @@ export default {
       ,
       adsList: [
         {
-          url:'https://www.mi.com/buy/detail?product_id=12511',
+          detail:'https://www.mi.com/buy/detail?product_id=12511',
           img: 'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/5d4298059889417157e8492750328492.jpg'
         },
         {
-          url:'',
+          detail:'https://www.mi.com/buy/detail?product_id=12605',
           img: 'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/ads-2.jpg'
         },
         {
-          url:'',
+          detail:'http://www.mi.com/redminote8?product_id=10000181',
           img: 'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/ads-3.png'
         },
         {
-          url:'https://www.mi.com/buy/detail?product_id=12931',
+          detail:'https://www.mi.com/buy/detail?product_id=12931',
           img: 'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/lunboxia1.jpg'
         }
       ],
@@ -654,29 +653,7 @@ export default {
       this.applianceActive6 = val;
     },
 
-    addCart (id) {
-      let token
-      if(sessionStorage.getItem("token")){
-        token=sessionStorage.getItem("token")
-      }
-      else {
-        token='null'
-      }
-      let username= sessionStorage.getItem("username")
-      this.axios.post('http://localhost:8080/carts/push', {
-        token:token.replace(/^\"|\"$/g,''),
-        productId: id,
-        username: username,
-        select: true
 
-      }).then((res) => {
-        this.showModal = true
-        this.$store.dispatch('saveCartCount', res.cartTotalQuantity)
-      })
-    },
-    goToCart () {
-      this.$router.push('/cart')
-    },
 
     slideNext () {
       if(this.currPage === Math.floor((this.recomends.length-1)/5)){
@@ -736,7 +713,7 @@ export default {
                 right:30px;
                 top:17.5px;
                 content:' ';
-                @include bgImg(10px,15px,'/imgs/icon-arrow.png');
+                @include bgImg(10px,15px,'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/icon-arrow.png');
               }
             }
             &:hover{

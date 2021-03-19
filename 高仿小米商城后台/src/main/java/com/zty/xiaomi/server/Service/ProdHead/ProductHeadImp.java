@@ -25,10 +25,10 @@ public class ProductHeadImp implements ProdHead {
     }
 
     @Override
-    public List<ProductHeadInfo> getProductHeadInfo(int categoryId,int pageStart,int pageEnd) throws IOException {
+    public List<ProductHeadInfo> getProductHeadInfo(int categoryId) throws IOException {
         SqlSession sqlSession = getSqlSession();
         List<ProductHeadInfo> productInfoById = sqlSession.getMapper(ProductHead.class)
-                .getProductHeadInfo(categoryId,pageStart,pageEnd);
+                .getProductHeadInfo(categoryId);
         return  productInfoById;
     }
 }

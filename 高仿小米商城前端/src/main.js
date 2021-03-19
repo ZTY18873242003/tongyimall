@@ -68,7 +68,7 @@ axios.interceptors.response.use(function (response) {
 Vue.use(VueAxios, axios)
 Vue.use(VueCookie)
 Vue.use(VueLazyLoad, {
-  loading: '/imgs/loading-svg/loading-bars.svg'
+  loading: 'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/loading-bars.svg'
 })
 // 将element-ui中的Message模块挂载到Vue实例的$message属性中【注：$message是(通过prototype原型属性来操作的)自定义的名字】
 Vue.prototype.$message = Message

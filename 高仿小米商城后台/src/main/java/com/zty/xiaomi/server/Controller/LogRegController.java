@@ -28,9 +28,6 @@ public class LogRegController {
     @Autowired
     private RegLogServiceImp regLogServiceImp;
 
-    Map<String, String> keyMap = RSAUtils.createKeys(512);
-    private String  publicKey = keyMap.get("publicKey");
-    private String  privateKey = keyMap.get("privateKey");
 
     //注册功能
     @RequestMapping("/getRegister")
@@ -54,9 +51,15 @@ public class LogRegController {
         }
         else {
             String userid = UUID.randomUUID().toString();
-            String encodedData = RSAUtils.publicEncrypt(password, RSAUtils.getPublicKey(publicKey));
+            Map<String, String> keyMap = RSAUtils.createKeys(512);
+            String  publicKey = keyMap.get("publicKey");
+            String  privateKey = keyMap.get("privateKey");
+
+            //公钥加密
+            String encodedData = RSAUtils.publicEncrypt(password,RSAUtils.getPublicKey(publicKey));
+
             String date = DateUtil.ptfDate();
-            regLogServiceImp.insertUser(userid,username,email,encodedData,phone,"可用",date);
+            regLogServiceImp.insertUser(userid,username,email,encodedData,phone,"可用",date,privateKey);
             result.setStatus(200);
             result.setMsg("注册成功!");
         }
@@ -76,7 +79,7 @@ public class LogRegController {
             result.setStatus(2008);
         }
         else {
-            if(RSAUtils.privateDecrypt(user.getPwd(), RSAUtils.getPrivateKey(privateKey)).equals(password)){
+            if(RSAUtils.privateDecrypt(user.getPwd(), RSAUtils.getPrivateKey(user.getPrivatekey().trim())).equals(password)){
                 result.setStatus(0);
                 String token = TokenUtil.token(user.getUserid().trim());
                 loginData.setToken(token);

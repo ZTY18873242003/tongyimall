@@ -7,7 +7,7 @@
   <div id="myList" class="myList">
     <ul>
       <li v-for="item in list" :key="item.good_id">
-        <router-link :to="{ path: '/goods/details', query: {productID:item.good_id} }">
+        <router-link :to="{ path: '/product/' + item.good_id }">
           <img :src="item.imageFoot" alt />
           <h2>{{item.name}}</h2>
           <h3>{{item.subtitle}}</h3>

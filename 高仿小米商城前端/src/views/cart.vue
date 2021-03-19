@@ -256,7 +256,7 @@ export default {
           margin-right: 17px;
           cursor:pointer;
           &.checked{
-            background:url('/imgs/icon-gou.png') #FF6600 no-repeat center;
+            background:url('https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/icon-gou.png') #FF6600 no-repeat center;
             background-size:16px 12px;
             border:none;
           }
@@ -333,7 +333,7 @@ export default {
               flex:1;
               width:14px;
               height:12px;
-              background:url('/imgs/icon-close.png') no-repeat center;
+              background:url('https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/icon-close.png') no-repeat center;
               background-size:contain;
               cursor:pointer;
             }

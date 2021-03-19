@@ -42,12 +42,12 @@ input{
     height:55px;
     &:before{
       content:' ';
-      @include bgImg(55px,55px,'/imgs/mi-logo.png',55px);
+      @include bgImg(55px,55px,'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/mi-logo.png',55px);
       transition:margin .2s;
     }
     &:after{
       content:' ';
-      @include bgImg(55px,55px,'/imgs/mi-home.png',55px);
+      @include bgImg(55px,55px,'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/mi-home.png',55px);
     }
     &:hover:before{
       margin-left:-55px;

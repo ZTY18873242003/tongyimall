@@ -83,6 +83,23 @@
                   </ul>
                 </div>
               </div>
+
+              <div class="item-menu">
+                <span>路由器</span>
+                <div class="children">
+                  <ul>
+                    <li class="product" v-for="(item, index) in luyouList" :key="index">
+                      <a :href="'/#/product/'+item.good_id">
+                        <div class="pro-img">
+                          <img v-lazy="item.imageHead" :alt="item.subtitle">
+                        </div>
+                        <div class="pro-name">{{item.name}}</div>
+                        <div class="pro-price">{{item.price | currency}}</div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
             <div class="header-search">
@@ -104,7 +121,8 @@ export default {
     return {
       phoneList: [],
       compList:[],
-      TVList:[]
+      TVList:[],
+      luyouList:[]
     }
   },
   computed: {
@@ -157,8 +175,7 @@ export default {
     getProductList () {
       this.axios.get('http://localhost:8080/index/product', {
         params: {
-          categoryId: 1,
-          pageStart: 1
+          categoryId: 1
         }
       }).then((res) => {
         this.phoneList = res.data
@@ -166,8 +183,7 @@ export default {
 
       this.axios.get('http://localhost:8080/index/product', {
         params: {
-          categoryId: 3,
-          pageStart: 1
+          categoryId: 3
         }
       }).then((res) => {
         this.compList = res.data
@@ -175,12 +191,21 @@ export default {
 
       this.axios.get('http://localhost:8080/index/product', {
         params: {
-          categoryId: 2,
-          pageStart: 1
+          categoryId: 2
         }
       }).then((res) => {
         this.TVList = res.data
       })
+
+      this.axios.get('http://localhost:8080/index/product', {
+        params: {
+          categoryId: 9
+        }
+      }).then((res) => {
+        this.luyouList = res.data
+      })
+
+
     },
     getCartCount () {
       // 这里的res = 0 是当res为空时，设置默认值0
@@ -221,7 +246,7 @@ export default {
           margin-right:0;
           .icon-cart{
             // url默认从public中找
-            @include bgImg(16px,12px,'/imgs/icon-cart-checked.png');
+            @include bgImg(16px,12px,'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/icon-cart-checked.png');
             margin-right: 4px;
           }
         }
@@ -245,13 +270,13 @@ export default {
             // 等价 a:before，这里是scss的写法
             &:before{
               content: ' ';  // 一定要加用来占位，不加伪类就没了
-              @include bgImg(55px,55px,'/imgs/mi-logo.png',55px);
+              @include bgImg(55px,55px,'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/mi-logo.png',55px);
               // 配合鼠标悬停:hover，对margin属性实现过渡动画0.2秒完成
               transition: margin 0.2s;
             }
             &:after{
               content: ' ';
-              @include bgImg(55px,55px,'/imgs/mi-home.png',55px);
+              @include bgImg(55px,55px,'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/mi-home.png',55px);
             }
             // 将伪类:before设置鼠标悬停向左移动55px
             &:hover:before{
@@ -360,7 +385,7 @@ export default {
               padding-left: 14px;
             }
             a{
-              @include bgImg(18px,18px,'/imgs/icon-search.png');
+              @include bgImg(18px,18px,'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/icon-search.png');
               margin-left: 17px;
             }
           }

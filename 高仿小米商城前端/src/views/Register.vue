@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <div class="container">
-      <a href="/#/index"><img src="/imgs/login-logo.png" alt=""></a>
+      <a href="/#/index"><img src="https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/login-logo.png" alt=""></a>
     </div>
     <div class="wrapper">
       <div class="container">
@@ -13,13 +13,13 @@
           </el-form-item>
 
           <el-form-item v-if="visible" prop="password">
-            <el-input type="password" v-model="ruleForm2.password" placeholder="请输入新密码" autocomplete="off">
+            <el-input type="password" v-model="ruleForm2.password" placeholder="请输入密码" autocomplete="off">
               <i slot="suffix" title="显示密码" @click="changePass('show')" class="el-icon-view"
               ></i>
             </el-input>
           </el-form-item>
           <el-form-item v-else prop="password">
-            <el-input type="text" v-model="ruleForm2.password" placeholder="请输入新密码" autocomplete="off">
+            <el-input type="text" v-model="ruleForm2.password" placeholder="请输入密码" autocomplete="off">
               <i slot="suffix" title="隐藏密码" @click="changePass('hide')" class="el-icon-view"
                  ></i>
             </el-input>
@@ -180,7 +180,7 @@ export default {
     }
   }
   .wrapper{
-    background:url('/imgs/login-bg2.jpg') no-repeat center;
+    background:url('https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/login-bg2.jpg') no-repeat center;
     .container{
       height:576px;
       .login-form{

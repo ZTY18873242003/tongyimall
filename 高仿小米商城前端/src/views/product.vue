@@ -2,22 +2,28 @@
   <div class="product">
     <product-param :title="product.name">
       <template v-slot:buy>
-        <button class="btn" @click="buy">立即购买</button>
+        <button class="btn" @click="addCart()">立即购买</button>
       </template>
     </product-param>
+
+    <Modal
+            title="提示"
+            sureText="查看购物车"
+            cancelText="取消"
+            btnType="3"
+            modalType="middle"
+            :showModal="showModal"
+            @submit="goToCart"
+            @cancel="showModal=false">
+      <template v-slot:body>
+        <p>商品添加成功！</p>
+      </template>
+    </Modal>
+
     <div class="content">
       <div class="item-bg">
         <h2>{{product.name}}</h2>
         <h3>{{product.subtitle}}</h3>
-<!--        <p>-->
-<!--          <a href="javascript:;" id="">全球首款双频 GP</a>-->
-<!--          <span>|</span>-->
-<!--          <a href="javascript:;" id="">骁龙845</a>-->
-<!--          <span>|</span>-->
-<!--          <a href="javascript:;" id="">AI 变焦双摄</a>-->
-<!--          <span>|</span>-->
-<!--          <a href="javascript:;" id="">红外人脸识别</a>-->
-<!--        </p>-->
         <div class="price">
           <span>￥<em>{{product.price}}</em></span>
         </div>
@@ -27,15 +33,15 @@
       <div class="item-swiper">
 <!--        轮播图四个-->
         <swiper :options="swiperOption">
-            <swiper-slide><img src="/imgs/product/gallery-2.png"></swiper-slide>
-            <swiper-slide><img src="/imgs/product/gallery-3.png"></swiper-slide>
-            <swiper-slide><img src="/imgs/product/gallery-4.png"></swiper-slide>
-            <swiper-slide><img src="/imgs/product/gallery-5.jpg"></swiper-slide>
-            <swiper-slide><img src="/imgs/product/gallery-6.jpg"></swiper-slide>
+            <swiper-slide><img src="https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/gallery-2.png"></swiper-slide>
+            <swiper-slide><img src="https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/gallery-3.png"></swiper-slide>
+            <swiper-slide><img src="https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/gallery-4.png"></swiper-slide>
+            <swiper-slide><img src="https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/gallery-6.jpg"></swiper-slide>
+
             <!-- Optional controls -->
             <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
-        <p class="desc">小米8 AI变焦双摄拍摄</p>
+        <p class="desc">小米11 AI变焦双摄拍摄</p>
       </div>
       <div class="item-video">
         <h2>60帧超慢动作摄影<br/>慢慢回味每一瞬间的精彩</h2>
@@ -45,7 +51,7 @@
           <div class="overlay"></div>
           <div class="video" :class="showSlide">
             <span class="icon-close" @click="closeVideo"></span>
-            <video src="/imgs/product/video.mp4" muted autoplay controls="controls"></video>
+            <video src="https://cdn.cnbj1.fds.api.mi-img.com/product-images/mi11/section2-2.mp4" muted autoplay controls="controls"></video>
           </div>
         </div>
       </div>
@@ -55,9 +61,11 @@
 <script>
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import ProductParam from './../components/ProductParam'
+import Modal from "../components/Modal";
 export default {
   name: 'product',
   components: {
+    Modal,
     swiper,
     swiperSlide,
     // <ProductParam> 也可写成 <product-param>
@@ -65,6 +73,8 @@ export default {
   },
   data () {
     return {
+      showModal: false,
+
       showSlide: '', // 控制动画效果
       product: {}, // 商品信息
       swiperOption: {
@@ -86,6 +96,32 @@ export default {
     this.getProductInfo()
   },
   methods: {
+
+    addCart (id) {
+      let token;
+      if(sessionStorage.getItem("token")){
+        token=sessionStorage.getItem("token")
+      }
+      else {
+        token='null'
+      }
+      let username= sessionStorage.getItem("username")
+      const iid = this.$route.params.id;
+      this.axios.post('http://localhost:8080/carts/push', {
+        token:token.replace(/^\"|\"$/g,''),
+        productId: iid,
+        username: username,
+        select: true
+
+      }).then((res) => {
+        this.showModal = true
+        this.$store.dispatch('saveCartCount', res.cartTotalQuantity)
+      })
+    },
+    goToCart () {
+      this.$router.push('/cart')
+    },
+
     getProductInfo () {
       // 获取url中的参数32， 比如：http://localhost:8080/#/product/32
       const id = this.$route.params.id
@@ -116,7 +152,7 @@ export default {
   .product{
     .content{
       .item-bg{
-        background:url('/imgs/product/product-bg-1.png') no-repeat center;
+        background:url('https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/spokesman.jpg') no-repeat center;
         height:718px;
         text-align:center;
         h2{
@@ -148,12 +184,12 @@ export default {
         }
       }
       .item-bg-2{
-        background:url(/imgs/product/product-bg-2.png) no-repeat center;
+        background:url('https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/product-bg-2.png') no-repeat center;
         height:480px;
         background-size:1226px 397px;
       }
       .item-bg-3{
-        background:url(/imgs/product/product-bg-3.png) no-repeat center;
+        background:url('https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/product-bg-3.png') no-repeat center;
         height:638px;
         background-size:cover;
       }
@@ -184,7 +220,7 @@ export default {
           margin-bottom:58px;
         }
         .video-bg{
-          background:url('/imgs/product/gallery-1.png') no-repeat center;
+          background:url('https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/gallery-1.png') no-repeat center;
           background-size:cover;
           width:1226px;
           height:540px;
@@ -236,7 +272,7 @@ export default {
               position:absolute;
               top:20px;
               right:20px;
-              @include bgImg(20px,20px,'/imgs/icon-close.png');
+              @include bgImg(20px,20px,'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/icon-close.png');
               cursor:pointer;
               z-index:15;
             }

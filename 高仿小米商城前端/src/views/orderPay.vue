@@ -34,7 +34,7 @@
               <div class="detail-info">
                 <ul>
                   <li v-for="(item,index) in orderDetail" :key="index">
-                    <img v-lazy="item.productImage"/>{{item.productName}}
+                    <img v-lazy="item.pic_url"/>{{item.goods_name}}&nbsp;&nbsp;&nbsp;&nbsp;  *  {{item.count}}件   &nbsp;&nbsp;&nbsp;&nbsp;小计¥{{item.productTotalPrice}}
                   </li>
                 </ul>
               </div>
@@ -105,13 +105,27 @@ export default {
   },
   methods: {
     getOrderDetail () {
-      this.axios.get(`/orders/${this.orderId}`).then((res) => {
-        const item = res.shippingVo
-        this.addressInfo = `${item.receiverName} ${item.receiverMobile} ${item.receiverProvince} ${item.receiverCity} ${item.receiverDistrict} ${item.receiverAddress}`
-        this.orderDetail = res.orderItemVoList
-        this.payment = res.payment
+      this.axios.get(`http://localhost:8080/orders/getorder`,
+          {
+            params: {
+              id: this.orderId
+            }
+          }).then((res) => {
+
+        this.addressInfo = `${res.ordFina.receiverName} ${res.ordFina.receiverMobile} ${res.ordFina.receiverProvince}
+         ${res.ordFina.receiverCity}  ${res.ordFina.receiverAddress}`
+        this.payment = res.ordFina.payment
       })
-    },
+
+      this.axios.get(`http://localhost:8080/orders/getorderdetail`,{
+        params:{
+          username: sessionStorage.getItem('username')
+        }
+      }).then(res=>{
+          this.orderDetail = res.lists
+      })
+    }
+   ,
     paySubmit (payType) {
       if (payType === 1) {
         // 打开新窗口JS的形式：window.open('url','_blank')，html的形式可以是<a href='url'></a>
@@ -177,7 +191,7 @@ export default {
             width: 90px;
             height: 90px;
             border-radius: 50%;
-            background:url('/imgs/icon-gou.png') #80c58a no-repeat center;
+            background:url('https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/icon-gou.png') #80c58a no-repeat center;
             background-size:60px;
             margin-right:40px;
           }
@@ -207,7 +221,7 @@ export default {
               display:inline-block;
               width:14px;
               height:10px;
-              background:url('/imgs/icon-down.png') no-repeat center;
+              background:url('https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/icon-down.png') no-repeat center;
               background-size:contain;
               margin-left:9px;
               transition:all 0.5s;

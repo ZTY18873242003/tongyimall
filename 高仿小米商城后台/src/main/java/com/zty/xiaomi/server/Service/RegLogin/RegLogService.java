@@ -14,6 +14,7 @@ public interface RegLogService {
 
     User getUserByUserName(String username) throws IOException;
 
-    void insertUser(String userid, String name, String email, String pwd, String phone, String status,String date) throws IOException;
+    void insertUser(String userid, String name, String email, String pwd,
+                    String phone, String status,String date,String prikey) throws IOException;
 
 }

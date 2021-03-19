@@ -35,16 +35,16 @@ export default {
         margin-right:8px;
       }
       .icon-setting{
-        @include bgImg(20px,20px,'/imgs/icon-setting.png');
+        @include bgImg(20px,20px,'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/icon-setting.png');
       }
       .icon-7day{
-        @include bgImg(20px,20px,'/imgs/icon-7day.png');
+        @include bgImg(20px,20px,'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/icon-7day.png');
       }
       .icon-15day{
-        @include bgImg(20px,20px,'/imgs/icon-15day.png');
+        @include bgImg(20px,20px,'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/icon-15day.png');
       }
       .icon-post{
-        @include bgImg(20px,20px,'/imgs/icon-post.png');
+        @include bgImg(20px,20px,'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/icon-post.png');
       }
     }
 

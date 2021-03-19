@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <div class="container">
-      <a href="/#/index"><img src="/imgs/login-logo.png" alt=""></a>
+      <a href="/#/index"><img src="https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/login-logo.png" alt=""></a>
     </div>
     <div class="wrapper">
       <div class="container">
@@ -10,12 +10,20 @@
             <span class="checked">帐号登录</span>
             <!--            <span class="sep-line">|</span><span>扫码登录</span>-->
           </h3>
+
           <div class="input">
-            <input type="text" placeholder="请输入帐号" v-model="username">
+          <el-input type="text" class="inputs" placeholder="请输入帐号" v-model="username" autocomplete="off"></el-input>
           </div>
+<!--          <div class="input">-->
+<!--            <input type="text" placeholder="请输入帐号" v-model="username">-->
+<!--          </div>-->
+
           <div class="input">
-            <input type="password" placeholder="请输入密码" v-model="password">
+          <el-input type="password" v-model="password" placeholder="请输入密码" autocomplete="off"></el-input>
           </div>
+<!--          <div class="input">-->
+<!--            <input type="password" placeholder="请输入密码" v-model="password">-->
+<!--          </div>-->
           <div class="btn-box">
             <a href="javascript:;" class="btn" @click="login">登录</a>
           </div>
@@ -99,7 +107,7 @@ export default {
     }
   }
   .wrapper{
-    background:url('/imgs/login-bg2.jpg') no-repeat center;
+    background:url('https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/login-bg2.jpg') no-repeat center;
     .container{
       height:576px;
       .login-form{

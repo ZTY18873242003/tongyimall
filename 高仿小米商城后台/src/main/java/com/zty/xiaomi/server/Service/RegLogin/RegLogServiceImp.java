@@ -44,17 +44,11 @@ public class RegLogServiceImp implements RegLogService {
     }
 
     @Override
-    public void insertUser(String userid, String name, String email, String pwd, String phone,String status, String date) throws IOException {
+    public void insertUser(String userid, String name, String email, String pwd, String phone,String status, String date,String prikey) throws IOException {
         SqlSession sqlSession=getSqlSession();
-        System.out.println(userid);
-        System.out.println(name);
-        System.out.println(email);
-        System.out.println(pwd);
-        System.out.println(phone);
-        System.out.println(date);
 
 
-        sqlSession.getMapper(RegLogUser.class).insertUser(userid,name,email,pwd,phone,status,date);
+        sqlSession.getMapper(RegLogUser.class).insertUser(userid,name,email,pwd,phone,status,date,prikey);
 
         sqlSession.commit();
         sqlSession.close();

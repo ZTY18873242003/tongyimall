@@ -177,7 +177,7 @@ export default {
             position: absolute;
             top: 27px;
             left: 34px;
-            @include bgImg(20px,20px,'/imgs/detail/icon-loc.png');
+            @include bgImg(20px,20px,'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/icon-loc.png');
           }
           .addr{
             color:#666666;

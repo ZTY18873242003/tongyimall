@@ -3,7 +3,10 @@ package com.zty.xiaomi.server.Service.Order;
 
 import com.zty.xiaomi.server.Dao.Order;
 import com.zty.xiaomi.server.Entity.Address.Addre;
+import com.zty.xiaomi.server.Entity.Cart.cartProduct;
+import com.zty.xiaomi.server.Entity.Cart.cartProductVoList;
 import com.zty.xiaomi.server.Entity.Order.OrdCreaParm;
+import com.zty.xiaomi.server.Entity.Order.OrdFina;
 import com.zty.xiaomi.server.Entity.Order.OrderList;
 import com.zty.xiaomi.server.Entity.Order.orderItemVoList;
 import com.zty.xiaomi.server.Entity.User;
@@ -41,32 +44,38 @@ public class OrderServiceImp implements OrderService {
     }
 
     public OrderList creatOrder(OrdCreaParm ordCreaParm) throws IOException {
+        SqlSession sqlSession = getSqlSession();
         OrderList orderList = new OrderList();
-
         User user = regLogServiceImp.getUserByUserName(ordCreaParm.getName());
         String userid = user.getUserid();
-        List<orderItemVoList> orderItems = getOrderItems(userid);
+
         int orderNumber = OrderNumUtil.getOrderNumber();
         String createTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 
         int payment=0;
-        for(orderItemVoList orderItem:orderItems){
-            orderItem.setOrderNo(orderNumber);
-            orderItem.setCreateTime(createTime);
-            payment+=orderItem.getProductTotalPrice();
+        List<cartProduct> cartproducts = cartServiceImp.getCartProduct(userid).getList();
+        for(cartProduct cartProductvo:cartproducts){
+            payment+=cartProductvo.getProductTotalPrice();
         }
+
 
         orderList.setOrderNo(orderNumber);
         orderList.setPayment(payment);
         orderList.setStatus(10);//表示未支付的状态，支付完后要改值
         orderList.setStatusDesc("未支付");
         orderList.setCreateTime(createTime);
-        orderList.setOrderItemList(orderItems);
         orderList.setImageHost("www.mi.com");
         orderList.setShippingId(ordCreaParm.getShippingId());
         orderList.setReceiverName(getAdd(userid,ordCreaParm.getShippingId()).getReceiverName());
         orderList.setShippingVo(getAdd(userid,ordCreaParm.getShippingId()));
 
+        sqlSession.getMapper(Order.class).insOrder(orderNumber,payment,1,"在线支付",0,10,"未支付",
+                "","",createTime.trim(),"www.mi.com",ordCreaParm.getShippingId(),getAdd(userid,ordCreaParm.getShippingId()).getReceiverName(),
+                getAdd(userid,ordCreaParm.getShippingId()).getReceiverMobile(),getAdd(userid,ordCreaParm.getShippingId()).getReceiverProvince(),
+                getAdd(userid,ordCreaParm.getShippingId()).getReceiverCity(),getAdd(userid,ordCreaParm.getShippingId()).getReceiverAddress(),
+                getAdd(userid,ordCreaParm.getShippingId()).getReceiverZip());
+        sqlSession.commit();
+        sqlSession.close();
         return orderList;
     }
 
@@ -82,5 +91,12 @@ public class OrderServiceImp implements OrderService {
         SqlSession sqlSession = getSqlSession();
         Addre addre = sqlSession.getMapper(Order.class).getAddre(userid, id);
         return addre;
+    }
+
+    @Override
+    public OrdFina getOrderById(int id) throws IOException {
+        SqlSession sqlSession = getSqlSession();
+        OrdFina orderById = sqlSession.getMapper(Order.class).getOrderById(id);
+        return orderById;
     }
 }

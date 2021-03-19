@@ -28,7 +28,7 @@
       line-height: 60px;
       font-size:$fontI;
       .icon-close{
-        @include positionImg(absolute,23px,25px,14px,14px,'/imgs/icon-close.png');
+        @include positionImg(absolute,23px,25px,14px,14px,'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/icon-close.png');
         transition: transform 0.3s;
         &:hover{
           transform: scale(1.5);

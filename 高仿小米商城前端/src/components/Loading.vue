@@ -1,6 +1,6 @@
 <template>
   <div class="loading">
-    <img src="/imgs/loading-svg/loading-bars.svg">
+    <img src="https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/loading-bars.svg">
   </div>
 </template>
 <script>
