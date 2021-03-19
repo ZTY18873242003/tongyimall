@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/高仿小米商城后台/server.iml" filepath="$PROJECT_DIR$/高仿小米商城后台/server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/高仿小米商城.iml" filepath="$PROJECT_DIR$/.idea/高仿小米商城.iml" />
-    </modules>
-  </component>
-</project>
