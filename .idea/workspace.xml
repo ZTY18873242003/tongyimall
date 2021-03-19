@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="673cb4a7-47ee-4b90-8a13-095513a02e5a" name="Default Changelist" comment="完成订单功能、添加布隆过滤器" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:\IntelliJ IDEA 2020.2.1\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1odko4js3j8OaNV2BpotxqN50l3" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\高仿小米商城\高仿小米商城后台" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="tongyimall-api" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zty.xiaomi.server.ServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="673cb4a7-47ee-4b90-8a13-095513a02e5a" name="Default Changelist" comment="" />
+      <created>1613624027134</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1613624027134</updated>
+      <workItem from="1613624028406" duration="1725000" />
+      <workItem from="1613634543409" duration="251000" />
+      <workItem from="1613696197544" duration="36000" />
+      <workItem from="1614524242446" duration="153000" />
+      <workItem from="1614560767577" duration="2642000" />
+      <workItem from="1614563679562" duration="1021000" />
+      <workItem from="1616142290258" duration="1468000" />
+    </task>
+    <task id="LOCAL-00001" summary="更新README.md">
+      <created>1613624389131</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1613624389131</updated>
+    </task>
+    <task id="LOCAL-00002" summary="更新README.md">
+      <created>1613624495708</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1613624495708</updated>
+    </task>
+    <task id="LOCAL-00003" summary="更新README.md">
+      <created>1613624909805</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1613624909805</updated>
+    </task>
+    <task id="LOCAL-00004" summary="更新README.md">
+      <created>1613625197107</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1613625197107</updated>
+    </task>
+    <task id="LOCAL-00005" summary="更新README.md">
+      <created>1613625385969</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1613625385969</updated>
+    </task>
+    <task id="LOCAL-00006" summary="增添和优化了部分功能">
+      <created>1614563754891</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1614563754891</updated>
+    </task>
+    <task id="LOCAL-00007" summary="增添和优化了部分功能">
+      <created>1614563804340</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1614563804340</updated>
+    </task>
+    <task id="LOCAL-00008" summary="完成订单功能、添加布隆过滤器">
+      <created>1616142508875</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1616142508875</updated>
+    </task>
+    <task id="LOCAL-00009" summary="完成订单功能、添加布隆过滤器">
+      <created>1616142828814</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1616142828814</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="更新README.md" />
+    <MESSAGE value="增添和优化了部分功能" />
+    <MESSAGE value="完成订单功能、添加布隆过滤器" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成订单功能、添加布隆过滤器" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1800" y="156" key="FileChooserDialogImpl" timestamp="1614564988882">
+      <screen x="1366" y="0" width="1280" height="960" />
+    </state>
+    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1280.960@0.0.1366.728" timestamp="1613696232664" />
+    <state x="1800" y="156" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1280.960@1366.0.1280.960" timestamp="1614564988882" />
+    <state width="1322" height="165" key="GridCell.Tab.0.bottom" timestamp="1613625754394">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="165" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1280.960@0.0.1366.728" timestamp="1613625754394" />
+    <state width="1322" height="165" key="GridCell.Tab.0.center" timestamp="1613625754394">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="165" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1280.960@0.0.1366.728" timestamp="1613625754394" />
+    <state width="1322" height="165" key="GridCell.Tab.0.left" timestamp="1613625754394">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="165" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1280.960@0.0.1366.728" timestamp="1613625754394" />
+    <state width="1322" height="165" key="GridCell.Tab.0.right" timestamp="1613625754394">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="165" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1280.960@0.0.1366.728" timestamp="1613625754394" />
+    <state width="1322" height="165" key="GridCell.Tab.1.bottom" timestamp="1613625754394">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="165" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.0.1280.960@0.0.1366.728" timestamp="1613625754394" />
+    <state width="1322" height="165" key="GridCell.Tab.1.center" timestamp="1613625754394">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="165" key="GridCell.Tab.1.center/0.0.1366.728/1366.0.1280.960@0.0.1366.728" timestamp="1613625754394" />
+    <state width="1322" height="165" key="GridCell.Tab.1.left" timestamp="1613625754394">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="165" key="GridCell.Tab.1.left/0.0.1366.728/1366.0.1280.960@0.0.1366.728" timestamp="1613625754394" />
+    <state width="1322" height="165" key="GridCell.Tab.1.right" timestamp="1613625754394">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="165" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1280.960@0.0.1366.728" timestamp="1613625754394" />
+    <state x="163" y="0" key="SettingsEditor" timestamp="1613624998761">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="163" y="0" key="SettingsEditor/0.0.1366.728/1366.0.1280.960@0.0.1366.728" timestamp="1613624998761" />
+    <state x="275" y="92" key="Vcs.Push.Dialog.v2" timestamp="1616143065198">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="92" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1280.960@0.0.1366.728" timestamp="1613625391076" />
+    <state x="1624" y="121" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1280.960@1366.0.1280.960" timestamp="1614563815410" />
+    <state x="275" y="92" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1616143065198" />
+    <state x="485" y="273" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616143054948">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="485" y="273" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1616143054948" />
+    <state x="455" y="246" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1613624132217">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="455" y="246" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1366.728/1366.0.1280.960@0.0.1366.728" timestamp="1613624132217" />
+  </component>
+</project>
