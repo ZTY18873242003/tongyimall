@@ -105,7 +105,7 @@ export default {
   },
   methods: {
     getOrderDetail () {
-      this.axios.get(`http://localhost:8080/orders/getorder`,
+      this.axios.get(`http://121.196.161.5:8080/orders/getorder`,
           {
             params: {
               id: this.orderId
@@ -117,7 +117,7 @@ export default {
         this.payment = res.ordFina.payment
       })
 
-      this.axios.get(`http://localhost:8080/orders/getorderdetail`,{
+      this.axios.get(`http://121.196.161.5:8080/orders/getorderdetail`,{
         params:{
           username: sessionStorage.getItem('username')
         }

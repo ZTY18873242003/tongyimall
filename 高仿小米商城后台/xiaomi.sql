@@ -18,6 +18,11 @@
 --
 -- Table structure for table `address`
 --
+DROP Database IF EXISTS 'xiaomi';
+
+CREATE Database xiaomi;
+
+use xiaomi;
 
 DROP TABLE IF EXISTS `address`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;

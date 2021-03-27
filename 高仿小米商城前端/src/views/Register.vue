@@ -141,7 +141,7 @@ export default {
       this.$router.push("/login");
     },
     register () {
-      this.axios.get("http://localhost:8080/login/getRegister",{
+      this.axios.get("http://121.196.161.5:8080/login/getRegister",{
         params:
             {
               'username': this.ruleForm2.username,

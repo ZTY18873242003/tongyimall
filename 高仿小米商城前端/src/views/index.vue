@@ -529,12 +529,12 @@ export default {
   methods: {
 
     init () {
-      this.axios.get('http://localhost:8080/index/category',
+      this.axios.get('http://121.196.161.5:8080/index/category',
       ).then((res) => {
         this.cateList=res.data.cateList
       })
 
-      this.axios.get('http://localhost:8080/index/productfoot', {
+      this.axios.get('http://121.196.161.5:8080/index/productfoot', {
         params: {
           categoryId: 1
         }
@@ -543,7 +543,7 @@ export default {
       })
 
 
-      this.axios.get('http://localhost:8080/index/productfoot', {
+      this.axios.get('http://121.196.161.5:8080/index/productfoot', {
         params: {
           categoryId: 2
         }
@@ -552,7 +552,7 @@ export default {
         // 页面初始化的时候把HoTVtList(热门家电商品列表)直接赋值给applianceList(家电商品列表)
         this.applianceList2 = this.HotTVList;
       })
-      this.axios.get('http://localhost:8080/index/productfootnormal', {
+      this.axios.get('http://121.196.161.5:8080/index/productfootnormal', {
         params: {
           categoryId: 2
         }
@@ -562,7 +562,7 @@ export default {
 
 
 
-      this.axios.get('http://localhost:8080/index/productfoot', {
+      this.axios.get('http://121.196.161.5:8080/index/productfoot', {
         params: {
           categoryId: 3
         }
@@ -570,7 +570,7 @@ export default {
         this.HotmagicList=res.data.slice(0,8);
         this.applianceList3 = this.HotmagicList;
       })
-      this.axios.get('http://localhost:8080/index/productfootnormal', {
+      this.axios.get('http://121.196.161.5:8080/index/productfootnormal', {
         params: {
           categoryId: 3
         }
@@ -579,7 +579,7 @@ export default {
       })
 
 
-      this.axios.get('http://localhost:8080/index/productfoot', {
+      this.axios.get('http://121.196.161.5:8080/index/productfoot', {
         params: {
           categoryId: 4
         }
@@ -587,7 +587,7 @@ export default {
         this.HotwearList=res.data.slice(0,8);
         this.applianceList4 = this.HotwearList;
       })
-      this.axios.get('http://localhost:8080/index/productfootnormal', {
+      this.axios.get('http://121.196.161.5:8080/index/productfootnormal', {
         params: {
           categoryId: 4
         }
@@ -595,7 +595,7 @@ export default {
         this.wearList = res.data.slice(0,8);
       })
 
-      this.axios.get('http://localhost:8080/index/productfoot', {
+      this.axios.get('http://121.196.161.5:8080/index/productfoot', {
         params: {
           categoryId: 5
         }
@@ -603,7 +603,7 @@ export default {
         this.HotsmallList=res.data.slice(0,8);
         this.applianceList5 = this.HotsmallList;
       })
-      this.axios.get('http://localhost:8080/index/productfootnormal', {
+      this.axios.get('http://121.196.161.5:8080/index/productfootnormal', {
         params: {
           categoryId: 5
         }
@@ -612,7 +612,7 @@ export default {
       })
 
 
-      this.axios.get('http://localhost:8080/index/productfoot', {
+      this.axios.get('http://121.196.161.5:8080/index/productfoot', {
         params: {
           categoryId: 6
         }
@@ -620,7 +620,7 @@ export default {
         this.HotroundList=res.data.slice(0,6);
         this.applianceList6 = this.HotroundList;
       })
-      this.axios.get('http://localhost:8080/index/productfootnormal', {
+      this.axios.get('http://121.196.161.5:8080/index/productfootnormal', {
         params: {
           categoryId: 6
         }
@@ -630,7 +630,7 @@ export default {
 
 
 
-      this.axios.get('http://localhost:8080/index/suggest').then((res)=>{
+      this.axios.get('http://121.196.161.5:8080/index/suggest').then((res)=>{
         this.recomends = res.sugglist;
         this.recomend=this.recomends.slice(0,5)
       })
