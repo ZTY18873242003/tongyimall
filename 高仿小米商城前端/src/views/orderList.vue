@@ -14,7 +14,7 @@
               <div class="item-info fl">
                 {{order.createTime}}
                 <span>|</span>
-                {{order.receiverName}}
+                收货人:{{order.receiverName}}
                 <span>|</span>
                 订单号：{{order.orderNo}}
                 <span>|</span>
@@ -28,17 +28,18 @@
             </div>
             <div class="order-content clearfix">
               <div class="good-box fl">
-                <div class="good-list" v-for="(item,i) in order.orderItemVoList" :key="i">
+                <div class="good-list" v-for="(item,i) in order.items" :key="i">
                   <div class="good-img">
-                    <img v-lazy="item.productImage" alt="">
+                    <img :src="item.imgurl" alt="">
                   </div>
-                  <div class="good-name">
+                  <div class="good-nam
+                  e">
                     <div class="p-name">{{item.productName}}</div>
-                    <div class="p-money">{{item.totalPrice + 'X' + item.quantity}}元</div>
+                    <div class="p-money">{{item.currentUnitPrice + 'X' + item.quantity}}元</div>
                   </div>
                 </div>
               </div>
-              <div class="good-state fr" v-if="order.status == 20">
+              <div class="good-state fr" v-if="order.status == 10">
                 <a href="javascript:;">{{order.statusDesc}}</a>
               </div>
               <div class="good-state fr" v-else>
@@ -115,10 +116,11 @@ export default {
     getOrderList () {
       this.loading = true
       // this.busy = true
-      this.axios.get('/orders', {
+      this.axios.get('http://localhost:8080/orders/getorderlist', {
         params: {
-          pageSize: 10,
-          pageNum: this.pageNum
+          // pageSize: 10,
+          // pageNum: this.pageNum,
+          username:sessionStorage.getItem("username")
         }
       }).then((res) => {
         this.loading = false

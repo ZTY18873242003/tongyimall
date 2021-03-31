@@ -107,7 +107,7 @@ export default {
       }
       let username= sessionStorage.getItem("username")
       const iid = this.$route.params.id;
-      this.axios.post('http://121.196.161.5:8080/carts/push', {
+      this.axios.post('http://localhost:8080/carts/push', {
         token:token.replace(/^\"|\"$/g,''),
         productId: iid,
         username: username,
@@ -123,9 +123,9 @@ export default {
     },
 
     getProductInfo () {
-      // 获取url中的参数32， 比如：http://121.196.161.5:8080/#/product/32
+      // 获取url中的参数32， 比如：http://localhost:8080/#/product/32
       const id = this.$route.params.id
-      this.axios.get(`http://121.196.161.5:8080/product/getinfo`,{
+      this.axios.get(`http://localhost:8080/product/getinfo`,{
         params: {
           'id':id,
         }}).then((res) => {

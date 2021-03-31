@@ -24,7 +24,6 @@ public class OrderController {
 
     @PostMapping("/createorder")
     public OrderResult createOrder(@RequestBody OrdCreaParm ordCreaParm) throws IOException {
-
         OrderResult orderResult = new OrderResult();
         orderResult.setStatus(0);
         OrderList orderList = orderServiceImp.creatOrder(ordCreaParm);
@@ -32,6 +31,32 @@ public class OrderController {
         return orderResult;
     }
 
+    @RequestMapping("/getorderlist")
+    public UserOrdListResult getUserOrdList(String username) throws IOException {
+
+        UserOrdListResult userOrdListResult = new UserOrdListResult();
+        User user = regLogServiceImp.getUserByUserName(username);
+        String userid = user.getUserid();
+
+        List<UserOrdList> orderList = orderServiceImp.getOrderList(userid);
+
+        for(UserOrdList userOrdList:orderList){
+            int orderNo = userOrdList.getOrderNo();
+            List<UserOrdItemList> orderListItems = orderServiceImp.getOrderListItems(orderNo);
+            userOrdList.setItems(orderListItems);
+        }
+
+        userOrdListResult.setStatus(0);
+        userOrdListResult.setTotal(orderList.size());
+        userOrdListResult.setList(orderList);
+
+        return userOrdListResult;
+
+    }
+
+
+
+    //下单成功后调用下面两个方法
     @RequestMapping("/getorder")
     public OrdFinaResult getOrder(@RequestParam("id") int id) throws IOException{
         OrdFinaResult orderResult = new OrdFinaResult();
@@ -46,7 +71,6 @@ public class OrderController {
         User user = regLogServiceImp.getUserByUserName(username);
         String userid = user.getUserid();
         List<orderItemVoList> orderItems = orderServiceImp.getOrderItems(userid);
-        System.out.println(orderItems);
         OrdFinaResult orderResult = new OrdFinaResult();
         orderResult.setStatus(0);
         orderResult.setLists(orderItems);

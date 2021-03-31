@@ -50,7 +50,7 @@ export default {
       //最开始打开网页时如果不用下面的if会报错400，因为没有username仍然发了请求
       if (sessionStorage.getItem('username')) {
         // 这里的res = 0 是当res为空时，设置默认值0
-        this.axios.get('http://121.196.161.5:8080/carts/sum',
+        this.axios.get('http://localhost:8080/carts/sum',
             {
               params: {
                 'username': sessionStorage.getItem('username'),

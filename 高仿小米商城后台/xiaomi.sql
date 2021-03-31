@@ -18,11 +18,6 @@
 --
 -- Table structure for table `address`
 --
-DROP Database IF EXISTS 'xiaomi';
-
-CREATE Database xiaomi;
-
-use xiaomi;
 
 DROP TABLE IF EXISTS `address`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -99,7 +94,7 @@ CREATE TABLE `cart` (
   `Status` int(11) DEFAULT NULL,
   `productTotalPrice` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -108,7 +103,7 @@ CREATE TABLE `cart` (
 
 LOCK TABLES `cart` WRITE;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
-INSERT INTO `cart` VALUES (40,'c8ad1c60-4718-476b-983d-d8eb07c12963',3,'Redmi K20 Pro',1418,1,NULL,NULL,NULL,'高性能长续航 5G 手机',1,1000,1,1418),(41,'c8ad1c60-4718-476b-983d-d8eb07c12963',17,'Redmi G 游戏本',5299,1,NULL,NULL,NULL,'不受流行的掌控，每一种体验都为你带来娱乐无限',1,1000,1,5299);
+INSERT INTO `cart` VALUES (43,'c8ad1c60-4718-476b-983d-d8eb07c12963',6,'Redmi Note 8',899,1,NULL,NULL,NULL,'千元4800万四摄',1,1000,1,899),(44,'c8ad1c60-4718-476b-983d-d8eb07c12963',2,'小米8青春版',1509,1,NULL,NULL,NULL,'50倍潜望式变焦，轻薄5G手机',1,1000,1,1509);
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -239,8 +234,8 @@ DROP TABLE IF EXISTS `orde`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `orde` (
+  `hostid` varchar(50) COLLATE utf8mb4_bin NOT NULL,
   `orderNo` int(11) NOT NULL,
-  `payment` int(11) NOT NULL,
   `paymentType` int(11) NOT NULL DEFAULT '1',
   `paymentTypeDesc` varchar(10) COLLATE utf8mb4_bin NOT NULL DEFAULT '在线支付',
   `postage` int(11) DEFAULT '6',
@@ -249,7 +244,7 @@ CREATE TABLE `orde` (
   `paymentTime` varchar(35) COLLATE utf8mb4_bin DEFAULT NULL,
   `endTime` varchar(35) COLLATE utf8mb4_bin DEFAULT NULL,
   `createTime` varchar(35) COLLATE utf8mb4_bin DEFAULT NULL,
-  `imageHost` varchar(20) COLLATE utf8mb4_bin DEFAULT NULL,
+  `payment` int(11) NOT NULL,
   `shippingId` int(11) DEFAULT NULL,
   `receiverName` varchar(20) COLLATE utf8mb4_bin DEFAULT NULL,
   `receiverMobile` varchar(12) COLLATE utf8mb4_bin NOT NULL,
@@ -257,7 +252,7 @@ CREATE TABLE `orde` (
   `receiverCity` varchar(25) COLLATE utf8mb4_bin DEFAULT NULL,
   `receiverProvince` varchar(25) COLLATE utf8mb4_bin DEFAULT NULL,
   `receiverZip` varchar(7) COLLATE utf8mb4_bin DEFAULT NULL,
-  `orderitems` varchar(250) COLLATE utf8mb4_bin DEFAULT NULL
+  `imageHost` varchar(20) COLLATE utf8mb4_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -267,7 +262,7 @@ CREATE TABLE `orde` (
 
 LOCK TABLES `orde` WRITE;
 /*!40000 ALTER TABLE `orde` DISABLE KEYS */;
-INSERT INTO `orde` VALUES (507661289,8226,1,'在线支付',0,10,'未支付','','','2021-03-05 15:51:30','www.mi.com',4,'ZTY','18873242003','ddssfd','和平区','天津市','523879',NULL),(1959498519,8226,1,'在线支付',0,10,'未支付','','','2021-03-05 15:52:59','www.mi.com',4,'ZTY','18873242003','ddssfd','和平区','天津市','523879',NULL),(1685982517,8226,1,'在线支付',0,10,'未支付','','','2021-03-05 15:57:13','www.mi.com',4,'ZTY','18873242003','ddssfd','和平区','天津市','523879',NULL),(501119072,8226,1,'在线支付',0,10,'未支付','','','2021-03-10 10:52:33','www.mi.com',4,'ZTY','18873242003','ddssfd','和平区','天津市','523879',NULL),(655875211,6717,1,'在线支付',0,10,'未支付','','','2021-03-10 14:20:39','www.mi.com',4,'ZTY','18873242003','ddssfd','和平区','天津市','523879',NULL),(1847471648,6717,1,'在线支付',0,10,'未支付','','','2021-03-10 14:34:56','www.mi.com',4,'ZTY','18873242003','ddssfd','和平区','天津市','523879',NULL),(861826396,6717,1,'在线支付',0,10,'未支付','','','2021-03-10 14:37:59','www.mi.com',4,'ZTY','18873242003','ddssfd','和平区','天津市','523879',NULL),(389578494,6717,1,'在线支付',0,10,'未支付','','','2021-03-10 14:38:05','www.mi.com',5,'张之卓','15211011392','无','东城区','北京市','523879',NULL);
+INSERT INTO `orde` VALUES ('c8ad1c60-4718-476b-983d-d8eb07c12963',361418646,1,'在线支付',0,10,'未支付','','','2021-03-31 21:37:14',899,4,'ZTY','18873242003','ddssfd','和平区','天津市','523879','www.mi.com'),('c8ad1c60-4718-476b-983d-d8eb07c12963',1317901956,1,'在线支付',0,10,'未支付','','','2021-03-31 21:38:33',2408,5,'张之卓','15211011392','无','东城区','北京市','523879','www.mi.com');
 /*!40000 ALTER TABLE `orde` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -282,12 +277,11 @@ CREATE TABLE `ordergood` (
   `orderNo` int(11) NOT NULL,
   `productId` int(11) NOT NULL,
   `productName` varchar(40) COLLATE utf8mb4_bin NOT NULL,
-  `productImage` varchar(100) COLLATE utf8mb4_bin DEFAULT NULL,
   `currentUnitPrice` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `totalPrice` int(11) NOT NULL,
-  `createTime` varchar(25) COLLATE utf8mb4_bin NOT NULL,
-  PRIMARY KEY (`orderNo`)
+  `status` int(11) NOT NULL DEFAULT '10',
+  `imgurl` varchar(200) COLLATE utf8mb4_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -297,6 +291,7 @@ CREATE TABLE `ordergood` (
 
 LOCK TABLES `ordergood` WRITE;
 /*!40000 ALTER TABLE `ordergood` DISABLE KEYS */;
+INSERT INTO `ordergood` VALUES (361418646,6,'Redmi Note 8',899,1,899,10,'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/13f10e47913f9dc82e6c6a6199f413cd.jpg?thumb=1&w=200&h=200&f=webp&q=90'),(1317901956,6,'Redmi Note 8',899,1,899,10,'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/13f10e47913f9dc82e6c6a6199f413cd.jpg?thumb=1&w=200&h=200&f=webp&q=90'),(1317901956,2,'小米8青春版',1509,1,1509,10,'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0099822e42b4428cb25c4cdebc6ca53d.jpg?thumb=1&w=200&h=200&f=webp&q=90');
 /*!40000 ALTER TABLE `ordergood` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -338,4 +333,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-03-19 20:15:40
+-- Dump completed on 2021-03-31 21:44:21

@@ -99,7 +99,7 @@ export default {
     // 获取购物车列表
     getCartList () {
       if(sessionStorage.getItem('username')){
-      this.axios.get('http://121.196.161.5:8080/carts/getcarts',{
+      this.axios.get('http://localhost:8080/carts/getcarts',{
         params:{
           'username': sessionStorage.getItem('username')
         }
@@ -130,7 +130,7 @@ export default {
         selected = !item.productSelected
       }
 
-      this.axios.get(`http://121.196.161.5:8080/carts/updatecart`, {
+      this.axios.get(`http://localhost:8080/carts/updatecart`, {
         params: {
           goodid: item.good_id,
           username: username,
@@ -143,7 +143,7 @@ export default {
     },
     // 删除购物车商品
     delProduct (item) {
-      this.axios.get(`http://121.196.161.5:8080/carts/del`,{
+      this.axios.get(`http://localhost:8080/carts/del`,{
         params:{
           id:item.good_id,
           username:sessionStorage.getItem("username")
@@ -155,7 +155,7 @@ export default {
     },
     // 控制全选功能
     toggleAll () {
-      const url = this.allChecked ? 'http://121.196.161.5:8080/carts/unSelectAll' : 'http://121.196.161.5:8080/carts/selectAll'
+      const url = this.allChecked ? 'http://localhost:8080/carts/unSelectAll' : 'http://localhost:8080/carts/selectAll'
       this.axios.get(url,{
         params:{
           username:sessionStorage.getItem("username")

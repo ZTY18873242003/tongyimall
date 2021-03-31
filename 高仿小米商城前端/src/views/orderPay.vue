@@ -23,7 +23,7 @@
           <div class="item-detail" v-if="showDetail">
             <div class="item">
               <div class="detail-title">订单号：</div>
-              <div class="detail-info theme-color">{{orderId}}</div>
+              <div class="detail-info theme-color">&nbsp;&nbsp;&nbsp;&nbsp;{{orderId}}</div>
             </div>
             <div class="item">
               <div class="detail-title">收货信息：</div>
@@ -105,7 +105,7 @@ export default {
   },
   methods: {
     getOrderDetail () {
-      this.axios.get(`http://121.196.161.5:8080/orders/getorder`,
+      this.axios.get(`http://localhost:8080/orders/getorder`,
           {
             params: {
               id: this.orderId
@@ -117,7 +117,7 @@ export default {
         this.payment = res.ordFina.payment
       })
 
-      this.axios.get(`http://121.196.161.5:8080/orders/getorderdetail`,{
+      this.axios.get(`http://localhost:8080/orders/getorderdetail`,{
         params:{
           username: sessionStorage.getItem('username')
         }

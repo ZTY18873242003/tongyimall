@@ -5,10 +5,7 @@ import com.zty.xiaomi.server.Dao.Order;
 import com.zty.xiaomi.server.Entity.Address.Addre;
 import com.zty.xiaomi.server.Entity.Cart.cartProduct;
 import com.zty.xiaomi.server.Entity.Cart.cartProductVoList;
-import com.zty.xiaomi.server.Entity.Order.OrdCreaParm;
-import com.zty.xiaomi.server.Entity.Order.OrdFina;
-import com.zty.xiaomi.server.Entity.Order.OrderList;
-import com.zty.xiaomi.server.Entity.Order.orderItemVoList;
+import com.zty.xiaomi.server.Entity.Order.*;
 import com.zty.xiaomi.server.Entity.User;
 import com.zty.xiaomi.server.Service.Cart.CartServiceImp;
 import com.zty.xiaomi.server.Service.RegLogin.RegLogServiceImp;
@@ -69,12 +66,20 @@ public class OrderServiceImp implements OrderService {
         orderList.setReceiverName(getAdd(userid,ordCreaParm.getShippingId()).getReceiverName());
         orderList.setShippingVo(getAdd(userid,ordCreaParm.getShippingId()));
 
-        sqlSession.getMapper(Order.class).insOrder(orderNumber,payment,1,"在线支付",0,10,"未支付",
+        sqlSession.getMapper(Order.class).insOrder(userid,orderNumber,payment,1,"在线支付",0,10,"未支付",
                 "","",createTime.trim(),"www.mi.com",ordCreaParm.getShippingId(),getAdd(userid,ordCreaParm.getShippingId()).getReceiverName(),
                 getAdd(userid,ordCreaParm.getShippingId()).getReceiverMobile(),getAdd(userid,ordCreaParm.getShippingId()).getReceiverProvince(),
                 getAdd(userid,ordCreaParm.getShippingId()).getReceiverCity(),getAdd(userid,ordCreaParm.getShippingId()).getReceiverAddress(),
                 getAdd(userid,ordCreaParm.getShippingId()).getReceiverZip());
         sqlSession.commit();
+
+        for(cartProduct cartProduct:cartproducts) {
+
+            String orderImg = sqlSession.getMapper(Order.class).getOrderImg(cartProduct.getGood_id());
+            sqlSession.getMapper(Order.class).insOrderGood(orderNumber,cartProduct.getGood_id(),cartProduct.getGoods_name(),cartProduct.getPrice(),
+                    cartProduct.getCount(),cartProduct.getProductTotalPrice(),10,orderImg);
+            sqlSession.commit();
+        }
         sqlSession.close();
         return orderList;
     }
@@ -98,5 +103,19 @@ public class OrderServiceImp implements OrderService {
         SqlSession sqlSession = getSqlSession();
         OrdFina orderById = sqlSession.getMapper(Order.class).getOrderById(id);
         return orderById;
+    }
+
+    @Override
+    public List<UserOrdList> getOrderList(String userid) throws IOException {
+        SqlSession sqlSession = getSqlSession();
+        List<UserOrdList> userOrdList = sqlSession.getMapper(Order.class).getUserOrdList(userid);
+        return userOrdList;
+    }
+
+    @Override
+    public List<UserOrdItemList> getOrderListItems(int orderId) throws IOException {
+        SqlSession sqlSession = getSqlSession();
+        List<UserOrdItemList> ordItems = sqlSession.getMapper(Order.class).getOrdItems(orderId);
+        return ordItems;
     }
 }
