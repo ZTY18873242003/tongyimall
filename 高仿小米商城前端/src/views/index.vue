@@ -41,6 +41,38 @@
 
       <!--      横幅广告-->
     </div>
+    <div class="product-box2">
+      <div class="container">
+        <div class="box-hd">
+          <div class="title">小米闪购</div>
+          <div class="more" >
+          </div>
+        </div>
+
+        <div class="box-bd">
+          <div class="promo-list2">
+
+            <div class="items1 items2 fl">
+              <a href="#">
+                <p class="thun-red">14:00</p>
+                <img src="https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/colock.jpg" class="clock-img">
+                <p class="thun">距离结束还有</p>
+                <div id="first" class="time-item">
+                  <strong class="hour_show">00</strong>
+                  <strong class="minute_show">00</strong>
+                  <strong class="second_show">00</strong>
+                </div>
+              </a>
+            </div>
+
+
+          </div>
+          <div class="list-box">
+            <MyList :list="killList" :isMore="false"></MyList>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
     <div class="banner">
@@ -345,9 +377,11 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 import MyList from "../components/MyList";
 import MyMenu from "../components/MyMenu";
+import Flash from "../components/Flash";
 export default {
   name: 'index',
   components: {
+    Flash,
     MyMenu,
     MyList,
     swiper,
@@ -423,6 +457,8 @@ export default {
           img: 'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/lunboxia1.jpg'
         }
       ],
+
+      killList:[],
       HotphoneList: [],
 
       TVList:[],
@@ -539,6 +575,7 @@ export default {
         }
       }).then((res) => {
         this.HotphoneList = res.data.slice(0,8);
+        this.killList = this.HotphoneList.splice(0,4);
       })
 
 
@@ -833,6 +870,99 @@ export default {
         height: 615px;
         width: 234px;
       }
+
+      .box-bd .promo-list li {
+        z-index: 1;
+        width: 234px;
+        height: 300px;
+        margin-bottom: 14.5px;
+        -webkit-transition: all 0.2s linear;
+        transition: all 0.2s linear;
+      }
+
+      .box-bd .promo-list li:hover {
+        z-index: 2;
+        -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+        -webkit-transform: translate3d(0, -2px, 0);
+        transform: translate3d(0, -2px, 0);
+      }
+
+      .box-bd .promo-list li img {
+        width: 234px;
+        height: 300px;
+      }
+
+      .box-bd .promo-list img {
+        width: 234px;
+      }
+
+      .box-bd .list {
+        float: left;
+        height: 615px;
+        width: 991px;
+      }
+
+    }
+
+    .product-box2{
+      background-color:$colorJ;
+      padding:30px 0 50px;
+      h2{
+        margin: 0;
+        font-size: 22px;
+        font-weight: 200;
+        line-height: 58px;
+        color: #333;
+      }
+      .PreOrNext{
+        margin-left: 800px;
+      }
+
+      .box-hd {
+        height: 58px;
+        margin: 20px 0 0 0;
+      }
+
+      .box-hd .title {
+        float: left;
+        font-size: 22px;
+        font-weight: 200;
+        line-height: 58px;
+        color: #333;
+      }
+
+      .box-hd .more {
+        float: right;
+      }
+
+      .box-hd .more a {
+        font-size: 16px;
+        line-height: 58px;
+        color: #424242;
+      }
+
+      .box-hd .more a:hover {
+        color: #ff6700;
+      }
+
+
+      .box-bd {
+        height: 340px;
+      }
+
+      .box-bd .promo-list {
+        float: left;
+        height: 340px;
+        width: 234px;
+      }
+
+      .box-bd .promo-list2 {
+        float: left;
+        height: 300px;
+        width: 234px;
+      }
+
 
       .box-bd .promo-list li {
         z-index: 1;
