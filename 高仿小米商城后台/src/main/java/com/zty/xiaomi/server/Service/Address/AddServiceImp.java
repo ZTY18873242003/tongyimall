@@ -5,6 +5,7 @@ import com.zty.xiaomi.server.Entity.Address.AddrResult;
 import com.zty.xiaomi.server.Entity.Address.AddrSuccResult;
 import com.zty.xiaomi.server.Entity.Address.Addre;
 import com.zty.xiaomi.server.Entity.Address.AddreList;
+import com.zty.xiaomi.server.utils.SqlSessionUtil;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -18,31 +19,23 @@ import java.util.List;
 public class AddServiceImp implements AddService {
 
     @Override
-    public SqlSession getSqlSession() throws IOException {
-        String resource = "mybatis-config.xml";//通过流处理获取sqlSessionFactory创建一个实例
-        InputStream inputStream = Resources.getResourceAsStream(resource);
-        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-        SqlSession session = sqlSessionFactory.openSession();//获取SqlSession实例
-        return session;
-    }
-    @Override
     public AddrSuccResult inseAddre(Addre addre) throws IOException {
         AddrSuccResult addrSuccResult = new AddrSuccResult();
         addrSuccResult.setStatus(0);
         addrSuccResult.setMsg("新建地址成功");
 
-        SqlSession sqlSession=getSqlSession();
+        SqlSession sqlSession= SqlSessionUtil.getInstance();
         sqlSession.getMapper(Address.class).inseAddre(addre.getUserid(),addre.getReceiverName(),addre.getReceiverMobile(),
                 addre.getReceiverProvince(),addre.getReceiverCity(),addre.getReceiverAddress(),addre.getReceiverZip());
         sqlSession.commit();
-        sqlSession.close();
+
         return addrSuccResult;
 
     }
 
     @Override
     public AddrResult getAll(String userid) throws IOException {
-        SqlSession sqlSession=getSqlSession();
+        SqlSession sqlSession=SqlSessionUtil.getInstance();
         AddrResult addrResult = new AddrResult();
         addrResult.setStatus(0);
 
@@ -68,12 +61,12 @@ public class AddServiceImp implements AddService {
         addrSuccResult.setMsg("更新地址成功");
 
 
-        SqlSession sqlSession=getSqlSession();
+        SqlSession sqlSession=SqlSessionUtil.getInstance();
         sqlSession.getMapper(Address.class).updateAddre(addre.getUserid(),addre.getId(),addre.getReceiverName(),addre.getReceiverMobile(),
                 addre.getReceiverProvince(),addre.getReceiverCity(),addre.getReceiverAddress(),addre.getReceiverZip());
 
         sqlSession.commit();
-        sqlSession.close();
+
         return addrSuccResult;
     }
 
@@ -83,10 +76,10 @@ public class AddServiceImp implements AddService {
         addrSuccResult.setStatus(0);
         addrSuccResult.setMsg("删除地址成功");
 
-        SqlSession sqlSession=getSqlSession();
+        SqlSession sqlSession=SqlSessionUtil.getInstance();
         sqlSession.getMapper(Address.class).deleteAddre(id);
         sqlSession.commit();
-        sqlSession.close();
+
         return addrSuccResult;
     }
 }

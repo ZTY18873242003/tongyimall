@@ -4,6 +4,7 @@ import com.zty.xiaomi.server.Dao.ProductFoot;
 import com.zty.xiaomi.server.Dao.Suggest;
 import com.zty.xiaomi.server.Entity.ProductFoot.ProductFootInfo;
 import com.zty.xiaomi.server.Entity.Suggest.SuggestBig;
+import com.zty.xiaomi.server.utils.SqlSessionUtil;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -19,17 +20,8 @@ import java.util.List;
 public class ProductFootImp implements ProdFoot {
 
     @Override
-    public SqlSession getSqlSession() throws IOException {
-        String resource = "mybatis-config.xml";//通过流处理获取sqlSessionFactory创建一个实例
-        InputStream inputStream = Resources.getResourceAsStream(resource);
-        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-        SqlSession session = sqlSessionFactory.openSession();//获取SqlSession实例
-        return session;
-    }
-
-    @Override
     public List<ProductFootInfo> getProductFootInfo(int categoryId) throws IOException {
-        SqlSession sqlSession = getSqlSession();
+        SqlSession sqlSession = SqlSessionUtil.getInstance();
 
         ArrayList<SuggestBig> suggestBigs = new ArrayList<>();
         if(categoryId==1){
@@ -79,7 +71,7 @@ public class ProductFootImp implements ProdFoot {
 
     @Override
     public List<ProductFootInfo> getProductFootInfoNormal(int category_id) throws IOException {
-        SqlSession sqlSession = getSqlSession();
+        SqlSession sqlSession = SqlSessionUtil.getInstance();
         List<ProductFootInfo> productFootInfoNormal = sqlSession.getMapper(ProductFoot.class).getProductFootInfoNormal(category_id);
         return productFootInfoNormal;
     }

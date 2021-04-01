@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import java.io.IOException;
 
 public interface AddService {
-    SqlSession getSqlSession() throws IOException;
+
     AddrSuccResult inseAddre(Addre addre) throws IOException;
     AddrResult getAll(String userid) throws IOException;
     AddrSuccResult updaAddre(Addre addre) throws IOException;

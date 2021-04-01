@@ -10,6 +10,7 @@ import com.zty.xiaomi.server.Entity.User;
 import com.zty.xiaomi.server.Service.Cart.CartServiceImp;
 import com.zty.xiaomi.server.Service.RegLogin.RegLogServiceImp;
 import com.zty.xiaomi.server.utils.OrderNumUtil;
+import com.zty.xiaomi.server.utils.SqlSessionUtil;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -31,17 +32,10 @@ public class OrderServiceImp implements OrderService {
     @Autowired
     private CartServiceImp cartServiceImp;
 
-    @Override
-    public SqlSession getSqlSession() throws IOException {
-        String resource = "mybatis-config.xml";//通过流处理获取sqlSessionFactory创建一个实例
-        InputStream inputStream = Resources.getResourceAsStream(resource);
-        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-        SqlSession session = sqlSessionFactory.openSession();//获取SqlSession实例
-        return session;
-    }
+
 
     public OrderList creatOrder(OrdCreaParm ordCreaParm) throws IOException {
-        SqlSession sqlSession = getSqlSession();
+        SqlSession sqlSession = SqlSessionUtil.getInstance();
         OrderList orderList = new OrderList();
         User user = regLogServiceImp.getUserByUserName(ordCreaParm.getName());
         String userid = user.getUserid();
@@ -80,41 +74,41 @@ public class OrderServiceImp implements OrderService {
                     cartProduct.getCount(),cartProduct.getProductTotalPrice(),10,orderImg);
             sqlSession.commit();
         }
-        sqlSession.close();
+
         return orderList;
     }
 
     @Override
     public List<orderItemVoList> getOrderItems(String userid) throws IOException {
-        SqlSession sqlSession = getSqlSession();
+        SqlSession sqlSession = SqlSessionUtil.getInstance();
         List<orderItemVoList> orderItems = sqlSession.getMapper(Order.class).getOrderItems(userid);
         return orderItems;
     }
 
     @Override
     public Addre getAdd(String userid, int id) throws IOException {
-        SqlSession sqlSession = getSqlSession();
+        SqlSession sqlSession = SqlSessionUtil.getInstance();
         Addre addre = sqlSession.getMapper(Order.class).getAddre(userid, id);
         return addre;
     }
 
     @Override
     public OrdFina getOrderById(int id) throws IOException {
-        SqlSession sqlSession = getSqlSession();
+        SqlSession sqlSession = SqlSessionUtil.getInstance();
         OrdFina orderById = sqlSession.getMapper(Order.class).getOrderById(id);
         return orderById;
     }
 
     @Override
     public List<UserOrdList> getOrderList(String userid) throws IOException {
-        SqlSession sqlSession = getSqlSession();
+        SqlSession sqlSession = SqlSessionUtil.getInstance();
         List<UserOrdList> userOrdList = sqlSession.getMapper(Order.class).getUserOrdList(userid);
         return userOrdList;
     }
 
     @Override
     public List<UserOrdItemList> getOrderListItems(int orderId) throws IOException {
-        SqlSession sqlSession = getSqlSession();
+        SqlSession sqlSession = SqlSessionUtil.getInstance();
         List<UserOrdItemList> ordItems = sqlSession.getMapper(Order.class).getOrdItems(orderId);
         return ordItems;
     }

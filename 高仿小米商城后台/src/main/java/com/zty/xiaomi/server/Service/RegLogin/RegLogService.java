@@ -8,7 +8,7 @@ import java.util.Date;
 
 public interface RegLogService {
 
-    SqlSession getSqlSession() throws IOException;
+
 
     User getUserByName(String email) throws IOException;
 

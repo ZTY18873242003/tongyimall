@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.List;
 
 public interface GoodService {
-    SqlSession getSqlSession() throws IOException;
+
 
     List<Good> getGood(int categoryid) throws IOException;
 

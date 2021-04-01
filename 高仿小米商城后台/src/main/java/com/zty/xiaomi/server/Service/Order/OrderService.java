@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface OrderService {
 
-    SqlSession getSqlSession() throws IOException;
+
 
     OrderList creatOrder(OrdCreaParm ordCreaParm) throws IOException;
 

@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.List;
 
 public interface ProdFoot {
-    SqlSession getSqlSession() throws IOException;
+
 
     List<ProductFootInfo> getProductFootInfo(int categoryId) throws IOException;
 

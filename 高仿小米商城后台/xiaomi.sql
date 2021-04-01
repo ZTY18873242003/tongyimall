@@ -94,7 +94,7 @@ CREATE TABLE `cart` (
   `Status` int(11) DEFAULT NULL,
   `productTotalPrice` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +103,7 @@ CREATE TABLE `cart` (
 
 LOCK TABLES `cart` WRITE;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
-INSERT INTO `cart` VALUES (43,'c8ad1c60-4718-476b-983d-d8eb07c12963',6,'Redmi Note 8',899,1,NULL,NULL,NULL,'千元4800万四摄',1,1000,1,899),(44,'c8ad1c60-4718-476b-983d-d8eb07c12963',2,'小米8青春版',1509,1,NULL,NULL,NULL,'50倍潜望式变焦，轻薄5G手机',1,1000,1,1509);
+INSERT INTO `cart` VALUES (46,'c8ad1c60-4718-476b-983d-d8eb07c12963',3,'Redmi K20 Pro',1418,2,NULL,NULL,NULL,'高性能长续航 5G 手机',1,1000,1,2836);
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -262,7 +262,6 @@ CREATE TABLE `orde` (
 
 LOCK TABLES `orde` WRITE;
 /*!40000 ALTER TABLE `orde` DISABLE KEYS */;
-INSERT INTO `orde` VALUES ('c8ad1c60-4718-476b-983d-d8eb07c12963',361418646,1,'在线支付',0,10,'未支付','','','2021-03-31 21:37:14',899,4,'ZTY','18873242003','ddssfd','和平区','天津市','523879','www.mi.com'),('c8ad1c60-4718-476b-983d-d8eb07c12963',1317901956,1,'在线支付',0,10,'未支付','','','2021-03-31 21:38:33',2408,5,'张之卓','15211011392','无','东城区','北京市','523879','www.mi.com');
 /*!40000 ALTER TABLE `orde` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -291,7 +290,6 @@ CREATE TABLE `ordergood` (
 
 LOCK TABLES `ordergood` WRITE;
 /*!40000 ALTER TABLE `ordergood` DISABLE KEYS */;
-INSERT INTO `ordergood` VALUES (361418646,6,'Redmi Note 8',899,1,899,10,'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/13f10e47913f9dc82e6c6a6199f413cd.jpg?thumb=1&w=200&h=200&f=webp&q=90'),(1317901956,6,'Redmi Note 8',899,1,899,10,'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/13f10e47913f9dc82e6c6a6199f413cd.jpg?thumb=1&w=200&h=200&f=webp&q=90'),(1317901956,2,'小米8青春版',1509,1,1509,10,'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0099822e42b4428cb25c4cdebc6ca53d.jpg?thumb=1&w=200&h=200&f=webp&q=90');
 /*!40000 ALTER TABLE `ordergood` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -333,4 +331,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-03-31 21:44:21
+-- Dump completed on 2021-04-01 18:01:05

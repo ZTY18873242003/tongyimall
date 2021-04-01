@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import java.io.IOException;
 
 public interface CartService {
-    SqlSession getSqlSession() throws IOException;
+
     cartProductVoList getCartProduct(String userid) throws IOException;
 
 }

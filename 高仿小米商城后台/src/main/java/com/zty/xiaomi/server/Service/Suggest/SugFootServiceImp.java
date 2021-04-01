@@ -15,14 +15,6 @@ import java.util.List;
 
 @Service
 public class SugFootServiceImp implements SugFootService{
-    @Override
-    public SqlSession getSqlSession() throws IOException {
-        String resource = "mybatis-config.xml";//通过流处理获取sqlSessionFactory创建一个实例
-        InputStream inputStream = Resources.getResourceAsStream(resource);
-        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-        SqlSession session = sqlSessionFactory.openSession();//获取SqlSession实例
-        return session;
-    }
 
     @Override
     public List<SuggestFoot> getSugFoot() throws IOException {

@@ -109,7 +109,7 @@ export default {
       // busy: false // 滚动加载，是否触发
     }
   },
-  mounted () {
+  created () {
     this.getOrderList()
   },
   methods: {

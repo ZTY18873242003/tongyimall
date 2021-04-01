@@ -26,7 +26,7 @@
             <a :href="item.url"><img :src="item.img"></a>
           </swiper-slide>
           <!-- Optional controls -->
-          <div class="swiper-pagination"  slot="pagination"></div>
+          <div class="swiper-pagination" slot="pagination"></div>
           <div class="swiper-button-prev" slot="button-prev"></div>
           <div class="swiper-button-next" slot="button-next"></div>
         </swiper>
@@ -45,17 +45,31 @@
       <div class="container">
         <div class="box-hd">
           <div class="title">小米闪购</div>
-          <div class="more" >
+          <div class="more">
           </div>
         </div>
 
         <div class="box-bd">
-          <div class="promo-list2">
+          <div class="items1 items2 fl">
+            <a href="#">
+              <p class="thun-red">14:00</p>
+              <img src="https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/colock.jpg"
+                   class="clock-img">
+              <p class="thun">距离结束还有</p>
+              <div id="first" class="time-item">
+                <strong class="hour_show"><s id="h"></s>23</strong>
+                <strong class="minute_show"><s></s>54</strong>
+                <strong class="second_show"><s></s>08</strong>
+              </div>
+            </a>
+          </div>
+          <!-- <div class="promo-list2">
 
             <div class="items1 items2 fl">
               <a href="#">
                 <p class="thun-red">14:00</p>
-                <img src="https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/colock.jpg" class="clock-img">
+                <img src="https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/colock.jpg"
+                     class="clock-img">
                 <p class="thun">距离结束还有</p>
                 <div id="first" class="time-item">
                   <strong class="hour_show">00</strong>
@@ -65,8 +79,7 @@
               </a>
             </div>
 
-
-          </div>
+          </div> -->
           <div class="list-box">
             <MyList :list="killList" :isMore="false"></MyList>
           </div>
@@ -74,13 +87,12 @@
       </div>
     </div>
 
-
     <div class="banner">
       <a href="https://www.mi.com/redminote9pro?product_id=1204500018">
-        <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/431e5fd6bfd1b67d096928248be18303.jpg?thumb=1&w=1226&h=120&f=webp&q=90">
+        <img
+             src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/431e5fd6bfd1b67d096928248be18303.jpg?thumb=1&w=1226&h=120&f=webp&q=90">
       </a>
     </div>
-
 
     <div class="product-box">
       <div class="container">
@@ -88,19 +100,20 @@
         <div class="box-hd">
           <div class="title">手机</div>
           <div class="more" id="phonemore">
-            <a href="//www.mi.com/a/h/14933.html" target="_blank" class="more-link">查看全部
+            <a href="//www.mi.com/a/h/14933.html" target="_blank"
+               class="more-link">查看全部
               <i class="el-icon-caret-right"></i></a>
           </div>
         </div>
 
-
         <div class="box-bd">
           <div class="promo-list">
-            <router-link to="https://www.mi.com/redminote9pro?product_id=1204500018">
-              <img :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/cb1bd61ad71c45a4f67f09b075463944.jpeg?thumb=1&w=234&h=614&f=webp&q=90'" />
+            <router-link
+                         to="https://www.mi.com/redminote9pro?product_id=1204500018">
+              <img
+                   :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/cb1bd61ad71c45a4f67f09b075463944.jpeg?thumb=1&w=234&h=614&f=webp&q=90'" />
             </router-link>
           </div>
-
 
           <div class="list-box">
             <MyList :list="HotphoneList" :isMore="false"></MyList>
@@ -110,10 +123,10 @@
       </div>
     </div>
 
-
     <div class="banner">
       <a href="https://www.mi.com/a/h/15707.html">
-        <img :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/41d16e66381cfeda7b6b39ab67678d5e.jpg?thumb=1&w=1226&h=120&f=webp&q=90'">
+        <img
+             :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/41d16e66381cfeda7b6b39ab67678d5e.jpg?thumb=1&w=1226&h=120&f=webp&q=90'">
       </a>
     </div>
 
@@ -135,10 +148,12 @@
           <div class="promo-list">
             <ul>
               <li>
-                <img :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/116fc43816b87192be4e67cf762e8da5.jpeg?thumb=1&w=234&h=300&f=webp&q=90'" alt />
+                <img :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/116fc43816b87192be4e67cf762e8da5.jpeg?thumb=1&w=234&h=300&f=webp&q=90'"
+                     alt />
               </li>
               <li>
-                <img :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1e82177bd8c8cd140e0e582ecaa886dc.jpg?thumb=1&w=234&h=300&f=webp&q=90'" alt />
+                <img :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1e82177bd8c8cd140e0e582ecaa886dc.jpg?thumb=1&w=234&h=300&f=webp&q=90'"
+                     alt />
               </li>
             </ul>
 
@@ -152,11 +167,10 @@
       </div>
     </div>
 
-
-
     <div class="banner">
       <a href="https://www.mi.com/buy/detail?product_id=10025">
-        <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/59e8fc8ba9718c266882719fb4bbcedd.webp'">
+        <img
+             :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/59e8fc8ba9718c266882719fb4bbcedd.webp'">
       </a>
     </div>
 
@@ -178,10 +192,12 @@
           <div class="promo-list">
             <ul>
               <li>
-                <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/ffe114f73fac3a45e5622c3eff56106b.webp'" alt />
+                <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/ffe114f73fac3a45e5622c3eff56106b.webp'"
+                     alt />
               </li>
               <li>
-                <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/a660ce095e8f553a9ed1515265f4e9fc.webp'" alt />
+                <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/a660ce095e8f553a9ed1515265f4e9fc.webp'"
+                     alt />
               </li>
             </ul>
           </div>
@@ -192,10 +208,10 @@
       </div>
     </div>
 
-
     <div class="banner">
       <a href="https://www.mi.com/a/h/19199.html">
-        <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/b34997348887380ab4d19587fa1a711c.webp'">
+        <img
+             :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/b34997348887380ab4d19587fa1a711c.webp'">
       </a>
     </div>
 
@@ -217,10 +233,12 @@
           <div class="promo-list">
             <ul>
               <li>
-                <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/6874615b3c50e837ffe532eb6ea4ef1a.webp'" alt />
+                <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/6874615b3c50e837ffe532eb6ea4ef1a.webp'"
+                     alt />
               </li>
               <li>
-                <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/9f6c89cf21efc23799f6130224cef007.webp'" alt />
+                <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/9f6c89cf21efc23799f6130224cef007.webp'"
+                     alt />
               </li>
             </ul>
           </div>
@@ -231,10 +249,10 @@
       </div>
     </div>
 
-
     <div class="banner">
       <a href="https://www.mi.com/a/h/16528.html">
-        <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/1615d1842fe85914a545297836a44271.webp'">
+        <img
+             :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/1615d1842fe85914a545297836a44271.webp'">
       </a>
     </div>
 
@@ -256,10 +274,12 @@
           <div class="promo-list">
             <ul>
               <li>
-                <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/9f64bbd58c3f5001bdf0688894f22cb6.webp'" alt />
+                <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/9f64bbd58c3f5001bdf0688894f22cb6.webp'"
+                     alt />
               </li>
               <li>
-                <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/ffe4182f1d9a5befdf2380ec90ae1620.webp'" alt />
+                <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/ffe4182f1d9a5befdf2380ec90ae1620.webp'"
+                     alt />
               </li>
             </ul>
           </div>
@@ -270,11 +290,10 @@
       </div>
     </div>
 
-
-
     <div class="banner">
       <a href="https://www.mi.com/a/h/15274.html">
-        <img :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9880db34d227b6c1df5b45cb7df4f465.jpg?thumb=1&w=1226&h=120&f=webp&q=90'">
+        <img
+             :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9880db34d227b6c1df5b45cb7df4f465.jpg?thumb=1&w=1226&h=120&f=webp&q=90'">
       </a>
     </div>
 
@@ -296,10 +315,12 @@
           <div class="promo-list">
             <ul>
               <li>
-                <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/ca0940f052227d235e7de5678d106c89.webp'" alt />
+                <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/ca0940f052227d235e7de5678d106c89.webp'"
+                     alt />
               </li>
               <li>
-                <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/0497ba8520dc4aca9d55e6b841d42331.webp'" alt />
+                <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/0497ba8520dc4aca9d55e6b841d42331.webp'"
+                     alt />
               </li>
             </ul>
           </div>
@@ -312,61 +333,58 @@
 
     <div class="banner">
       <a href="https://www.mi.com/buy/detail?product_id=9836">
-        <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/88e35cffc82cd98cd53172460067af17.webp'">
+        <img
+             :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/88e35cffc82cd98cd53172460067af17.webp'">
       </a>
     </div>
 
     <div class="product-box">
       <div class="container">
-      <div class="recommend-header">
-        <h2 class="title">推荐</h2>
-        <div class="control-part">
-				<span @click="slidePre"
-                class="control control-left" >
-					<i class="el-icon-arrow-left"></i>
-				</span>
-          <span @click="slideNext"
-                  class="control control-right">
+        <div class="recommend-header">
+          <h2 class="title">推荐</h2>
+          <div class="control-part">
+            <span @click="slidePre" class="control control-left">
+              <i class="el-icon-arrow-left"></i>
+            </span>
+            <span @click="slideNext" class="control control-right">
 
-					<i class="el-icon-arrow-right"></i>
-				</span>
+              <i class="el-icon-arrow-right"></i>
+            </span>
+          </div>
         </div>
-      </div>
-      <div class="recommend-wrap">
-        <ul class="recommend-content clearfix">
-          <li class="recomend-item"
-              v-for="item in recomend">
-            <router-link :to="{ path: '/product/' + item.good_id }">
-              <img class="item-image" :src="item.imgUrl" alt="" />
-              <h3 class="item-name">{{item.name}}</h3>
-              <p class="item-price">
-                {{item.price}}元
-              </p>
-            </router-link>
-          </li>
-        </ul>
-      </div>
+        <div class="recommend-wrap">
+          <ul class="recommend-content clearfix">
+            <li class="recomend-item" v-for="item in recomend">
+              <router-link :to="{ path: '/product/' + item.good_id }">
+                <img class="item-image" :src="item.imgUrl" alt="" />
+                <h3 class="item-name">{{item.name}}</h3>
+                <p class="item-price">
+                  {{item.price}}元
+                </p>
+              </router-link>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <!--    预约维修服务,7天无理由退货-->
 
-
     <ServiceBar></ServiceBar>
 
-<!--    <Modal-->
-<!--      title="提示"-->
-<!--      sureText="查看购物车"-->
-<!--      cancelText="取消"-->
-<!--      btnType="3"-->
-<!--      modalType="middle"-->
-<!--      :showModal="showModal"-->
-<!--      @submit="goToCart"-->
-<!--      @cancel="showModal=false">-->
-<!--      <template v-slot:body>-->
-<!--        <p>商品添加成功！</p>-->
-<!--      </template>-->
-<!--    </Modal>-->
+    <!--    <Modal-->
+    <!--      title="提示"-->
+    <!--      sureText="查看购物车"-->
+    <!--      cancelText="取消"-->
+    <!--      btnType="3"-->
+    <!--      modalType="middle"-->
+    <!--      :showModal="showModal"-->
+    <!--      @submit="goToCart"-->
+    <!--      @cancel="showModal=false">-->
+    <!--      <template v-slot:body>-->
+    <!--        <p>商品添加成功！</p>-->
+    <!--      </template>-->
+    <!--    </Modal>-->
   </div>
 </template>
 <script>
@@ -409,9 +427,9 @@ export default {
         }
       },
 
-      currentPage:1,// 当前页码
-      pageSize:8,// 每页大小
-      total:64,
+      currentPage: 1,// 当前页码
+      pageSize: 8,// 每页大小
+      total: 64,
 
       //变换图
       slideList: [
@@ -437,52 +455,52 @@ export default {
         }
       ],
 
-      cateList:[]
+      cateList: []
       ,
       adsList: [
         {
-          detail:'https://www.mi.com/buy/detail?product_id=12511',
+          detail: 'https://www.mi.com/buy/detail?product_id=12511',
           img: 'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/5d4298059889417157e8492750328492.jpg'
         },
         {
-          detail:'https://www.mi.com/buy/detail?product_id=12605',
+          detail: 'https://www.mi.com/buy/detail?product_id=12605',
           img: 'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/ads-2.jpg'
         },
         {
-          detail:'http://www.mi.com/redminote8?product_id=10000181',
+          detail: 'http://www.mi.com/redminote8?product_id=10000181',
           img: 'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/ads-3.png'
         },
         {
-          detail:'https://www.mi.com/buy/detail?product_id=12931',
+          detail: 'https://www.mi.com/buy/detail?product_id=12931',
           img: 'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/lunboxia1.jpg'
         }
       ],
 
-      killList:[],
+      killList: [],
       HotphoneList: [],
 
-      TVList:[],
-      HotTVList:[],
-      applianceList2:[],
+      TVList: [],
+      HotTVList: [],
+      applianceList2: [],
 
-      magicList:[],
-      HotmagicList:[],
-      applianceList3:[],
-
-
-      wearList:[],
-      HotwearList:[],
-      applianceList4:[],
+      magicList: [],
+      HotmagicList: [],
+      applianceList3: [],
 
 
-      smallList:[],
-      HotsmallList:[],
-      applianceList5:[],
+      wearList: [],
+      HotwearList: [],
+      applianceList4: [],
 
 
-      roundList:[],
-      HotroundList:[],
-      applianceList6:[],
+      smallList: [],
+      HotsmallList: [],
+      applianceList5: [],
+
+
+      roundList: [],
+      HotroundList: [],
+      applianceList6: [],
 
       showModal: false,
 
@@ -496,7 +514,7 @@ export default {
       currPage: 0,
       evtNextStatus: true,
       evtPreStatus: true,
-      recomend:[],
+      recomend: [],
       recomends: []
     }
   },
@@ -505,7 +523,7 @@ export default {
   },
   watch: {
     // 家电当前选中的商品分类，响应不同的商品数据
-    applianceActive2: function (val) {
+    applianceActive2: function(val) {
       if (val === 1) {
         // 1为热门商品
         this.applianceList2 = this.HotTVList;
@@ -514,8 +532,9 @@ export default {
       if (val === 2) {
         // 2为电视商品
         this.applianceList2 = this.TVList;
-      }},
-    applianceActive3: function (val) {
+      }
+    },
+    applianceActive3: function(val) {
       if (val === 1) {
         this.applianceList3 = this.HotmagicList;
         return;
@@ -524,7 +543,7 @@ export default {
         this.applianceList3 = this.magicList;
       }
     },
-    applianceActive4: function (val) {
+    applianceActive4: function(val) {
       if (val === 1) {
         // 1为热门商品
         this.applianceList4 = this.HotwearList;
@@ -535,7 +554,7 @@ export default {
         this.applianceList4 = this.wearList;
       }
     },
-    applianceActive5: function (val) {
+    applianceActive5: function(val) {
       // 所以在切换商品列表时判断applianceHotList是否为空,为空则是第一次切换,把applianceList赋值给applianceHotList
       if (val === 1) {
         // 1为热门商品
@@ -547,7 +566,7 @@ export default {
         this.applianceList5 = this.smallList;
       }
     },
-    applianceActive6: function (val) {
+    applianceActive6: function(val) {
       // 所以在切换商品列表时判断applianceHotList是否为空,为空则是第一次切换,把applianceList赋值给applianceHotList
       if (val === 1) {
         // 1为热门商品
@@ -566,7 +585,7 @@ export default {
     init () {
       this.axios.get('http://localhost:8080/index/category',
       ).then((res) => {
-        this.cateList=res.data.cateList
+        this.cateList = res.data.cateList
       })
 
       this.axios.get('http://localhost:8080/index/productfoot', {
@@ -574,8 +593,8 @@ export default {
           categoryId: 1
         }
       }).then((res) => {
-        this.HotphoneList = res.data.slice(0,8);
-        this.killList = this.HotphoneList.splice(0,4);
+        this.HotphoneList = res.data.slice(0, 8);
+        // this.killList = this.HotphoneList.splice(0, 4);
       })
 
 
@@ -584,7 +603,7 @@ export default {
           categoryId: 2
         }
       }).then((res) => {
-        this.HotTVList=res.data.slice(0,8);
+        this.HotTVList = res.data.slice(0, 8);
         // 页面初始化的时候把HoTVtList(热门家电商品列表)直接赋值给applianceList(家电商品列表)
         this.applianceList2 = this.HotTVList;
       })
@@ -593,7 +612,7 @@ export default {
           categoryId: 2
         }
       }).then((res) => {
-        this.TVList = res.data.slice(0,8);
+        this.TVList = res.data.slice(0, 8);
       })
 
 
@@ -603,7 +622,7 @@ export default {
           categoryId: 3
         }
       }).then((res) => {
-        this.HotmagicList=res.data.slice(0,8);
+        this.HotmagicList = res.data.slice(0, 8);
         this.applianceList3 = this.HotmagicList;
       })
       this.axios.get('http://localhost:8080/index/productfootnormal', {
@@ -611,7 +630,7 @@ export default {
           categoryId: 3
         }
       }).then((res) => {
-        this.magicList = res.data.slice(0,8);
+        this.magicList = res.data.slice(0, 8);
       })
 
 
@@ -620,7 +639,7 @@ export default {
           categoryId: 4
         }
       }).then((res) => {
-        this.HotwearList=res.data.slice(0,8);
+        this.HotwearList = res.data.slice(0, 8);
         this.applianceList4 = this.HotwearList;
       })
       this.axios.get('http://localhost:8080/index/productfootnormal', {
@@ -628,7 +647,7 @@ export default {
           categoryId: 4
         }
       }).then((res) => {
-        this.wearList = res.data.slice(0,8);
+        this.wearList = res.data.slice(0, 8);
       })
 
       this.axios.get('http://localhost:8080/index/productfoot', {
@@ -636,7 +655,7 @@ export default {
           categoryId: 5
         }
       }).then((res) => {
-        this.HotsmallList=res.data.slice(0,8);
+        this.HotsmallList = res.data.slice(0, 8);
         this.applianceList5 = this.HotsmallList;
       })
       this.axios.get('http://localhost:8080/index/productfootnormal', {
@@ -644,7 +663,7 @@ export default {
           categoryId: 5
         }
       }).then((res) => {
-        this.smallList = res.data.slice(0,8);
+        this.smallList = res.data.slice(0, 8);
       })
 
 
@@ -653,7 +672,7 @@ export default {
           categoryId: 6
         }
       }).then((res) => {
-        this.HotroundList=res.data.slice(0,6);
+        this.HotroundList = res.data.slice(0, 6);
         this.applianceList6 = this.HotroundList;
       })
       this.axios.get('http://localhost:8080/index/productfootnormal', {
@@ -661,38 +680,38 @@ export default {
           categoryId: 6
         }
       }).then((res) => {
-        this.roundList = res.data.slice(0,8);
+        this.roundList = res.data.slice(0, 8);
       })
 
 
 
-      this.axios.get('http://localhost:8080/index/suggest').then((res)=>{
+      this.axios.get('http://localhost:8080/index/suggest').then((res) => {
         this.recomends = res.sugglist;
-        this.recomend=this.recomends.slice(0,5)
+        this.recomend = this.recomends.slice(0, 5)
       })
 
     },
 
-    getChildMsg2(val) {
+    getChildMsg2 (val) {
       this.applianceActive2 = val;
     },
-    getChildMsg3(val) {
+    getChildMsg3 (val) {
       this.applianceActive3 = val;
     },
-    getChildMsg4(val) {
+    getChildMsg4 (val) {
       this.applianceActive4 = val;
     },
-    getChildMsg5(val) {
+    getChildMsg5 (val) {
       this.applianceActive5 = val;
     },
-    getChildMsg6(val) {
+    getChildMsg6 (val) {
       this.applianceActive6 = val;
     },
 
 
 
     slideNext () {
-      if(this.currPage === Math.floor((this.recomends.length-1)/5)){
+      if (this.currPage === Math.floor((this.recomends.length - 1) / 5)) {
         this.currPage--;
         this.$alert('已经是最后一页了', '', {
           confirmButtonText: '确定',
@@ -701,10 +720,10 @@ export default {
         });
       }
       this.currPage++
-      this.recomend=this.recomends.slice(5*this.currPage,5*(this.currPage+1))
+      this.recomend = this.recomends.slice(5 * this.currPage, 5 * (this.currPage + 1))
     },
     slidePre () {
-      if(this.currPage===0){
+      if (this.currPage === 0) {
         this.currPage++;
         this.$alert('已经是第一页了', '', {
           confirmButtonText: '确定',
@@ -713,78 +732,81 @@ export default {
         });
       }
       this.currPage--
-      this.recomend=this.recomends.slice(5*this.currPage,5*(this.currPage+1))
+      this.recomend = this.recomends.slice(5 * this.currPage, 5 * (this.currPage + 1))
     }
 
   }
 }
 </script>
 <style lang="scss">
-  @import './../assets/scss/config.scss';
-  @import './../assets/scss/mixin.scss';
+@import './../assets/scss/config.scss';
+@import './../assets/scss/mixin.scss';
 
-  .index{
-    .swiper-box{
-      .nav-menu{
-        position:absolute;
-        width:264px;
-        height:451px;
-        z-index:5;
-        padding:23px 0;
-        // 带透明度的背景色
-        background-color:#55585a7a;
-        box-sizing:border-box;
-        .menu-wrap{
-          .menu-item{
-            height:43px;
-            line-height:40px;
-            a{
-              position:relative;
-              display:block;
-              font-size:16px;
-              color:#ffffff;
-              padding-left:30px;
-              &:after{
-                position:absolute;
-                right:30px;
-                top:17.5px;
-                content:' ';
-                @include bgImg(10px,15px,'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/icon-arrow.png');
-              }
+.index {
+  .swiper-box {
+    .nav-menu {
+      position: absolute;
+      width: 264px;
+      height: 451px;
+      z-index: 5;
+      padding: 23px 0;
+      // 带透明度的背景色
+      background-color: #55585a7a;
+      box-sizing: border-box;
+      .menu-wrap {
+        .menu-item {
+          height: 43px;
+          line-height: 40px;
+          a {
+            position: relative;
+            display: block;
+            font-size: 16px;
+            color: #ffffff;
+            padding-left: 30px;
+            &:after {
+              position: absolute;
+              right: 30px;
+              top: 17.5px;
+              content: ' ';
+              @include bgImg(
+                10px,
+                15px,
+                'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/icon-arrow.png'
+              );
             }
-            &:hover{
-              background-color:$colorA;
-              .children{
-                display:block;
-              }
+          }
+          &:hover {
+            background-color: $colorA;
+            .children {
+              display: block;
             }
-            .children{
-              display:none;
-              width:962px;
-              height:451px;
-              background-color:$colorG;
-              position:absolute;
-              top:0;
-              left:264px;
-              border:1px solid $colorH;
-              ul{
-                display:flex;
-                justify-content:space-between;
-                height:75px;
-                li{
-                  height:75px;
-                  line-height:75px;
-                  flex:1;
-                  padding-left:23px;
-                  a{
-                    color:$colorB;
-                    font-size:14px;
-                    img{
-                      width:42px;
-                      height:35px;
-                      vertical-align:middle;
-                      margin-right:15px;
-                    }
+          }
+          .children {
+            display: none;
+            width: 962px;
+            height: 451px;
+            background-color: $colorG;
+            position: absolute;
+            top: 0;
+            left: 264px;
+            border: 1px solid $colorH;
+            ul {
+              display: flex;
+              justify-content: space-between;
+              height: 75px;
+              li {
+                height: 75px;
+                line-height: 75px;
+                flex: 1;
+                padding-left: 23px;
+                a {
+                  color: $colorB;
+                  font-size: 14px;
+                  img {
+                    width: 42px;
+                    height: 35px;
+                    vertical-align: middle;
+                    margin-right: 15px;
                   }
                 }
               }
@@ -792,316 +814,370 @@ export default {
           }
         }
       }
-      .swiper-container {
-        height: 451px;
-        .swiper-button-prev{
-          left:274px;
-        }
-        img{
-          width:100%;
-          height:100%;
-        }
+    }
+    .swiper-container {
+      height: 451px;
+      .swiper-button-prev {
+        left: 274px;
+      }
+      img {
+        width: 100%;
+        height: 100%;
       }
     }
-    .ads-box{
-      @include flex();
-      margin-top:14px;
-      margin-bottom:31px;
-      a{
-        width:296px;
-        height:167px;
-        // img{  base.scss写过了
-        //   width:100%;
-        //   height:100%;
-        // }
-      }
+  }
+  .ads-box {
+    @include flex();
+    margin-top: 14px;
+    margin-bottom: 0;
+    a {
+      width: 296px;
+      height: 167px;
+      // img{  base.scss写过了
+      //   width:100%;
+      //   height:100%;
+      // }
     }
-    .banner{
-
+  }
+  .banner {
+  }
+  .product-box {
+    background-color: $colorJ;
+    padding: 30px 0 50px;
+    h2 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 200;
+      line-height: 58px;
+      color: #333;
     }
-    .product-box{
-      background-color:$colorJ;
-      padding:30px 0 50px;
-      h2{
-        margin: 0;
-        font-size: 22px;
-        font-weight: 200;
-        line-height: 58px;
-        color: #333;
-      }
-      .PreOrNext{
-        margin-left: 800px;
-      }
-
-      .box-hd {
-        height: 58px;
-        margin: 20px 0 0 0;
-      }
-
-      .box-hd .title {
-        float: left;
-        font-size: 22px;
-        font-weight: 200;
-        line-height: 58px;
-        color: #333;
-      }
-
-      .box-hd .more {
-        float: right;
-      }
-
-      .box-hd .more a {
-        font-size: 16px;
-        line-height: 58px;
-        color: #424242;
-      }
-
-      .box-hd .more a:hover {
-        color: #ff6700;
-      }
-
-
-      .box-bd {
-        height: 615px;
-      }
-
-      .box-bd .promo-list {
-        float: left;
-        height: 615px;
-        width: 234px;
-      }
-
-      .box-bd .promo-list li {
-        z-index: 1;
-        width: 234px;
-        height: 300px;
-        margin-bottom: 14.5px;
-        -webkit-transition: all 0.2s linear;
-        transition: all 0.2s linear;
-      }
-
-      .box-bd .promo-list li:hover {
-        z-index: 2;
-        -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
-        -webkit-transform: translate3d(0, -2px, 0);
-        transform: translate3d(0, -2px, 0);
-      }
-
-      .box-bd .promo-list li img {
-        width: 234px;
-        height: 300px;
-      }
-
-      .box-bd .promo-list img {
-        width: 234px;
-      }
-
-      .box-bd .list {
-        float: left;
-        height: 615px;
-        width: 991px;
-      }
-
+    .PreOrNext {
+      margin-left: 800px;
     }
 
-    .product-box2{
-      background-color:$colorJ;
-      padding:30px 0 50px;
-      h2{
-        margin: 0;
-        font-size: 22px;
-        font-weight: 200;
-        line-height: 58px;
-        color: #333;
-      }
-      .PreOrNext{
-        margin-left: 800px;
-      }
-
-      .box-hd {
-        height: 58px;
-        margin: 20px 0 0 0;
-      }
-
-      .box-hd .title {
-        float: left;
-        font-size: 22px;
-        font-weight: 200;
-        line-height: 58px;
-        color: #333;
-      }
-
-      .box-hd .more {
-        float: right;
-      }
-
-      .box-hd .more a {
-        font-size: 16px;
-        line-height: 58px;
-        color: #424242;
-      }
-
-      .box-hd .more a:hover {
-        color: #ff6700;
-      }
-
-
-      .box-bd {
-        height: 340px;
-      }
-
-      .box-bd .promo-list {
-        float: left;
-        height: 340px;
-        width: 234px;
-      }
-
-      .box-bd .promo-list2 {
-        float: left;
-        height: 300px;
-        width: 234px;
-      }
-
-
-      .box-bd .promo-list li {
-        z-index: 1;
-        width: 234px;
-        height: 300px;
-        margin-bottom: 14.5px;
-        -webkit-transition: all 0.2s linear;
-        transition: all 0.2s linear;
-      }
-
-      .box-bd .promo-list li:hover {
-        z-index: 2;
-        -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
-        -webkit-transform: translate3d(0, -2px, 0);
-        transform: translate3d(0, -2px, 0);
-      }
-
-      .box-bd .promo-list li img {
-        width: 234px;
-        height: 300px;
-      }
-
-      .box-bd .promo-list img {
-        width: 234px;
-      }
-
-      .box-bd .list {
-        float: left;
-        height: 615px;
-        width: 991px;
-      }
-
+    .box-hd {
+      height: 58px;
+      margin: 20px 0 0 0;
     }
 
-    .recommend-container {
-      background-color: $colorJ;
-      width: 1226px;
-      height: auto;
+    .box-hd .title {
+      float: left;
+      font-size: 22px;
+      font-weight: 200;
+      line-height: 58px;
+      color: #333;
+    }
+
+    .box-hd .more {
+      float: right;
+    }
+
+    .box-hd .more a {
+      font-size: 16px;
+      line-height: 58px;
+      color: #424242;
+    }
+
+    .box-hd .more a:hover {
+      color: #ff6700;
+    }
+
+    .box-bd {
+      height: 615px;
+    }
+
+    .box-bd .promo-list {
+      float: left;
+      height: 615px;
+      width: 234px;
+    }
+
+    .box-bd .promo-list li {
+      z-index: 1;
+      width: 234px;
+      height: 300px;
+      margin-bottom: 14.5px;
+      -webkit-transition: all 0.2s linear;
+      transition: all 0.2s linear;
+    }
+
+    .box-bd .promo-list li:hover {
+      z-index: 2;
+      -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      -webkit-transform: translate3d(0, -2px, 0);
+      transform: translate3d(0, -2px, 0);
+    }
+
+    .box-bd .promo-list li img {
+      width: 234px;
+      height: 300px;
+    }
+
+    .box-bd .promo-list img {
+      width: 234px;
+    }
+
+    .box-bd .list {
+      float: left;
+      height: 615px;
+      width: 991px;
+    }
+  }
+
+  .product-box2 {
+    background-color: $colorJ;
+    padding: 30px 0 0;
+    h2 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 200;
+      line-height: 58px;
+      color: #333;
+    }
+    .PreOrNext {
+      margin-left: 800px;
+    }
+
+    .items2 {
+      margin-left: 0;
+      padding: 0;
+    }
+    .items1 {
+      text-align: center;
+      width: 214px;
+      height: 300px;
+      border-top: 1px solid red;
+      background-color: white;
+      float: left;
+      margin-left: 14px;
+    }
+    a {
+      color: #666;
+      text-decoration: none;
+    }
+
+    .thun-red {
+      font-size: 21px;
+      color: red;
+      margin-top: 54px;
+    }
+    .clock-img {
+      width: 34px;
+      height: 50px;
+      margin: 25px 0;
+    }
+
+    img {
+      border: 0;
+    }
+    .thun {
+      width: 194px;
+      height: 21px;
+      margin-bottom: 3px;
       margin: 0 auto;
+      font-size: 14px;
+      color: #121212;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .recommend-header {
-      position: relative;
-      .title {
-        margin: 0;
-        font-size: 22px;
-        font-weight: 200;
-        line-height: 58px;
-        color: #333;
-      }
-      .control-part {
-        position: absolute;
-        top: 10px;
-        right: 0;
-        float: left;
+    .time-item {
+      margin-top: 20px;
+    }
+    .time-item strong {
+      display: inline-block;
+      background: #555555;
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      font-size: 24px;
+      font-family: Arial;
+      margin-right: 7px;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .box-hd {
+      height: 58px;
+      margin: 20px 0 0 0;
+    }
+
+    .box-hd .title {
+      float: left;
+      font-size: 22px;
+      font-weight: 200;
+      line-height: 58px;
+      color: #333;
+    }
+
+    .box-hd .more {
+      float: right;
+    }
+
+    .box-hd .more a {
+      font-size: 16px;
+      line-height: 58px;
+      color: #424242;
+    }
+
+    .box-hd .more a:hover {
+      color: #ff6700;
+    }
+
+    .box-bd {
+      height: 340px;
+    }
+
+    .box-bd .promo-list {
+      float: left;
+      height: 340px;
+      width: 234px;
+    }
+
+    .box-bd .promo-list2 {
+      float: left;
+      height: 300px;
+      width: 234px;
+    }
+
+    .box-bd .promo-list li {
+      z-index: 1;
+      width: 234px;
+      height: 300px;
+      margin-bottom: 14.5px;
+      -webkit-transition: all 0.2s linear;
+      transition: all 0.2s linear;
+    }
+
+    .box-bd .promo-list li:hover {
+      z-index: 2;
+      -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      -webkit-transform: translate3d(0, -2px, 0);
+      transform: translate3d(0, -2px, 0);
+    }
+
+    .box-bd .promo-list li img {
+      width: 234px;
+      height: 300px;
+    }
+
+    .box-bd .promo-list img {
+      width: 234px;
+    }
+
+    .box-bd .list {
+      float: left;
+      height: 615px;
+      width: 991px;
+    }
+  }
+
+  .recommend-container {
+    background-color: $colorJ;
+    width: 1226px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .recommend-header {
+    position: relative;
+    .title {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 200;
+      line-height: 58px;
+      color: #333;
+    }
+    .control-part {
+      position: absolute;
+      top: 10px;
+      right: 0;
+      float: left;
+      display: block;
+      .control {
         display: block;
-        .control {
-          display: block;
-          float: left;
-          width: 34px;
-          height: 23px;
-          line-height: 23px;
-          text-align: center;
-          border: 1px solid #e0e0e0;
-          cursor: pointer;
-          &:hover {
-            .icon-arrow {
-              color: #ff6700;
-            }
+        float: left;
+        width: 34px;
+        height: 23px;
+        line-height: 23px;
+        text-align: center;
+        border: 1px solid #e0e0e0;
+        cursor: pointer;
+        &:hover {
+          .icon-arrow {
+            color: #ff6700;
           }
-          &.disable {
-            &:hover {
-              .icon-arrow {
-                color: #e0e0e0;
-              }
-            }
+        }
+        &.disable {
+          &:hover {
             .icon-arrow {
               color: #e0e0e0;
             }
           }
           .icon-arrow {
-            color: #b0b0b0;
-            font-size: 10px;
+            color: #e0e0e0;
           }
         }
-      }
-    }
-    .recommend-wrap {
-      width: 1226px;
-      height: 310px;
-      overflow: hidden;
-    }
-    .recommend-content {
-      width: auto;
-      height: 300px;
-      transition: all 0.3s;
-      .recomend-item {
-        float: left;
-        display: block;
-        width: 234px;
-        height: 300px;
-        margin: 0 13px 14px 0;
-        font-size: 14px;
-        background: #fff;
-        cursor: pointer;
-        transition: all 0.3s;
-        &:hover {
-          transform: translateY(-3px);
-        }
-        &:nth-last-child(5n+1) {
-          margin-right: 0;
-        }
-        .item-image {
-          display: block;
-          width: 140px;
-          height: 140px;
-          margin: 40px auto 15px;
-        }
-        .item-name {
-          margin-bottom: 10px;
-          font-weight: normal;
-          font-size: 14px;
-          text-align: center;
-          color: #333;
-        }
-        .item-price {
-          margin-bottom: 10px;
-          font-size: 14px;
-          text-align: center;
-          color: #ff6700;
-        }
-        .item-favorable {
-          font-size: 14px;
-          text-align: center;
-          color: #757575;
+        .icon-arrow {
+          color: #b0b0b0;
+          font-size: 10px;
         }
       }
     }
-
   }
+  .recommend-wrap {
+    width: 1226px;
+    height: 310px;
+    overflow: hidden;
+  }
+  .recommend-content {
+    width: auto;
+    height: 300px;
+    transition: all 0.3s;
+    .recomend-item {
+      float: left;
+      display: block;
+      width: 234px;
+      height: 300px;
+      margin: 0 13px 14px 0;
+      font-size: 14px;
+      background: #fff;
+      cursor: pointer;
+      transition: all 0.3s;
+      &:hover {
+        transform: translateY(-3px);
+      }
+      &:nth-last-child(5n + 1) {
+        margin-right: 0;
+      }
+      .item-image {
+        display: block;
+        width: 140px;
+        height: 140px;
+        margin: 40px auto 15px;
+      }
+      .item-name {
+        margin-bottom: 10px;
+        font-weight: normal;
+        font-size: 14px;
+        text-align: center;
+        color: #333;
+      }
+      .item-price {
+        margin-bottom: 10px;
+        font-size: 14px;
+        text-align: center;
+        color: #ff6700;
+      }
+      .item-favorable {
+        font-size: 14px;
+        text-align: center;
+        color: #757575;
+      }
+    }
+  }
+}
 </style>

@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface SugFootService {
 
-    SqlSession getSqlSession() throws IOException;
+
 
     List<SuggestFoot> getSugFoot() throws IOException;
 }
