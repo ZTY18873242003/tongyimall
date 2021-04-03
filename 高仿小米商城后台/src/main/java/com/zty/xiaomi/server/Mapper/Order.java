@@ -1,4 +1,4 @@
-package com.zty.xiaomi.server.Dao;
+package com.zty.xiaomi.server.Mapper;
 
 import com.zty.xiaomi.server.Entity.Address.Addre;
 import com.zty.xiaomi.server.Entity.Order.OrdFina;
@@ -7,9 +7,11 @@ import com.zty.xiaomi.server.Entity.Order.UserOrdList;
 import com.zty.xiaomi.server.Entity.Order.orderItemVoList;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public interface Order {
 
     @Select("select good_id,goods_name,price,count,productTotalPrice from cart where user_id like #{userid} and status = 1")

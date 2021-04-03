@@ -1,12 +1,13 @@
 package com.zty.xiaomi.server.Service.Category;
 
-import com.zty.xiaomi.server.Dao.Category;
+import com.zty.xiaomi.server.Mapper.Category;
 import com.zty.xiaomi.server.Entity.index.*;
-import com.zty.xiaomi.server.utils.SqlSessionUtil;
+
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -17,16 +18,18 @@ import java.util.List;
 @Service
 public class CategoryIndexImp implements CategoryIndex {
 
+    @Autowired
+    private Category category;
     @Override
     public int getCateCount() throws IOException {
-        SqlSession sqlSession = SqlSessionUtil.getInstance();
-        int cateCount = sqlSession.getMapper(Category.class).getCateCount();
+//        SqlSession sqlSession = ;
+        int cateCount = category.getCateCount();
         return cateCount;
     }
 
     @Override
     public CategoryResult getCategoryGoods() throws IOException {
-        SqlSession sqlSession = SqlSessionUtil.getInstance();
+//        SqlSession sqlSession = ;
         CategoryResult categoryResult = new CategoryResult();
         categoryResult.setStatus(0);
 
@@ -37,11 +40,11 @@ public class CategoryIndexImp implements CategoryIndex {
 
         for (int i = 1; i <=categoryCount ; i++) {
             Categor categor = new Categor();
-            GoodCategory goodCategory = sqlSession.getMapper(Category.class).getGoodCategory(i);
+            GoodCategory goodCategory = category.getGoodCategory(i);
             categor.setCategoryId(goodCategory.getCategoryId());
             categor.setName(goodCategory.getName());
 
-            List<CategoryGood> goodbyCategory = sqlSession.getMapper(Category.class).getGoodbyCategory(i);
+            List<CategoryGood> goodbyCategory = category.getGoodbyCategory(i);
 
             int compleKind= goodbyCategory.size()/4;
 

@@ -25,7 +25,7 @@ public class CartController {
 
     @PostMapping("/push")
     public CartResult putShop(@RequestBody pushCart pushcart) throws IOException {
-  
+
         CartResult cartResult = new CartResult();
         boolean success = TokenUtil.verify(pushcart.getToken());
         if (success) {

@@ -9,5 +9,4 @@ public class LoginResult {
     private int status=0;
     private String msg;
     private LoginData data;
-
 }

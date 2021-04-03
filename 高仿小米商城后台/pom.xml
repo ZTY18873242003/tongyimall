@@ -54,6 +54,12 @@
             <version>3.10.2</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+
 <!--        Redis依赖以下两个-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -65,7 +71,18 @@
             <artifactId>commons-pool2</artifactId>
         </dependency>
 
-<!--布隆过滤器-->
+
+
+        <!--日志包-->
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
+
+        <!--布隆过滤器-->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>

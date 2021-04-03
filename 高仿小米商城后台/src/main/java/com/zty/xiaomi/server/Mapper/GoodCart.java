@@ -1,4 +1,4 @@
-package com.zty.xiaomi.server.Dao;
+package com.zty.xiaomi.server.Mapper;
 
 import com.zty.xiaomi.server.Entity.Cart.CartGoodInsert;
 import com.zty.xiaomi.server.Entity.Cart.cartProduct;
@@ -7,9 +7,11 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public interface GoodCart {
     @Select("select count,goods_name,subtitle,price,status,productStock from cart where user_id like #{userid} and good_id = #{id}")
     CartGood getGoodByid(String userid, int id);

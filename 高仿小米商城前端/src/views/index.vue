@@ -44,7 +44,7 @@
     <div class="product-box2">
       <div class="container">
         <div class="box-hd">
-          <div class="title">小米闪购</div>
+          <div class="title">小米秒杀</div>
           <div class="more">
           </div>
         </div>
@@ -52,34 +52,18 @@
         <div class="box-bd">
           <div class="items1 items2 fl">
             <a href="#">
-              <p class="thun-red">14:00</p>
+              <p class="thun-red">{{starttime}}</p>
               <img src="https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/colock.jpg"
                    class="clock-img">
-              <p class="thun">距离结束还有</p>
+              <p class="thun">{{tip}}</p>
               <div id="first" class="time-item">
-                <strong class="hour_show"><s id="h"></s>23</strong>
-                <strong class="minute_show"><s></s>54</strong>
-                <strong class="second_show"><s></s>08</strong>
+                <strong class="hour_show"><s id="h"></s>{{ -hour }}</strong>
+                <strong class="minute_show"><s></s>{{ -minute }}</strong>
+                <strong class="second_show"><s></s>{{ -second }}</strong>
               </div>
             </a>
           </div>
-          <!-- <div class="promo-list2">
 
-            <div class="items1 items2 fl">
-              <a href="#">
-                <p class="thun-red">14:00</p>
-                <img src="https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/colock.jpg"
-                     class="clock-img">
-                <p class="thun">距离结束还有</p>
-                <div id="first" class="time-item">
-                  <strong class="hour_show">00</strong>
-                  <strong class="minute_show">00</strong>
-                  <strong class="second_show">00</strong>
-                </div>
-              </a>
-            </div>
-
-          </div> -->
           <div class="list-box">
             <MyList :list="killList" :isMore="false"></MyList>
           </div>
@@ -372,19 +356,6 @@
 
     <ServiceBar></ServiceBar>
 
-    <!--    <Modal-->
-    <!--      title="提示"-->
-    <!--      sureText="查看购物车"-->
-    <!--      cancelText="取消"-->
-    <!--      btnType="3"-->
-    <!--      modalType="middle"-->
-    <!--      :showModal="showModal"-->
-    <!--      @submit="goToCart"-->
-    <!--      @cancel="showModal=false">-->
-    <!--      <template v-slot:body>-->
-    <!--        <p>商品添加成功！</p>-->
-    <!--      </template>-->
-    <!--    </Modal>-->
   </div>
 </template>
 <script>
@@ -515,13 +486,29 @@ export default {
       evtNextStatus: true,
       evtPreStatus: true,
       recomend: [],
-      recomends: []
+      recomends: [],
+
+      starttime:'',
+      hour:'',
+      minute:'',
+      second:'',
+
     }
   },
   mounted () {
     this.init()
   },
   watch: {
+    // second: function(val) {
+    //   if(val===0&&this.minute ===0&&this.hour ===0&&this.tip==='距离开始还有'){
+    //     this.tip='距离秒杀结束还有';
+    //   }
+    //   else if(val===0&&this.minute ===0&&this.hour ===0&&this.tip==='距离秒杀结束还有'){
+    //     this.tip='秒杀已结束';
+    //
+    //   }
+    // },
+
     // 家电当前选中的商品分类，响应不同的商品数据
     applianceActive2: function(val) {
       if (val === 1) {
@@ -582,7 +569,40 @@ export default {
 
   methods: {
 
+    runTime:function(){//运行倒计时
+        var that = this;
+        that.tip='距离开始还有';
+        let endTime =new Date(new Date().getTime() + 30*1000);
+
+        that.starttime='开场时间:' + endTime.getHours()+ ':' + endTime.getMinutes() ;
+
+        var timer = setInterval(function(){
+        var nowTime = new Date();
+        var longTime = nowTime - endTime;
+
+        var hours = parseInt(longTime / 1000 / 60 / 60 % 24 , 10); //计算剩余的小时
+        var minutes = parseInt(longTime / 1000 / 60 % 60, 10);//计算剩余的分钟
+        var seconds = parseInt(longTime / 1000 % 60, 10);//计算剩余的秒数
+          that.hour = hours;
+          that.minute=minutes;
+          that.second=seconds;
+
+          if(hours===0&&minutes===0&&seconds===0&&that.tip==='距离开始还有'){
+            that.tip='距离秒杀结束还有';
+            endTime =new Date(new Date().getTime() + 60*1000)
+          }
+          else if(hours===0&&minutes===0&&seconds===0&&that.tip==='距离秒杀结束还有') {
+            clearInterval(timer);
+            that.tip='秒杀已结束';
+          }
+
+      },1000)
+    },
+
     init () {
+      var that=this;
+      that.runTime();
+
       this.axios.get('http://localhost:8080/index/category',
       ).then((res) => {
         this.cateList = res.data.cateList
@@ -950,7 +970,7 @@ export default {
       border-top: 1px solid red;
       background-color: white;
       float: left;
-      margin-left: 14px;
+      margin-left: 0px;
     }
     a {
       color: #666;

@@ -1,11 +1,11 @@
-package com.zty.xiaomi.server.Dao;
+package com.zty.xiaomi.server.Mapper;
 
 import com.zty.xiaomi.server.Entity.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Component;
 
-import java.util.Date;
-
+@Component
 public interface RegLogUser {
     @Select("select userid,name,email,pwd,tel from userinfo where name like #{username}")
     User getUserByName(String username);

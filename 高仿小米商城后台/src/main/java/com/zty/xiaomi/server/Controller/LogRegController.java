@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
-import java.util.Date;
 import java.util.Map;
 import java.util.UUID;
 
@@ -27,7 +26,6 @@ import java.util.UUID;
 public class LogRegController {
     @Autowired
     private RegLogServiceImp regLogServiceImp;
-
 
     //注册功能
     @RequestMapping("/getRegister")

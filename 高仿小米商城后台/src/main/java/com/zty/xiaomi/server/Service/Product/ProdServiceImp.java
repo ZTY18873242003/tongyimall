@@ -1,24 +1,21 @@
 package com.zty.xiaomi.server.Service.Product;
 
-import com.zty.xiaomi.server.Dao.Product;
 import com.zty.xiaomi.server.Entity.Product.ProductInfo;
-import com.zty.xiaomi.server.utils.SqlSessionUtil;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import com.zty.xiaomi.server.Mapper.Product;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 @Service
 public class ProdServiceImp implements ProdService{
 
+    @Autowired
+    private Product productmapper;
+
     @Override
     public ProductInfo getProductInfo(int id) throws IOException {
-        SqlSession sqlSession = SqlSessionUtil.getInstance();
-        ProductInfo productInfoById = sqlSession.getMapper(Product.class).getProductInfoById(id);
+        ProductInfo productInfoById = productmapper.getProductInfoById(id);
         return  productInfoById;
     }
 }

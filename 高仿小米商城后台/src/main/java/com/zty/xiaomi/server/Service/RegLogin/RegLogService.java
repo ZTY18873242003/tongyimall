@@ -8,8 +8,6 @@ import java.util.Date;
 
 public interface RegLogService {
 
-
-
     User getUserByName(String email) throws IOException;
 
     User getUserByUserName(String username) throws IOException;

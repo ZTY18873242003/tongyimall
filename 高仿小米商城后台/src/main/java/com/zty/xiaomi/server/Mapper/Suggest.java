@@ -1,11 +1,13 @@
-package com.zty.xiaomi.server.Dao;
+package com.zty.xiaomi.server.Mapper;
 
 import com.zty.xiaomi.server.Entity.Suggest.SuggestBig;
 import com.zty.xiaomi.server.Entity.Suggest.SuggestFoot;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public interface Suggest {
 
     @Select("select * from goodsuggefoot")
