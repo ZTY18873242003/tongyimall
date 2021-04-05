@@ -55,7 +55,7 @@ export default {
     login () {
       const { username, password } = this
       var that=this
-      this.axios.get('http://localhost:8080/login/UserLogin', {
+      this.axios.get('http://121.196.161.5:8080/login/UserLogin', {
         params: {
         'username':username,
         'password':password

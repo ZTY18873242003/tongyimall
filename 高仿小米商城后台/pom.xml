@@ -71,6 +71,11 @@
             <artifactId>commons-pool2</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
+
 
 
         <!--日志包-->

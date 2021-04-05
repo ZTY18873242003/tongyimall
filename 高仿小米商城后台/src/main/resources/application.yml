@@ -6,7 +6,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/xiaomi?useSSL=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
-    password: "2000918131X"
+    password: "4vm(pBK?Qih*!"
     type: com.alibaba.druid.pool.DruidDataSource
 
     #Spring Boot 默认是不注入这些属性值的，需要自己绑定
@@ -40,23 +40,17 @@ spring:
     # redis端口（默认为6379）
     port: 6379
     # redis访问密码（默认为空）
-    password: pwd123
+    password: 123456
     # redis连接超时时间（单位毫秒）
-    timeout: 0
+    timeout: 1000
     # redis连接池配置
-    pool:
+    jedis:
+      pool:
       # 最大可用连接数（默认为8，负数表示无限）
-      max-active: 8
+        max-active: 8
       # 最大空闲连接数（默认为8，负数表示无限）
-      max-idle: 8
+        max-idle: -1
       # 最小空闲连接数（默认为0，该值只有为正数才有用）
-      min-idle: 0
+        min-idle: 8
       # 从连接池中获取连接最大等待时间（默认为-1，单位为毫秒，负数表示无限）
-      max-wait: -1
-
-#spring:
-#  datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://47.106.69.26:3306/webkese?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
-#    username: root
-#    password: 9obCwjayjA(A
+        max-wait: 0

@@ -30,7 +30,7 @@
       <div class="nav-header">
           <div class="container">
             <div class="header-logo">
-              <!-- 相当于：localhost:8080/#/index -->
+              <!-- 相当于：121.196.161.5:8080/#/index -->
               <a href="/#/index"></a>
             </div>
 
@@ -173,7 +173,7 @@ export default {
       this.$router.push('/cart')
     },
     getProductList () {
-      this.axios.get('http://localhost:8080/index/product', {
+      this.axios.get('http://121.196.161.5:8080/index/product', {
         params: {
           categoryId: 1
         }
@@ -181,7 +181,7 @@ export default {
         this.phoneList = res.data
       }),
 
-      this.axios.get('http://localhost:8080/index/product', {
+      this.axios.get('http://121.196.161.5:8080/index/product', {
         params: {
           categoryId: 3
         }
@@ -189,7 +189,7 @@ export default {
         this.compList = res.data
       }),
 
-      this.axios.get('http://localhost:8080/index/product', {
+      this.axios.get('http://121.196.161.5:8080/index/product', {
         params: {
           categoryId: 2
         }
@@ -197,7 +197,7 @@ export default {
         this.TVList = res.data
       })
 
-      this.axios.get('http://localhost:8080/index/product', {
+      this.axios.get('http://121.196.161.5:8080/index/product', {
         params: {
           categoryId: 9
         }

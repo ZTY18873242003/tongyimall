@@ -21,7 +21,7 @@ module.exports = {
   },
   lintOnSave: false, //如果为false，就是取消eslint规则的检查
   devServer: {
-    host: 'localhost',
+    host: '121.196.161.5',
     port: 8080,
   },
 

@@ -2202,7 +2202,7 @@ export default {
     },
 
     getAddressList () {
-      this.axios.get('http://localhost:8080/shippings/getAll',{
+      this.axios.get('http://121.196.161.5:8080/shippings/getAll',{
         params:{
           username:sessionStorage.getItem('username')
         }
@@ -2236,13 +2236,13 @@ export default {
       let params = {}
       if (userAction === 0) {
         method = 'post'
-        url = 'http://localhost:8080/shippings/push'
+        url = 'http://121.196.161.5:8080/shippings/push'
       } else if (userAction === 1) {
         method = 'put'
-        url = `http://localhost:8080/shippings/${checkedItem.id}`
+        url = `http://121.196.161.5:8080/shippings/${checkedItem.id}`
       } else {
         method = 'delete'
-        url = `http://localhost:8080/shippings/${checkedItem.id}`
+        url = `http://121.196.161.5:8080/shippings/${checkedItem.id}`
       }
       if (userAction === 0 || userAction === 1) {
         const { receiverName, receiverMobile, receiverProvince, receiverCity, receiverAddress, receiverZip } = checkedItem
@@ -2287,7 +2287,7 @@ export default {
       this.showEditModal = false
     },
     getCartList () {
-      this.axios.get('http://localhost:8080/carts/getcarts',{
+      this.axios.get('http://121.196.161.5:8080/carts/getcarts',{
         params:{
           username: sessionStorage.getItem('username')
         }
@@ -2307,7 +2307,7 @@ export default {
         this.$message.error('请选择一个收货地址')
         return
       }
-      this.axios.post('http://localhost:8080/orders/createorder', {
+      this.axios.post('http://121.196.161.5:8080/orders/createorder', {
         name:sessionStorage.getItem('username'),
         shippingId: item.id
       }).then((res) => {

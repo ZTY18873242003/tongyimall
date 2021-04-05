@@ -64,7 +64,7 @@ public class IndexController {
     }
 
     @RequestMapping("/productfoot")
-    public ProductFootResult getProductFoot(@RequestParam("categoryId") int categoryId) throws IOException {
+    public ProductFootResult getProductFoot(@RequestParam("categoryId") int categoryId) {
 
         ProductFootResult productFootResult = new ProductFootResult();
         productFootResult.setStatus(0);

@@ -116,7 +116,7 @@ export default {
     getOrderList () {
       this.loading = true
       // this.busy = true
-      this.axios.get('http://localhost:8080/orders/getorderlist', {
+      this.axios.get('http://121.196.161.5:8080/orders/getorderlist', {
         params: {
           // pageSize: 10,
           // pageNum: this.pageNum,
