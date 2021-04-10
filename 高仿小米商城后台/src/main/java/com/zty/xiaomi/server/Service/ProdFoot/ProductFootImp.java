@@ -12,6 +12,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
@@ -29,49 +30,11 @@ public class ProductFootImp implements ProdFoot {
     @Autowired
     private ProductFoot productFootmapper;
 
-    @Autowired
-    private RedisTemplate redisTemplate;
-
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private final String listkey1 = "pflist1";
-    private final String listkey2 = "pflist2";
-    private final String listkey3 = "pflist3";
-    private final String listkey4 = "pflist4";
-    private final String listkey5 = "pflist5";
-    private final String listkey6 = "pflist6";
-
-
+    @Cacheable(value = "pflists",key = "'pflist'+#categoryId")
     @Override
     public List<ProductFootInfo> getProductFootInfo(int categoryId) {
-
-        String listkey=null;
-
-       switch (categoryId){
-           case 1:
-               listkey=listkey1;
-               break;
-           case 2:
-               listkey=listkey2;
-               break;
-           case 3:
-               listkey=listkey3;
-               break;
-           case 4:
-               listkey=listkey4;
-               break;
-           case 5:
-               listkey=listkey5;
-               break;
-           case 6:
-               listkey=listkey6;
-               break;
-       }
-
-        List<ProductFootInfo> productFootInfos = (List<ProductFootInfo>) redisTemplate.opsForList().index(listkey,0 );
-        //缓存无数据从数据库查
-
-       if(productFootInfos == null) {
 
            ArrayList<SuggestBig> suggestBigs = new ArrayList<>();
            if (categoryId == 1) {
@@ -100,7 +63,6 @@ public class ProductFootImp implements ProdFoot {
                suggestBigs.addAll(suggestBig8);
            }
 
-
            ArrayList<String> suggestBigNames = new ArrayList<>();
            for (SuggestBig suggestBig : suggestBigs) {
                suggestBigNames.add(suggestBig.getName());
@@ -109,18 +71,12 @@ public class ProductFootImp implements ProdFoot {
            //数据库查出的数据
            logger.info("findAll -> 从数据库中读取放入缓存中");
 
-           ArrayList<ProductFootInfo> productFootInfos1 = new ArrayList<>();
+           ArrayList<ProductFootInfo> productFootInfos = new ArrayList<>();
            for (String suggestBigName : suggestBigNames) {
                ProductFootInfo productInfoById = productFootmapper.getProductFootInfo(suggestBigName);
-               productFootInfos1.add(productInfoById);
+               productFootInfos.add(productInfoById);
            }
-           productFootInfos=productFootInfos1;
-           redisTemplate.opsForList().leftPush(listkey,productFootInfos);
 
-       }
-       else {
-           logger.info("findAll -> 从缓存中读取");
-       }
         return  productFootInfos;
     }
 
