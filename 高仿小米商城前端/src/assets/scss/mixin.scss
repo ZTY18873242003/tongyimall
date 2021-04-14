@@ -1,0 +1,42 @@
+//scss语法，@mixin 方法名($参数1：默认值, $参数2, ...){ 公共css样式 }
+//flex布局复用, 冒号后面是变量的默认值(即不填参数就是这个)
+@mixin flex($hov:space-between,$col:center){
+  display:flex;
+  justify-content:$hov; //水平方向，默认两边放置
+  align-items:$col; //垂直方向，默认居中
+}
+
+@mixin bgImg($w:0,$h:0,$img:'',$size:contain){
+  display:inline-block;
+  width:$w;
+  height:$h;
+  background:url($img) no-repeat center;
+  background-size:$size;
+}
+@mixin position($pos:absolute,$top:0,$left:0,$w:100%,$h:100%){
+  position:$pos;
+  top:$top;
+  left:$left;
+  width:$w;
+  height:$h;
+}
+@mixin positionImg($pos:absolute,$top:0,$right:0,$w:0,$h:0,$img:''){
+  position:$pos;
+  top:$top;
+  right:$right;
+  width:$w;
+  height:$h;
+  background:url($img) no-repeat center;
+  background-size:contain;
+}
+@mixin height($h:0,$lh:$h) {
+  height: $h;
+  line-height: $lh;
+}
+@mixin wH($w:0,$h:0) {
+  width:$w;
+  height: $h;
+}
+@mixin border($bw:1px,$bc:$colorF,$bs:solid) {
+  border: $bw $bs $bc; 
+}

@@ -1,0 +1,56 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/xiaomi?useSSL=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: "2000918131X"
+    type: com.alibaba.druid.pool.DruidDataSource
+
+    #Spring Boot 默认是不注入这些属性值的，需要自己绑定
+    #druid 数据源专有配置
+    initialSize: 5   #初始化时建立物理连接的个数
+    minIdle: 5    #最小连接池数量
+    maxActive: 20   #最大连接池数量
+    maxWait: 60000    #获取连接时最大等待时间
+    timeBetweenEvictionRunsMillis: 60000    #Destory线程检测连接的间隔时间
+    minEvictableIdleTimeMillis: 300000    #连接保持空闲而不被驱逐的最长时间
+    validationQuery: SELECT 1 FROM DUAL    #检测连接是否有效的sql
+    testWhileIdle: true
+    testOnBorrow: false   #申请连接时执行validationQuery检测连接是否有效
+    testOnReturn: false    #归还连接时执行validationQuery检测连接是否有效
+    poolPreparedStatements: true   #是否缓存preparedStatements
+
+    #配置监控统计拦截的filters，stat:监控统计、log4j：日志记录、wall：防御sql注入
+    #如果允许时报错  java.lang.ClassNotFoundException: org.apache.log4j.Priority
+    #则导入 log4j 依赖即可
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+
+
+  redis:
+    # redis数据库索引(默认为0)，我们使用索引为3的数据库，避免和其他数据库冲突
+    database: 3
+    # redis服务器地址（默认为loaclhost）
+    host: 192.168.159.133
+    # redis端口（默认为6379）
+    port: 6379
+    # redis访问密码（默认为空）
+    password:
+    # redis连接超时时间（单位毫秒）
+    timeout: 1000
+    # redis连接池配置
+    jedis:
+      pool:
+      # 最大可用连接数（默认为8，负数表示无限）
+        max-active: 8
+      # 最大空闲连接数（默认为8，负数表示无限）
+        max-idle: -1
+      # 最小空闲连接数（默认为0，该值只有为正数才有用）
+        min-idle: 8
+      # 从连接池中获取连接最大等待时间（默认为-1，单位为毫秒，负数表示无限）
+        max-wait: 0

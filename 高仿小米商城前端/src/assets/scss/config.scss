@@ -1,0 +1,30 @@
+/*
+  样式规范表
+*/
+$min-width:1226px;  //容器安全区域宽度
+
+// 常规字体大小设置
+$fontA:       80px; //产品站大标题
+$fontB:       38px; //产品站标题
+$fontC:       28px; //导航标题
+$fontD:       26px; //产品站副标题
+$fontE:       24px;
+$fontF:       22px;
+$fontG:       20px; //用在较为重要的文字、操作按钮
+$fontH:       18px; //用于大多数文字
+$fontI:       16px; //用于辅助性文字
+$fontJ:       14px; //用于一般文字
+$fontK:       12px; //系统默认大小
+
+// 常规配色设置
+$colorA:      #FF6600 !default; //用于需要突出和强调的文字、按钮和icon
+$colorB:      #333333 !default; //用于较为重要的文字信息、内页标题等
+$colorC:      #666666 !default; //用于普通段落信息 引导词
+$colorD:      #999999 !default; //用于辅助、次要的文字信息、普通按钮的描边
+$colorE:      #cccccc !default; //用于特别弱的文字
+$colorF:      #d7d7d7 !default; //用于列表分割线、标签秒变
+$colorG:      #ffffff !default; //用于导航栏文字、按钮文字、白色背景
+$colorH:      #e5e5e5 !default; //用于上下模块分割线
+$colorI:      #000000 !default; //纯黑色背景，用于遮罩层
+$colorJ:      #F5F5F5 !default; //弹框标题背景色
+$colorK:      #FFFAF7 !default; //订单标题背景色
