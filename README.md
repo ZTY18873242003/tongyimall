@@ -6,7 +6,7 @@
 后端:SpringBoot + MyBatis注解版 + MySQL + redis6
 
 
-### 一、功能与版本
+### 一、功能与版本(在线演示地址:www.tongyi.site)
 &nbsp;&nbsp;&nbsp;&nbsp;当前版本v1.4.0<br>
 &nbsp;&nbsp;&nbsp;&nbsp;目前项目开发中，存在诸多不足，以下是目前已开发的功能。<br>
 

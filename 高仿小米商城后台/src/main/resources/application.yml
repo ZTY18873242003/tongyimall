@@ -6,7 +6,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/xiaomi?useSSL=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
-    password: "2000918131X"
+    password: "4vm(pBK?Qih*!"
     type: com.alibaba.druid.pool.DruidDataSource
 
     #Spring Boot 默认是不注入这些属性值的，需要自己绑定
@@ -34,9 +34,9 @@ spring:
 
   redis:
     # redis数据库索引(默认为0)，我们使用索引为3的数据库，避免和其他数据库冲突
-    database: 3
+    database: 1
     # redis服务器地址（默认为loaclhost）
-    host: 192.168.159.133
+    host: 127.0.0.1
     # redis端口（默认为6379）
     port: 6379
     # redis访问密码（默认为空）
