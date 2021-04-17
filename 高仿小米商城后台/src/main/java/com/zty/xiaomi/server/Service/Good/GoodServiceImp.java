@@ -8,6 +8,9 @@ import com.zty.xiaomi.server.Entity.index.GoodCategory;
 import com.zty.xiaomi.server.Mapper.GoodCart;
 import com.zty.xiaomi.server.Mapper.Goods;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -37,6 +40,7 @@ public class GoodServiceImp implements GoodService {
         return cartGood;
     }
 
+    @CacheEvict(value = "cart",key = "'cart'+#userid")
     @Override
     public void delGoodByid(String userid, int id) {
         goodCartmapper.delGoodByid(userid,id);
@@ -48,6 +52,8 @@ public class GoodServiceImp implements GoodService {
         return cartGoodInsert;
     }
 
+
+    @CacheEvict(value = "cart",key = "'cart'+#userid")
     @Override
     public void updaCartNumSel(String userid, int goodid, int count, boolean select,int totalprice) {
         goodCartmapper.updaCartNumSel(userid, goodid, count, select,totalprice);

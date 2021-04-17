@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -27,6 +28,7 @@ public class CategoryIndexImp implements CategoryIndex {
         return cateCount;
     }
 
+    @Cacheable(value = "category",key = "'category'")
     @Override
     public CategoryResult getCategoryGoods() throws IOException {
 //        SqlSession sqlSession = ;
