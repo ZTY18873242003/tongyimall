@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -18,6 +19,8 @@ import java.util.List;
 public class ProductHeadImp implements ProdHead {
     @Autowired
     private ProductHead productHead;
+
+    @Cacheable(value = "phlist",key = "'phlist'+#categoryId")
     @Override
     public List<ProductHeadInfo> getProductHeadInfo(int categoryId) throws IOException {
 
