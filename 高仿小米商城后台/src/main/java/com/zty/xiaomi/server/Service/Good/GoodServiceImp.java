@@ -46,6 +46,7 @@ public class GoodServiceImp implements GoodService {
         goodCartmapper.delGoodByid(userid,id);
     }
 
+
     @Override
     public CartGoodInsert getGoodByidinsert(int goodid) {
         CartGoodInsert cartGoodInsert = goodCartmapper.getGoodByidinsert(goodid);
@@ -79,6 +80,7 @@ public class GoodServiceImp implements GoodService {
         goodCartmapper.updateCartGood(userid,count,goodid,totalprice);
     }
 
+    @CacheEvict(value = "cart",key = "'cart'+#userid")
     @Override
     public void insCartGood(String userid, int goodid, String goodname, int price, int count,
                             String Subtitle,int ProductStock,int Status,boolean select
