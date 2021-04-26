@@ -60,10 +60,13 @@ public class GoodServiceImp implements GoodService {
         goodCartmapper.updaCartNumSel(userid, goodid, count, select,totalprice);
     }
 
+    @CacheEvict(value = "cart",key = "'cart'+#userid")
     @Override
     public void updaCartSelect(String userid) {
         goodCartmapper.updaCartSelect(userid);
     }
+
+    @CacheEvict(value = "cart",key = "'cart'+#userid")
     @Override
     public void updaCartunSelect(String userid) {
         goodCartmapper.updaCartunSelect(userid);
@@ -75,6 +78,7 @@ public class GoodServiceImp implements GoodService {
         return cartgoods;
     }
 
+    @CacheEvict(value = "cart",key = "'cart'+#userid")
     @Override
     public void updateCartGood(String userid,int count,int goodid,int totalprice) {
         goodCartmapper.updateCartGood(userid,count,goodid,totalprice);
