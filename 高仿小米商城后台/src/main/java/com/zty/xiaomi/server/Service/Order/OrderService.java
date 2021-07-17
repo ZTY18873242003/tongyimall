@@ -9,9 +9,11 @@ import java.util.List;
 
 public interface OrderService {
 
-
-
     OrderList creatOrder(OrdCreaParm ordCreaParm) throws IOException;
+
+    int getOrderStatus(int orderid);
+
+    void delOrder(int orderid);
 
     List<orderItemVoList> getOrderItems(String userid) throws IOException;
 
@@ -22,5 +24,8 @@ public interface OrderService {
     List<UserOrdList> getOrderList(String userid) throws IOException;
 
     List<UserOrdItemList> getOrderListItems(int orderId) throws IOException;
+
+    void buyOrder(int id,String username);
+
 
 }

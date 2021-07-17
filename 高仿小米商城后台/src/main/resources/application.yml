@@ -36,7 +36,7 @@ spring:
     # redis数据库索引(默认为0)，我们使用索引为3的数据库，避免和其他数据库冲突
     database: 1
     # redis服务器地址（默认为loaclhost）
-    host: 127.0.0.1
+    host: 192.168.159.133
     # redis端口（默认为6379）
     port: 6379
     # redis访问密码（默认为空）

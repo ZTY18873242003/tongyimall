@@ -67,6 +67,7 @@ public class OrderController {
         return orderResult;
     }
 
+
     @RequestMapping("/getorderdetail")
     public OrdFinaResult getOrderDetail(@RequestParam("username") String username) throws IOException{
         User user = regLogServiceImp.getUserByUserName(username);
@@ -76,5 +77,12 @@ public class OrderController {
         orderResult.setStatus(0);
         orderResult.setLists(orderItems);
         return orderResult;
+    }
+
+    @RequestMapping("/buy")
+    public void buyOrder(@RequestParam("id") int id,
+                         @RequestParam("name") String username){
+        orderServiceImp.buyOrder(id,username);
+
     }
 }

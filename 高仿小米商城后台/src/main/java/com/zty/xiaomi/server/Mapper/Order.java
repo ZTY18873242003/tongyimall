@@ -5,8 +5,10 @@ import com.zty.xiaomi.server.Entity.Order.OrdFina;
 import com.zty.xiaomi.server.Entity.Order.UserOrdItemList;
 import com.zty.xiaomi.server.Entity.Order.UserOrdList;
 import com.zty.xiaomi.server.Entity.Order.orderItemVoList;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -45,4 +47,15 @@ public interface Order {
     @Select("select imageFoot from goods where good_id = #{productId}")
     String getOrderImg(int productId);
 
+    @Update("update orde set status = 1,statusDesc = '已支付' where orderNo = #{id}")
+    void buyOrder(int id);
+
+    @Select("select status from orde where orderNo = #{id}")
+    int getOrderStatus(int id);
+
+    @Delete("delete from orde where orderNo = #{orderNo}")
+    void delOrde(int orderNo);
+
+    @Delete("delete from ordergood where orderNo = #{orderNo}")
+    void delOrder(int orderNo);
 }
