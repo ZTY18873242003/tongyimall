@@ -127,28 +127,22 @@ export default {
     }
    ,
     paySubmit (payType) {
-      if (payType === 1) {
-        // 打开新窗口JS的形式：window.open('url','_blank')，html的形式可以是<a href='url'></a>
-        window.open('/#/order/alipay?orderId=' + this.orderId, '_blank')
-      } else {
-        this.axios.post('/pay', {
-          orderId: this.orderId,
-          orderName: 'Vue高仿小米商城',
-          amount: 0.01, // 单位元
-          payType: 2 // 1支付宝，2微信
-        }).then((res) => {
-          // 将res.content字符串内容（weixin://wxpay//bizpayurl?sr=XXX）转成base64的二维码图片，这里.then(url)参数就是转换后的图片
-          QRCode.toDataURL(res.content)
-            .then(url => {
-              this.showPay = true
-              this.payImg = url
-              this.loopOrderState()
-            })
-            .catch(() => {
-              this.$message.error('微信二维码生成失败，请稍后重试')
-            })
-        })
-      }
+
+      this.$alert('支付成功,跳转至订单页', '乌拉', {
+        confirmButtonText: '我知道了',
+        callback: action => {
+        this.$router.push('/order/list')
+        }
+      });
+
+      this.axios.get('http://localhost:8080/orders/buy',
+          {
+            params: {
+              id: this.orderId,
+              name: sessionStorage.getItem('username')
+            }
+          }
+      )
     },
     // 关闭微信弹框
     closePayModal () {
