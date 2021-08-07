@@ -49,7 +49,7 @@
 >1,引入支付宝扫码支付，需要用沙箱钱包，详细见：https://opendocs.alipay.com/open/194/106078
 >2,引入事务乐观锁避免超卖问题(库存不足时会提示下单失败)
 >3,使用监听线程监听，超时30分钟未付款则取消订单，删除数据库中相应表记录，并恢复预减的库存
-![在这里插入图片描述](https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/支付和事务 (2).jpg)
+![](https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/支付和事务.jpg)
 ![](https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/未命名文件.jpg)
 <br>
 
