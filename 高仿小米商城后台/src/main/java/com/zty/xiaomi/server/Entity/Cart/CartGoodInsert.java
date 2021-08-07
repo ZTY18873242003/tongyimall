@@ -9,4 +9,5 @@ public class CartGoodInsert {
     private int status;
     private String subtitle;
     private int productStock;
+    private int sellcount;
 }

@@ -58,4 +58,26 @@ public interface Order {
 
     @Delete("delete from ordergood where orderNo = #{orderNo}")
     void delOrder(int orderNo);
+
+    @Update("update goods set productStock = #{count} where #{count} >= 0 and good_id = #{goodid}")
+    int chanProdStock(int goodid,int proStock,int count);
+
+    @Update("update goods set sellcount = #{after} where good_id = #{goodid}")
+    void addSellCount(int goodid,int after);
+
+    @Select("select productStock from goods where good_id = #{goodid}")
+    int getProdStock(int goodid);
+
+    @Select("select sellcount from goods where good_id = #{goodid}")
+    int getProdSellCount(int goodid);
+
+
+    @Update("update goods set productStock = #{count} where good_id = #{productid}")
+    void rollbackStock(int productid,int count);
+
+    @Update("update goods set sellcount = #{count} where good_id = #{productid}")
+    void rollbackSellCount(int productid,int count);
+
+    @Update("update orde set paymentTime = #{time} where orderNo = #{orderNo}")
+    void updOrderTime(int orderNo,String time);
 }

@@ -2311,6 +2311,14 @@ export default {
         name:sessionStorage.getItem('username'),
         shippingId: item.id
       }).then((res) => {
+        if(res.status === 1){
+          this.$message.error('库存不足,下单失败');
+
+          this.$router.push({
+            path: '/',
+          })
+
+        }
         this.$router.push({
           path: '/order/pay',
           query: {

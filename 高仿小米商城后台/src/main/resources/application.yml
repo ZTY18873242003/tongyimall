@@ -2,13 +2,15 @@ server:
   port: 8080
 
 spring:
+  aop:
+    proxy-target-class: true
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/xiaomi?useSSL=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
-    password: "2000918131X"
+    password: "2000918131X"   # 4vm(pBK?Qih*!
     type: com.alibaba.druid.pool.DruidDataSource
-
     #Spring Boot 默认是不注入这些属性值的，需要自己绑定
     #druid 数据源专有配置
     initialSize: 5   #初始化时建立物理连接的个数
@@ -36,21 +38,41 @@ spring:
     # redis数据库索引(默认为0)，我们使用索引为3的数据库，避免和其他数据库冲突
     database: 1
     # redis服务器地址（默认为loaclhost）
-    host: 192.168.159.133
+    host: 192.168.159.133              #
     # redis端口（默认为6379）
     port: 6379
     # redis访问密码（默认为空）
-    password:
+    password:                           #4vm(pBK?Qih*!
     # redis连接超时时间（单位毫秒）
     timeout: 1000
     # redis连接池配置
     jedis:
       pool:
-      # 最大可用连接数（默认为8，负数表示无限）
+        # 最大可用连接数（默认为8，负数表示无限）
         max-active: 8
-      # 最大空闲连接数（默认为8，负数表示无限）
+        # 最大空闲连接数（默认为8，负数表示无限）
         max-idle: -1
-      # 最小空闲连接数（默认为0，该值只有为正数才有用）
+        # 最小空闲连接数（默认为0，该值只有为正数才有用）
         min-idle: 8
-      # 从连接池中获取连接最大等待时间（默认为-1，单位为毫秒，负数表示无限）
+        # 从连接池中获取连接最大等待时间（默认为-1，单位为毫秒，负数表示无限）
         max-wait: 0
+
+alipay:
+  #应用ID
+  app_id: 2021000117694209
+  #应用私钥
+  merchant_private_key: MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCmwQ38tNiDHJ0SG5f32INMiVxf76pezb1ni1gK+DMnsarLpCSb+l4GIVYn1yMLr9ORdoCSh95TObcXPiLefAUzqiy2pMDzCKZPrC64yZ99rC4jy840MuaPSB1ntv8t2CRmvRHxtvl2/jjV00iNGYBgZr4MPqMlhq/cKjYOP1mc8hfHu7R2SUZGJ8bceOtu3MvSRnjb6hc9D+VnsuuxLFmt9XCdlRsK9QsFtLBz+TLQsaKndH6tjwPTDe4ix4hRt73QTotMeYntXXtbJ+J6F9LOS0QagrYKYmZXaeGCwysJjw6g0O6KLhRdf3IHAft9AsN8wXD3NOWlY+jtgsRUe+qDAgMBAAECggEBAIpeVWnk8mfRHXDCHtbU/RZMQK+GoptqIwlBcfwgOeptHak++fXHya9SiDgk53qyGl9wsn1kapIqqQeLUsnEpVhalCG2EjlYaxBfcqF5BHP2pI6ldeSQfApWr7e4/IOg/4uUxcgJqXUYvDaJzIDwsTrM5lQowZ3I5jJNgG9QF98HFzG7yrWru7ZK0gHc+2LD5gCoH7jNEiDxxN4HulqLOhNZ+5T8oUsr/Vz/FqWGMl74Sk0YwKWkQmg8kcZMxgm31Ona6EB3CZguThb/Pxklv7YI2b/3goztpXYWd4xk0SbIKAVAIW0zadOphPIJbKc/b00STiaOHCqZULNbAHoBvUECgYEA4/Zj40uJ+In9Wh7n/Nae5V/7BRxtr4bmGP88YAyq2dvgFjv1rfWEhXq5w6QCLO5Y3bSm6xEcVVxuRWTrlux0wbj7g0wUajlA9q8mJNyLI2aXLqsqG5Xq5DbNwLbCwku73LWGzpi3bpabNPwxNf8kGG/ueSE6k5kNKqW/OjtZ8yECgYEAu0N2hHhDl78jbFsgieR5YYDYWLyPEOs45+MHtuFEk4dAlliQgbLtsmys+sDP6Jyq5A8FCrlLz6wyB7xFJ5J5LfRnneRjedZpMXNpTRW5WJ0KstKR8+QkfnO57uSeyCo6e9gcQZOx6366bsi4WHZSvmeyAUU4W4tuLQpiP/H3DSMCgYEAqdB9kHBREygX5u5m+l4Wd+AL6j7HJp5jAfQAUbyd+TRltaps1W2zjothnm+qfzX+VQmh3jIc3SnBq0gGh6MVRso58hDWlFqaHilTTNpNe82MiWNQNsRy+hYpJ4n9gydPhpZjGbuByYu/irTjI8owZVPcXbd3H0RAHqjhzssvsoECgYEAmxbrYBjOOi4F42axUyKS2IrCIvO/NQ7qqTngmLiGd/xrJFkjDReoPr48oMvxJMAj1A8QaOo/fDYrlTZ6u6RWkhW5fw24yR4nLtpbmojkYRxm0OUOFcSb6NJlahGT40j9+LVp6XGtx9DEDJ5V9oXAT4tH5D90xnR6gfj4l+cIaasCgYAO/NPqmG8Bkf6RVQ2ynHSOiOIjtndkVFuGuYTDZCDPHZwIzNsWzzxBNYDoeFok1bzAh2tE/tUnHwbPK6xNNnJ+7foCPCbLWW8aBa28m6OJdGKLIQ7vg8pEDEOHEvDMWXOvGMhswuh2BNfGsqVSGPzH71NqvEYVnHT+iAiaHKCs/g==
+  #支付宝公钥
+  alipay_public_key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAg3zYIb0Q4YSPBGNzEr/Dv5aC/OW1ndCB1xzKrUnafOUMiJtbxfhsd9OYqWrc+n2DgTZ02FbtdVr5v7zjFEe8c4EosliN9qzr6JJtedJgfSXV7lUkpksQn8pM0cAlCqo0NxdGYTKHeWZpCmmqQmTLVQvkLZKPEUSd68/diH9Zb8HtZ8iHuVlgOZjA93j/NTF4Y7ZHy2QVyX+w71FfZJstdNMzfmyqNGsATUXgN5ChZkgDYsX8e4/c/Cs24VZchgE/FoVf9m2m63G28VHCmJ9NXP8oCH1eNaCvX0sLghBZR6e5siipIrAJnIevo18HRssokF6rhabOf33SpFVGRsW1nQIDAQAB
+  #format
+  format: json
+  #异步通知回调地址,不能加?id=123这类自定义参数
+  notify_url: http://tongyi.site:8080/alipay/notify
+  #即支付成功之后，需要跳转到的页面
+  return_url: http://tongyi.site
+  #签名方式
+  sign_type: RSA2
+  #字符编码格式
+  charset: utf-8
+  #支付宝网关，这一项是写死的，正式环境是openapi.alipay.com
+  gatewayUrl: openapi.alipaydev.com

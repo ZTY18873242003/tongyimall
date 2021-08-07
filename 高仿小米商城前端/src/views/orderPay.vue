@@ -128,21 +128,38 @@ export default {
    ,
     paySubmit (payType) {
 
-      this.$alert('支付成功,跳转至订单页', '乌拉', {
-        confirmButtonText: '我知道了',
-        callback: action => {
-        this.$router.push('/order/list')
+      this.axios.post('http://localhost:8080/orders/page', {
+        //orderId: this.orderId,
+        subject: '待付款商品',
+        orderId: this.orderId,
+        total: this.payment,
+      }).then((res) => {
+        let divForm = document.getElementsByTagName('divform')
+        if (divForm.length) {
+          document.body.removeChild(divForm[0])
         }
-      });
+        const div=document.createElement('divform');
+        div.innerHTML=res; // data就是接口返回的form 表单字符串
+        document.body.appendChild(div);
+        document.forms[0].setAttribute('target', '_blank') // 新开窗口跳转
+        document.forms[0].submit();
+      })
 
-      this.axios.get('http://localhost:8080/orders/buy',
-          {
-            params: {
-              id: this.orderId,
-              name: sessionStorage.getItem('username')
-            }
-          }
-      )
+
+      // this.$alert('支付成功,跳转至订单页', '乌拉', {
+      //   confirmButtonText: '我知道了',
+      //   callback: action => {
+      //   this.$router.push('/order/list')
+      //   }
+      // });
+      // this.axios.get('http://localhost:8080/orders/buy',
+      //     {
+      //       params: {
+      //         id: this.orderId,
+      //         name: sessionStorage.getItem('username')
+      //       }
+      //     }
+      // )
     },
     // 关闭微信弹框
     closePayModal () {

@@ -1,14 +1,26 @@
 package com.zty.xiaomi.server.Controller;
 
 
+
 import com.zty.xiaomi.server.Entity.Order.*;
 import com.zty.xiaomi.server.Entity.User;
-
+import com.zty.xiaomi.server.Service.AlipayService;
 import com.zty.xiaomi.server.Service.Order.OrderServiceImp;
 import com.zty.xiaomi.server.Service.RegLogin.RegLogServiceImp;
+
+
+import com.alipay.api.AlipayApiException;
+import com.alipay.api.AlipayClient;
+import com.alipay.api.domain.AlipayTradePagePayModel;
+import com.alipay.api.internal.util.AlipaySignature;
+import com.alipay.api.request.AlipayTradePagePayRequest;
+import com.alipay.api.response.AlipayTradePagePayResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 import java.io.IOException;
 import java.util.List;
 
@@ -23,11 +35,25 @@ public class OrderController {
     @Autowired
     private RegLogServiceImp regLogServiceImp;
 
+    @Autowired
+    private AlipayService alipayService;
+
+    @Autowired
+    private Alipay alipay;
+
+
+    @Autowired
+    private AlipayClient alipayClient;
+
     @PostMapping("/createorder")
-    public OrderResult createOrder(@RequestBody OrdCreaParm ordCreaParm) throws IOException {
+    public OrderResult createOrder(@RequestBody OrdCreaParm ordCreaParm) throws Exception {
         OrderResult orderResult = new OrderResult();
         orderResult.setStatus(0);
         OrderList orderList = orderServiceImp.creatOrder(ordCreaParm);
+        if(orderList.getOrderNo() == 0){
+            orderResult.setStatus(1);
+            return orderResult;
+        }
         orderResult.setData(orderList);
         return orderResult;
     }
@@ -84,5 +110,11 @@ public class OrderController {
                          @RequestParam("name") String username){
         orderServiceImp.buyOrder(id,username);
 
+    }
+
+    @RequestMapping("/page")
+    public String butrue(@RequestBody OrdPayParm ordPayParm) throws Exception {
+
+        return alipayService.toPayPage(ordPayParm.getSubject(), ordPayParm.getOrderId(), ordPayParm.getTotal());
     }
 }
